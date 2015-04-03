@@ -1,0 +1,173 @@
+Dependencies for Project 'i2c_example', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_mb9bf56x.s)(0x532CC618)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R--list .\startup_mb9bf56x.lst --xref -o .\startup_mb9bf56x.o --depend .\startup_mb9bf56x.d)
+F (.\system_mb9abxxx.c)(0x54E647BC)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\system_mb9abxxx.o --omf_browse .\system_mb9abxxx.crf --depend .\system_mb9abxxx.d)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\common\interrupts.c)(0x54CA86F4)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\interrupts.o --omf_browse .\interrupts.crf --depend .\interrupts.d)
+I (common\pdl.h)(0x54E65260)
+I (common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (common\mcu.h)(0x54CA86F4)
+I (common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (common\pdl_user.h)(0x54E66C80)
+I (common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\common\pdl.h)(0x54E65260)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\lib\inc\reset.h)(0x54CA8980)
+I (common\interrupts.h)(0x54CA86F4)
+F (.\common\pdl.c)(0x54CA86F4)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\pdl.o --omf_browse .\pdl.crf --depend .\pdl.d)
+I (common\pdl.h)(0x54E65260)
+I (common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (common\mcu.h)(0x54CA86F4)
+I (common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (common\pdl_user.h)(0x54E66C80)
+I (common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\common\pdl.h)(0x54E65260)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\lib\src\clk.c)(0x54CA8720)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\clk.o --omf_browse .\clk.crf --depend .\clk.d)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\lib\src\mfs.c)(0x54CA8936)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\mfs.o --omf_browse .\mfs.crf --depend .\mfs.d)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\lib\src\mfs_hl.c)(0x54CA8936)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\mfs_hl.o --omf_browse .\mfs_hl.crf --depend .\mfs_hl.d)
+I (.\lib\inc\mfs_hl.h)(0x54CA8936)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\lib\src\reset.c)(0x54CA8980)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\reset.o --omf_browse .\reset.crf --depend .\reset.d)
+I (.\lib\inc\reset.h)(0x54CA8980)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x541A706C)
+F (.\App\main.c)(0x54E7A164)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (.\WyzBee_i2c\WyzBee_i2c.h)(0x54E7C724)
+I (.\common\WyzBee.h)(0x54E7C762)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\reset.h)(0x54CA8980)
+F (.\WyzBee_i2c\WyzBee_i2c.c)(0x54E7C7C0)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\common -I.\lib\inc -I.\WyzBee_i2c-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R-o .\wyzbee_i2c.o --omf_browse .\wyzbee_i2c.crf --depend .\wyzbee_i2c.d)
+I (.\WyzBee_i2c\WyzBee_i2c.h)(0x54E7C724)
+I (.\common\WyzBee.h)(0x54E7C762)
+I (.\lib\inc\mfs.h)(0x54CAC328)
+I (.\common\pdl.h)(0x54E65260)
+I (.\common\base_types.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x541A706A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x541A706A)
+I (.\common\mcu.h)(0x54CA86F4)
+I (.\common\mb9abxxx.h)(0x54CA86F4)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x53470C64)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x53470C64)
+I (.\common\system_mb9abxxx.h)(0x54CA93F8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x541A706C)
+I (.\common\pdl_user.h)(0x54E66C80)
+I (.\common\pdl_device.h)(0x54CA86F4)
+I (.\lib\inc\clk.h)(0x54CA8720)
+I (.\lib\inc\reset.h)(0x54CA8980)

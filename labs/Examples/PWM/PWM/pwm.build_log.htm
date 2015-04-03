@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\sravani\Documents\puf\api_testing_rev4\docs\WyzBee_ReleaseV1.2\Example Projects\PWM\pwm.uvproj
+Project File Date:  02/19/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling bt.c...
+compiling system_mb9abxxx.c...
+compiling interrupts.c...
+compiling WyzBee_pwm.c...
+WyzBee_pwm\WyzBee_pwm.c(112): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enPres =                      p_pwmtimer->enPres;                         // PWM clock = 20MHz @ PCLK = 80MHz
+WyzBee_pwm\WyzBee_pwm.c(113): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enRestartEn =                 p_pwmtimer->enRestartEn;
+WyzBee_pwm\WyzBee_pwm.c(114): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enOutputMask =                p_pwmtimer->enOutputMask;
+WyzBee_pwm\WyzBee_pwm.c(115): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enExtTrig =                   p_pwmtimer->enExtTrig;
+WyzBee_pwm\WyzBee_pwm.c(116): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enOutputPolarity =   p_pwmtimer->enOutputPolarity;
+WyzBee_pwm\WyzBee_pwm.c(117): warning:  #188-D: enumerated type mixed with another type
+        PwmTimer_Internal.enMode =                      p_pwmtimer->enMode;
+WyzBee_pwm\WyzBee_pwm.c(192): warning:  #188-D: enumerated type mixed with another type
+                Bt_ConfigIOMode(p_bt, io_mode);
+WyzBee_pwm\WyzBee_pwm.c(193): warning:  #188-D: enumerated type mixed with another type
+                Bt_SelTimerMode(p_bt, timer_mode);
+WyzBee_pwm\WyzBee_pwm.c(203): warning:  #940-D: missing return statement at end of non-void function "WyzBeePWM_Select_BaseTimer"
+  }
+WyzBee_pwm\WyzBee_pwm.c: 9 warnings, 0 errors
+compiling main.c...
+App\main.c(68): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_Select_BaseTimer(0,Bt_IoMode0,Bt_PwmMode,&BT_TIMER(0));       //BT = 0 or BT =1 only can be selected
+App\main.c(70): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_Init_Timer(&PWM_Timer, &BT_TIMER(0));
+App\main.c(72): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_Config_DutyCycle(5,10, &BT_TIMER(0));                                                 //frequency  in KHz and duty cycle in %
+App\main.c(74): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_Config_InterruptCallback(&PWM_Interrupt, &PWM_Callback, &BT_TIMER(0));
+App\main.c(76): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_Start_PWM(&BT_TIMER(0));
+App\main.c(80): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_DisableInt(&BT_TIMER(0), &PWM_Interrupt); // Disable Interrupt
+App\main.c(82): warning:  #167-D: argument of type "volatile FM4_BT_PWM_TypeDef *" is incompatible with parameter of type "base_timer_t *"
+        WyzBeePWM_EnableSwTrig(&BT_TIMER(0));// Restart triggered by software
+App\main.c(49): warning:  #177-D: variable "err" was declared but never referenced
+        Error_Value err;
+App\main.c: 8 warnings, 0 errors
+linking...
+Program Size: Code=4808 RO-data=632 RW-data=52 ZI-data=612  
+FromELF: creating hex file...
+".\pwm.axf" - 0 Error(s), 17 Warning(s).
+</pre>
+</body>
+</html>
+I-data=612  
+FromELF: creating hex file...
+".\pwm.axf" - 0 Error(s), 18 Warning(s).

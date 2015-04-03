@@ -1,0 +1,12 @@
+--cpu Cortex-M4.fp
+".\startup_mb9bf56x.o"
+".\mfs.o"
+".\mfs_hl.o"
+".\interrupts.o"
+".\pdl.o"
+".\system_mb9abxxx.o"
+".\wyzbee_spi.o"
+".\main.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20038000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\spi_loopback.map" -o .\spi_loopback.axf

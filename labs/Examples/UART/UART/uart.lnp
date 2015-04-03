@@ -1,0 +1,12 @@
+--cpu Cortex-M4.fp
+".\startup_mb9bf56x.o"
+".\interrupts.o"
+".\mfs.o"
+".\mfs_hl.o"
+".\system_mb9abxxx.o"
+".\pdl.o"
+".\wyzbee_uart.o"
+".\main.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20038000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\uart.map" -o .\uart.axf

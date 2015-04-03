@@ -1,0 +1,53 @@
+Dependencies for Project 'gpio', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_mb9bf56x.s)(0x532C1650)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Fujitsu\MB9B560R--list .\startup_mb9bf56x.lst --xref -o .\startup_mb9bf56x.o --depend .\startup_mb9bf56x.d)
+F (.\system_mb9abxxx.c)(0x54C8C894)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\lib\inc -I.\common -I.\WyzBee_gpio-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Fujitsu\MB9B560R-o .\system_mb9abxxx.o --omf_browse .\system_mb9abxxx.crf --depend .\system_mb9abxxx.d)
+I (.\common\pdl.h)(0x54C9CAE6)
+I (.\common\base_types.h)(0x54C9CAE6)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x51C7E87C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7E87C)
+I (.\common\mcu.h)(0x54C9CAE6)
+I (.\common\mb9abxxx.h)(0x54C9CAE6)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C1AEA)
+I (.\common\system_mb9abxxx.h)(0x54C9CB9C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7E87C)
+I (.\common\pdl_user.h)(0x54CA084A)
+I (.\common\pdl_device.h)(0x54C9CAE6)
+F (.\WyzBee_gpio\WyzBee_gpio.c)(0x54E49042)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\lib\inc -I.\common -I.\WyzBee_gpio-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Fujitsu\MB9B560R-o .\wyzbee_gpio.o --omf_browse .\wyzbee_gpio.crf --depend .\wyzbee_gpio.d)
+I (.\WyzBee_gpio\WyzBee_gpio.h)(0x54E48E63)
+I (.\lib\inc\gpio.h)(0x54C8C894)
+I (.\common\pdl.h)(0x54C9CAE6)
+I (.\common\base_types.h)(0x54C9CAE6)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x51C7E87C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7E87C)
+I (.\common\mcu.h)(0x54C9CAE6)
+I (.\common\mb9abxxx.h)(0x54C9CAE6)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C1AEA)
+I (.\common\system_mb9abxxx.h)(0x54C9CB9C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7E87C)
+I (.\common\pdl_user.h)(0x54CA084A)
+I (.\common\pdl_device.h)(0x54C9CAE6)
+I (.\lib\inc\gpio_mb9bf56xr.h)(0x54C8C894)
+F (.\App\main.c)(0x54E496C5)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I.\lib\inc -I.\common -I.\WyzBee_gpio-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Fujitsu\MB9B560R-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (.\WyzBee_gpio\WyzBee_gpio.h)(0x54E48E63)
+I (.\lib\inc\gpio.h)(0x54C8C894)
+I (.\common\pdl.h)(0x54C9CAE6)
+I (.\common\base_types.h)(0x54C9CAE6)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x51C7E87C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7E87C)
+I (.\common\mcu.h)(0x54C9CAE6)
+I (.\common\mb9abxxx.h)(0x54C9CAE6)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C1AEA)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C1AEA)
+I (.\common\system_mb9abxxx.h)(0x54C9CB9C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7E87C)
+I (.\common\pdl_user.h)(0x54CA084A)
+I (.\common\pdl_device.h)(0x54C9CAE6)
+I (.\lib\inc\gpio_mb9bf56xr.h)(0x54C8C894)

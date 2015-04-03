@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Satheesh\Desktop\CalBee\WyzBee\WyzBee _ReleaseV1.0\Example Projects\SPI-Loopback\spi_loopback.uvproj
+Project File Date:  02/19/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+linking...
+Program Size: Code=9076 RO-data=608 RW-data=60 ZI-data=700  
+".\spi_loopback.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>
+e_types.h")
+  #define TRUE                          1u                                              // True
+.\WyzBee_SPI\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
+  #define FALSE                         0u                                              // False
+WyzBee_SPI\WyzBee_spi.c(112): warning:  #223-D: function "memset" declared implicitly
+                memset(&config_internal,0,sizeof(stc_mfs_csio_config_t));       // Clear the local structure variable
+WyzBee_SPI\WyzBee_spi.c(148): warning:  #167-D: argument of type "WyzBeeSpi_TxIsrCallBack_t" is incompatible with parameter of type "mfs_tx_cb_func_ptr_t"
+                Mfs_SetTxIntCallBack(SPI_INSTANCE, p_config->TxIsr);            // Register the TX call back
+WyzBee_SPI\WyzBee_spi.c(149): warning:  #167-D: argument of type "WyzBeeSpi_RxIsrCallBack_t" is incompatible with parameter of type "mfs_rx_cb_func_ptr_t"
+                Mfs_SetRxIntCallBack(SPI_INSTANCE, p_config->RxIsr);            // Register the RX call back
+WyzBee_SPI\WyzBee_spi.c: 5 warnings, 0 errors
+compiling main.c...
+.\WyzBee_SPI\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
+  #define TRUE                          1u                                              // True
+.\WyzBee_SPI\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
+  #define FALSE                         0u                                              // False
+main.c(98): warning:  #167-D: argument of type "uint8 *" is incompatible with parameter of type "char *restrict"
+        strcpy(DummyTxBuf , "HelloWorld");
+main.c(123): warning:  #1-D: last line of file ends without a newline
+   */
+main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=9076 RO-data=608 RW-data=60 ZI-data=700  
+".\spi_loopback.axf" - 0 Error(s), 9 Warning(s).

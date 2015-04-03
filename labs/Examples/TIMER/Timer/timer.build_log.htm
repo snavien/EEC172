@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Satheesh\Desktop\CalBee\WyzBee\WyzBee _ReleaseV1.0\Example Projects\Timer\timer.uvproj
+Project File Date:  02/19/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+linking...
+Program Size: Code=2332 RO-data=608 RW-data=40 ZI-data=608  
+".\timer.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>
+but never used
+             float32_t count_Internal,t1,t2;
+WyzBee_timer\WyzBee_timer.c(158): warning:  #177-D: variable "t1" was declared but never referenced
+             float32_t count_Internal,t1,t2;
+WyzBee_timer\WyzBee_timer.c(158): warning:  #177-D: variable "t2" was declared but never referenced
+             float32_t count_Internal,t1,t2;
+WyzBee_timer\WyzBee_timer.c: 3 warnings, 0 errors
+compiling main.c...
+.\lib\inc\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
+  #define TRUE                          1u                                              // True
+.\lib\inc\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
+  #define FALSE                         0u                                              // False
+main.c(85): warning:  #550-D: variable "err" was set but never used
+        err_t err;
+main.c(110): warning:  #1-D: last line of file ends without a newline
+   */
+main.c(36): warning:  #550-D: variable "u32CountDt1" was set but never used
+  static uint32_t u32CountDt1;
+main.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=2332 RO-data=608 RW-data=40 ZI-data=608  
+".\timer.axf" - 0 Error(s), 8 Warning(s).
