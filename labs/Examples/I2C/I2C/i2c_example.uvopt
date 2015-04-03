@@ -147,7 +147,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>CMSIS_AGDI</Key>
-          <Name>-X"CMSIS-DAP Spansion V2.2" -U	 -O207 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -FO7 -FD20040000 -FC800 -FN1 -FF0MB9B560_1024 -FS00 -FL0100000</Name>
+          <Name>-X"CMSIS-DAP Spansion V2.2" -USpansion CMSIS-DAP -O207 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -FO7 -FD20040000 -FC800 -FN1 -FF0MB9B560_1024 -FS00 -FL0100000</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>

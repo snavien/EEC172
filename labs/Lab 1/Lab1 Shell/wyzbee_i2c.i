@@ -70,6 +70,9 @@
 
 
 
+
+
+
  
 
 #line 1 ".\\lib\\inc\\WyzBee.h"
@@ -164,7 +167,7 @@ typedef unsigned short      err_t;
 
  
 
-#line 39 ".\\WyzBee_i2c\\WyzBee_i2c.h"
+#line 42 ".\\WyzBee_i2c\\WyzBee_i2c.h"
 #line 1 ".\\common\\mfs.h"
 
 
@@ -26707,7 +26710,7 @@ extern en_result_t Mfs_SetUpperLayerHandle(volatile stc_mfsn_t* pstcMfs,
  
  
  
-#line 40 ".\\WyzBee_i2c\\WyzBee_i2c.h"
+#line 43 ".\\WyzBee_i2c\\WyzBee_i2c.h"
 
 
 
@@ -26815,7 +26818,6 @@ err_t   WyzBeeI2c_Read   ( uint8_t               slave_addr,
 
 
  
-
 #line 37 "WyzBee_i2c\\WyzBee_i2c.c"
 
 

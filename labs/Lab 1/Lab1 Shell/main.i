@@ -27104,14 +27104,17 @@ err_t   WyzBeeSpi_TxDisable	 	( void                            	);
 
 
 
+extern "C"{
+
+
 
 
 
 
  
 
-#line 39 ".\\WyzBee_i2c\\WyzBee_i2c.h"
-#line 40 ".\\WyzBee_i2c\\WyzBee_i2c.h"
+#line 42 ".\\WyzBee_i2c\\WyzBee_i2c.h"
+#line 43 ".\\WyzBee_i2c\\WyzBee_i2c.h"
 
 
 
@@ -27220,6 +27223,7 @@ err_t   WyzBeeI2c_Read   ( uint8_t               slave_addr,
 
  
 
+}
 #line 37 "main.cpp"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
  
@@ -28117,8 +28121,6 @@ extern Adafruit_SSD1351 tft = Adafruit_SSD1351();
 
  
 
-
-
 WyzBeeSpi_Config_t config_stc={
 		4000000,
 		SpiMaster,
@@ -28138,6 +28140,8 @@ WyzBeeI2c_Config_t config = {
 	0x00,
 };
 			
+	float temp_code, hum_code;
+	float temp, humidity;
 
 void writeToScreen(char * str, int color){
 	Adafruit_SSD1351 myOled = Adafruit_SSD1351();
@@ -28159,32 +28163,46 @@ void writeToScreen(char * str, int color){
 }
 
 void readTempHum(){
-	int16_t hum, temp;
-	uint8_t data[1] ={0xE5},
-					err, 
-					ans[2];
-	uint16_t len = 2;
+	uint8 tx1[1] = {0xE5};
+	uint8 tx2[1] = {0xE3};
+	uint8 rx1[2];
+	uint8 rx2[2];
+	uint8 ret; 
+	uint16_t rxcnt = 2;
 	char *str;
-	
-	
-	if(!err)
-	{
-		
-	}
-	temp = ((ans[0])<<8 | (ans[1]));
+
+	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);            
+
+
+    while(1)
+    {
+    	ret = WyzBeeI2c_Write(0x40, tx1, 1);
+    	if(!ret)
+    		ret = WyzBeeI2c_Read(0x40, rx1, &rxcnt);
+    	hum_code = (rx1[0]<<8)|(rx1[1]);
+    	humidity = (125 * hum_code)/65536 - 6;
+
+    	ret = WyzBeeI2c_Write(0x40, tx2, 1);
+    	if(!ret)
+    		ret = WyzBeeI2c_Read(0x40, rx2, &rxcnt);
+    	temp_code = (rx2[0]<<8)|(rx2[1]);
+    	temp = (175.72 * temp_code)/65536 - 46.85; 
+			break;
+    }
 	sprintf(str, "%d", temp);
 	writeToScreen(str, 0x07FF);
+		
 }
 
 int main()
 {
 	WyzBeeSpi_Init(&config_stc);
+	WyzBeeI2c_Init(&config);
 	
 	
-	char * str = "Seanna & Irene <3";
 	
-	writeToScreen(str, 0xF81F );
 	
+	readTempHum();
 }
 
 
