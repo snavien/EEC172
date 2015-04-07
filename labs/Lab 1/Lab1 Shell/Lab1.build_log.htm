@@ -29,14 +29,12 @@ Build target 'Target 1'
 creating preprocessor file for main.cpp...
 .\common\pdl_user.h(940): warning:  #1-D: last line of file ends without a newline
   /******************************************************************************/
-.\lib\inc\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
-  #define TRUE                          1u                                              // True
-.\lib\inc\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
-  #define FALSE                         0u                                              // False
-main.cpp(142): warning:  #1-D: last line of file ends without a newline
+main.cpp(177): warning:  #1-D: last line of file ends without a newline
    */
-main.cpp: 4 warnings, 0 errors
+main.cpp: 2 warnings, 0 errors
 compiling main.cpp...
+.\common\pdl_user.h(940): warning:  #1-D: last line of file ends without a newline
+  /******************************************************************************/
 .\WyzBee_oled\Adafruit_SSD1351.h(92): warning:  #1300-D: drawPixel inherits implicit virtual
     void drawPixel(int16_t x, int16_t y, uint16_t color);
 .\WyzBee_oled\Adafruit_SSD1351.h(94): warning:  #1300-D: drawFastHLine inherits implicit virtual
@@ -47,22 +45,16 @@ compiling main.cpp...
     void fillScreen(uint16_t fillcolor);
 .\WyzBee_oled\Adafruit_SSD1351.h(93): warning:  #997-D: function "Adafruit_GFX::fillRect(std::int16_t, std::int16_t, std::int16_t, std::int16_t, std::uint16_t)" is hidden by "Adafruit_SSD1351::fillRect" -- virtual function override intended?
     void fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint16_t color);
-.\common\pdl_user.h(940): warning:  #1-D: last line of file ends without a newline
-  /******************************************************************************/
-.\lib\inc\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
-  #define TRUE                          1u                                              // True
-.\lib\inc\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
-  #define FALSE                         0u                                              // False
-main.cpp(111): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+main.cpp(114): warning:  #1035-D: single-precision operand implicitly converted to double-precision
                                 temp = ((175.72 * temp_code)/65536) - 46.85;
-main.cpp(131): warning:  #177-D: variable "str" was declared but never referenced
+main.cpp(165): warning:  #177-D: variable "str" was declared but never referenced
         char * str = "Seanna & Chris";
-main.cpp(142): warning:  #1-D: last line of file ends without a newline
+main.cpp(177): warning:  #1-D: last line of file ends without a newline
    */
-main.cpp: 11 warnings, 0 errors
+main.cpp: 9 warnings, 0 errors
 linking...
-Program Size: Code=22966 RO-data=2230 RW-data=112 ZI-data=680  
-".\Lab1.axf" - 0 Error(s), 15 Warning(s).
+Program Size: Code=23186 RO-data=2230 RW-data=112 ZI-data=680  
+".\Lab1.axf" - 0 Error(s), 11 Warning(s).
 </pre>
 </body>
 </html>

@@ -30,255 +30,8 @@
  
 
  
-#line 1 ".\\WyzBee_oled\\Adafruit_GFX.h"
-
-
-
-
-
-
-
-
-
-#line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
  
- 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-     
-#line 27 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
-     
-
-
-
-
-
-
-
-
-
-
-
-
-      namespace std {
-
-          extern "C" {
-
-
-
-
-
-
-
-
- 
-
-     
-
-     
-typedef   signed          char int8_t;
-typedef   signed short     int int16_t;
-typedef   signed           int int32_t;
-typedef   signed       __int64 int64_t;
-
-     
-typedef unsigned          char uint8_t;
-typedef unsigned short     int uint16_t;
-typedef unsigned           int uint32_t;
-typedef unsigned       __int64 uint64_t;
-
-     
-
-     
-     
-typedef   signed          char int_least8_t;
-typedef   signed short     int int_least16_t;
-typedef   signed           int int_least32_t;
-typedef   signed       __int64 int_least64_t;
-
-     
-typedef unsigned          char uint_least8_t;
-typedef unsigned short     int uint_least16_t;
-typedef unsigned           int uint_least32_t;
-typedef unsigned       __int64 uint_least64_t;
-
-     
-
-     
-typedef   signed           int int_fast8_t;
-typedef   signed           int int_fast16_t;
-typedef   signed           int int_fast32_t;
-typedef   signed       __int64 int_fast64_t;
-
-     
-typedef unsigned           int uint_fast8_t;
-typedef unsigned           int uint_fast16_t;
-typedef unsigned           int uint_fast32_t;
-typedef unsigned       __int64 uint_fast64_t;
-
-     
-
-
-
-
-typedef   signed           int intptr_t;
-typedef unsigned           int uintptr_t;
-
-
-     
-typedef   signed     long long intmax_t;
-typedef unsigned     long long uintmax_t;
-
-
-#line 247 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
-
-#line 266 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
-
-
-         }   
-      }   
-
-
-
-
-
-      using ::std::int8_t;
-      using ::std::int16_t;
-      using ::std::int32_t;
-      using ::std::int64_t;
-      using ::std::uint8_t;
-      using ::std::uint16_t;
-      using ::std::uint32_t;
-      using ::std::uint64_t;
-      using ::std::int_least8_t;
-      using ::std::int_least16_t;
-      using ::std::int_least32_t;
-      using ::std::int_least64_t;
-      using ::std::uint_least8_t;
-      using ::std::uint_least16_t;
-      using ::std::uint_least32_t;
-      using ::std::uint_least64_t;
-      using ::std::int_fast8_t;
-      using ::std::int_fast16_t;
-      using ::std::int_fast32_t;
-      using ::std::int_fast64_t;
-      using ::std::uint_fast8_t;
-      using ::std::uint_fast16_t;
-      using ::std::uint_fast32_t;
-      using ::std::uint_fast64_t;
-      using ::std::intptr_t;
-      using ::std::uintptr_t;
-      using ::std::intmax_t;
-      using ::std::uintmax_t;
-
-
-
-
-
-
-
-
- 
-#line 12 ".\\WyzBee_oled\\Adafruit_GFX.h"
-
-#line 21 ".\\WyzBee_oled\\Adafruit_GFX.h"
-
-typedef uint8_t boolean;
-
-
-
-class Adafruit_GFX  {
-
- public:
-
-  Adafruit_GFX(int16_t w, int16_t h); 
-
-  
-  virtual void drawPixel(int16_t x, int16_t y, uint16_t color) = 0;
-
-  
-  
-  virtual void
-    drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color),
-    drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color),
-    drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color),
-    drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color),
-    fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color),
-    fillScreen(uint16_t color),
-    invertDisplay(boolean i);
-
-  
-  void
-    drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color),
-    drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername,
-      uint16_t color),
-    fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color),
-    fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername,
-      int16_t delta, uint16_t color),
-    drawTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
-      int16_t x2, int16_t y2, uint16_t color),
-    fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
-      int16_t x2, int16_t y2, uint16_t color),
-    drawRoundRect(int16_t x0, int16_t y0, int16_t w, int16_t h,
-      int16_t radius, uint16_t color),
-    fillRoundRect(int16_t x0, int16_t y0, int16_t w, int16_t h,
-      int16_t radius, uint16_t color),
-    drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap,
-      int16_t w, int16_t h, uint16_t color),
-    drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color,
-      uint16_t bg, uint8_t size),
-    setCursor(int16_t x, int16_t y),
-    setTextColor(uint16_t c),
-    setTextColor(uint16_t c, uint16_t bg),
-    setTextSize(uint8_t s),
-    setTextWrap(boolean w),
-    setRotation(uint8_t r);
-
-
-
-
-  virtual void   write(uint8_t);
-
-
-  int16_t
-    height(void),
-    width(void);
-
-  uint8_t getRotation(void);
-
- protected:
-  const int16_t
-    WIDTH, HEIGHT;   
-  int16_t
-    _width, _height, 
-    cursor_x, cursor_y;
-  uint16_t
-    textcolor, textbgcolor;
-  uint8_t
-    textsize,
-    rotation;
-  boolean
-    wrap; 
-};
-
-#line 33 "main.cpp"
-#line 1 ".\\WyzBee_oled\\Adafruit_SSD1351.h"
-
-
-
+#line 1 ".\\lib\\inc\\WyzBee.h"
 
 
 
@@ -305,12 +58,7 @@ class Adafruit_GFX  {
 
 
 
-
-
-
-
-    typedef volatile uint8_t PortReg;
-    typedef uint8_t PortMask;
+ 
 
 
 
@@ -320,106 +68,63 @@ class Adafruit_GFX  {
 
 
 
+ 
 
 
 
 
 
 
-#line 82 ".\\WyzBee_oled\\Adafruit_SSD1351.h"
+ 
 
 
-class Adafruit_SSD1351  : public virtual Adafruit_GFX {
- public:
-  Adafruit_SSD1351(void);
-  
-
-  uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);
-
-  
-  void drawPixel(int16_t x, int16_t y, uint16_t color);
-  void fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint16_t color);
-  void drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color);
-  void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color);
-  void fillScreen(uint16_t fillcolor);
-
-  void invert(boolean);
-  
-  void begin(void);
-  void goTo(int x, int y);
-
-  void reset(void);
-
-   
-
-  void writeData(uint8_t d);
-  void writeCommand(uint8_t c);
 
 
-  void writeData_unsafe(uint16_t d);
 
-  void setWriteDir(void);
-  void write8(uint8_t d);
 
- private:
-  void spiwrite(uint8_t);
 
-  uint8_t _cs, _rs, _rst, _sid, _sclk;
-  PortReg *csport, *rsport, *sidport, *sclkport;
-  PortMask cspinmask, rspinmask, sidpinmask, sclkpinmask;
-};
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+typedef unsigned char       uint8;
+
+typedef unsigned short      uint16;
+
+typedef unsigned int        uint32;
+
+typedef char                int8;
+
+typedef short               int16;
+
+typedef long                int32;
+
+typedef char      			bool_t;
+
+typedef unsigned short      err_t;
+
+
+
+
+
+
+ 
+
 #line 34 "main.cpp"
-#line 1 ".\\WyzBee_oled\\SPI_OLED.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
-
-
-#line 30 ".\\WyzBee_oled\\SPI_OLED.h"
-
-
-
-
-
-
-
-
-
-
-class SPI_OLEDClass
-{
-  protected:
-  public:
-    void begin(void);
-    unsigned char transfer(unsigned char);
-    void end(void);
-    void setBitOrder(unsigned char);
-    void setClockDivider(unsigned char);
-    void setDataMode(unsigned char );
-};
-
-extern SPI_OLEDClass SPI;
-
-
-#line 35 "main.cpp"
-#line 1 ".\\WyzBee_SPI\\WyzBee_spi.h"
+#line 1 ".\\WyzBee_gpio\\WyzBee_gpio.h"
 
 
 
@@ -446,23 +151,22 @@ extern SPI_OLEDClass SPI;
 
 
 
- 
-
-
-
-
-
-extern "C"{
-
-
-
-
-
-
 
  
 
-#line 1 ".\\common\\mfs.h"
+
+
+
+
+
+
+
+
+
+ 
+
+
+#line 1 ".\\common\\gpio.h"
 
 
 
@@ -504,6 +208,7 @@ extern "C"{
 
  
  
+
 
 
 
@@ -717,18 +422,170 @@ extern "C"{
  
 
 #line 59 ".\\common\\base_types.h"
+#line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
+ 
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+     
+#line 27 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
+     
+
+
+
+
+
+
+
+
+
+
+
+
+      namespace std {
+
+          extern "C" {
+
+
+
+
+
+
+
+
+ 
+
+     
+
+     
+typedef   signed          char int8_t;
+typedef   signed short     int int16_t;
+typedef   signed           int int32_t;
+typedef   signed       __int64 int64_t;
+
+     
+typedef unsigned          char uint8_t;
+typedef unsigned short     int uint16_t;
+typedef unsigned           int uint32_t;
+typedef unsigned       __int64 uint64_t;
+
+     
+
+     
+     
+typedef   signed          char int_least8_t;
+typedef   signed short     int int_least16_t;
+typedef   signed           int int_least32_t;
+typedef   signed       __int64 int_least64_t;
+
+     
+typedef unsigned          char uint_least8_t;
+typedef unsigned short     int uint_least16_t;
+typedef unsigned           int uint_least32_t;
+typedef unsigned       __int64 uint_least64_t;
+
+     
+
+     
+typedef   signed           int int_fast8_t;
+typedef   signed           int int_fast16_t;
+typedef   signed           int int_fast32_t;
+typedef   signed       __int64 int_fast64_t;
+
+     
+typedef unsigned           int uint_fast8_t;
+typedef unsigned           int uint_fast16_t;
+typedef unsigned           int uint_fast32_t;
+typedef unsigned       __int64 uint_fast64_t;
+
+     
+
+
+
+
+typedef   signed           int intptr_t;
+typedef unsigned           int uintptr_t;
+
+
+     
+typedef   signed     long long intmax_t;
+typedef unsigned     long long uintmax_t;
+
+
+#line 247 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
+
+#line 266 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdint.h"
+
+
+         }   
+      }   
+
+
+
+
+
+      using ::std::int8_t;
+      using ::std::int16_t;
+      using ::std::int32_t;
+      using ::std::int64_t;
+      using ::std::uint8_t;
+      using ::std::uint16_t;
+      using ::std::uint32_t;
+      using ::std::uint64_t;
+      using ::std::int_least8_t;
+      using ::std::int_least16_t;
+      using ::std::int_least32_t;
+      using ::std::int_least64_t;
+      using ::std::uint_least8_t;
+      using ::std::uint_least16_t;
+      using ::std::uint_least32_t;
+      using ::std::uint_least64_t;
+      using ::std::int_fast8_t;
+      using ::std::int_fast16_t;
+      using ::std::int_fast32_t;
+      using ::std::int_fast64_t;
+      using ::std::uint_fast8_t;
+      using ::std::uint_fast16_t;
+      using ::std::uint_fast32_t;
+      using ::std::uint_fast64_t;
+      using ::std::intptr_t;
+      using ::std::uintptr_t;
+      using ::std::intmax_t;
+      using ::std::uintmax_t;
+
+
+
+
+
+
+
+
+ 
 #line 60 ".\\common\\base_types.h"
   
  
  
  
 
-   
 
 
 
 
-   
+
+
 
 
 
@@ -20782,12 +20639,1546 @@ en_result_t Exint_Nmi_DeInit(stc_exint_nmi_config_t* pstcConfig) ;
 
  
 
+#line 167 ".\\common\\gpio.h"
+
+ 
+ 
+ 
+#line 320 ".\\common\\pdl.h"
+
+      
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+#line 1 ".\\common\\mfs.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+
 
 
 
  
  
  
+#line 59 ".\\common\\mfs.h"
+
+
+
+ 
+
+extern "C"
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+typedef FM4_MFS_TypeDef stc_mfsn_t;
+
+
+
+
+ 
+typedef enum en_mfs_uart_mode
+{
+    MfsUartNormal = 0,          
+    MfsUartMulti  = 1           
+} en_mfs_uart_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_csio_mode
+{
+    MfsCsioMaster = 0,          
+    MfsCsioSlave  = 1           
+} en_mfs_csio_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_csio_act_mode
+{
+    MfsCsioActNormalMode = 0,   
+    MfsCsioActSpiMode    = 1    
+} en_mfs_csio_act_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_i2c_mode
+{
+    MfsI2cMaster = 0,           
+    MfsI2cSlave  = 1            
+} en_mfs_i2c_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_i2c_fast_mode
+{
+    MfsI2cDisableFastModePlus = 0,  
+    MfsI2cEnableFastModePlus  = 1   
+} en_mfs_i2c_fast_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_lin_mode
+{
+    MfsLinMaster = 0,           
+    MfsLinSlave  = 1            
+} en_mfs_lin_mode_t;
+
+
+
+
+ 
+typedef enum en_mfs_parity
+{
+    MfsParityNone  = 0,         
+    MfsParityEven  = 2,         
+    MfsParityOdd   = 3          
+} en_mfs_parity_t;
+
+
+
+
+ 
+typedef enum en_mfs_characterlength
+{
+    MfsFiveBits       = 0,      
+    MfsSixBits        = 1,      
+    MfsSevenBits      = 2,      
+    MfsEightBits      = 3,      
+    MfsNineBits       = 4,      
+    MfsTenBits        = 5,      
+    MfsElevenBits     = 6,      
+    MfsTwelveBits     = 7,      
+    MfsThirteenBits   = 8,      
+    MfsFourteenBits   = 9,      
+    MfsFifteenBits    = 10,     
+    MfsSixteenBits    = 11,     
+    MfsTwentyBits     = 12,     
+    MfsTwentyFourBits = 13,     
+    MfsThirtyTwoBits  = 14      
+} en_mfs_characterlength_t;
+
+
+
+
+ 
+typedef enum en_mfs_stopbit
+{
+    MfsOneStopBit    = 0,       
+    MfsTwoStopBits   = 1,       
+    MfsThreeStopBits = 2,       
+    MfsFourStopBits  = 3        
+} en_mfs_stopbit_t;
+
+
+
+
+ 
+typedef enum en_mfs_csio_sync_wait_time
+{
+    MfsSyncWaitZero  = 0,           
+    MfsSyncWaitOne   = 1,           
+    MfsSyncWaitTwo   = 2,           
+    MfsSyncWaitThree = 3            
+} en_mfs_csio_sync_wait_time_t;
+
+
+
+
+ 
+typedef enum en_mfs_i2c_noize_filter
+{
+    MfsI2cNoizeFilterLess40M  = 0x00,   
+    MfsI2cNoizeFilterLess60M  = 0x01,   
+    MfsI2cNoizeFilterLess80M  = 0x02,   
+    MfsI2cNoizeFilterLess100M = 0x03,   
+    MfsI2cNoizeFilterLess120M = 0x04,   
+    MfsI2cNoizeFilterLess140M = 0x05,   
+    MfsI2cNoizeFilterLess160M = 0x06,   
+    MfsI2cNoizeFilterLess180M = 0x07,   
+    MfsI2cNoizeFilterLess200M = 0x08,   
+    MfsI2cNoizeFilterLess220M = 0x09,   
+    MfsI2cNoizeFilterLess240M = 0x0A,   
+    MfsI2cNoizeFilterLess260M = 0x0B,   
+    MfsI2cNoizeFilterLess280M = 0x0C,   
+    MfsI2cNoizeFilterLess300M = 0x0D,   
+    MfsI2cNoizeFilterLess320M = 0x0E,   
+    MfsI2cNoizeFilterLess340M = 0x0F,   
+    MfsI2cNoizeFilterLess360M = 0x10,   
+    MfsI2cNoizeFilterLess380M = 0x11,   
+    MfsI2cNoizeFilterLess400M = 0x12    
+} en_mfs_i2c_noize_filter_t;
+
+
+
+
+ 
+typedef enum en_mfs_i2c_datadirection
+{
+    MfsI2cWrite = 0x00,         
+    MfsI2cRead  = 0x01          
+} en_mfs_i2c_datadirection_t ;
+
+
+
+
+ 
+typedef enum en_mfs_i2c_wait_sel
+{
+    MfsI2cWaitSelAfterAck = 0,  
+    MfsI2cWaitSelDataTxRx = 1   
+} en_mfs_i2c_wait_sel_t;
+
+
+
+
+ 
+typedef enum en_mfs_fifo_available
+{
+    MfsHasNoFifo = 0,               
+    MfsHasFifo   = 1                
+} en_mfs_fifo_available_t;
+
+
+
+
+ 
+typedef enum en_mfs_fifo
+{
+    MfsFifo1 = 0,                   
+    MfsFifo2 = 1                    
+} en_mfs_fifo_t;
+
+
+
+
+ 
+typedef enum en_mfs_fifo_select
+{
+    MfsTxFifo1RxFifo2 = 0,          
+    MfsTxFifo2RxFifo1 = 1           
+} en_mfs_fifo_select_t;
+
+
+
+
+ 
+typedef enum en_mfs_lin_stop_bit_length
+{
+    MfsLinOneStopBit    = 0,        
+    MfsLinTwoStopBits   = 1,        
+    MfsLinThreeStopBits = 2,        
+    MfsLinFourStopBits  = 3         
+} en_mfs_lin_stop_bit_length_t;
+
+
+
+
+ 
+typedef enum en_mfs_lin_break_length
+{
+    MfsLinBreakLength13 = 0,        
+    MfsLinBreakLength14 = 1,        
+    MfsLinBreakLength15 = 2,        
+    MfsLinBreakLength16 = 3         
+} en_mfs_lin_break_length_t;
+
+
+
+
+ 
+typedef enum en_mfs_lin_delimiter_length
+{
+    MfsLinDelimiterLength1 = 0,     
+    MfsLinDelimiterLength2 = 1,     
+    MfsLinDelimiterLength3 = 2,     
+    MfsLinDelimiterLength4 = 3      
+} en_mfs_lin_delimiter_length_t;
+
+
+
+
+ 
+typedef enum en_mfs_bus_clk_divider
+{
+    MfsClkDiv0 = 0,                 
+    MfsClkDiv1 = 1,                 
+    MfsClkDiv2 = 2,                 
+    MfsClkDiv3 = 3                  
+} en_mfs_bus_clk_divider_t;
+
+
+
+
+
+
+ 
+ 
+typedef struct stc_mfs_uart_config
+{
+    uint32_t  u32DataRate;          
+    uint8_t   u8UartMode;           
+    uint8_t   u8Parity;             
+    uint8_t   u8StopBit;            
+    uint8_t   u8CharLength;         
+    boolean_t bBitDirection;        
+    boolean_t bSignalSystem;        
+    boolean_t bHwFlow;              
+} stc_mfs_uart_config_t;
+
+ 
+typedef struct stc_mfs_csio_config
+{
+    uint32_t  u32DataRate;          
+    uint8_t   u8CsioMode;           
+    uint8_t   u8CsioActMode;        
+    uint8_t   u8SyncWaitTime;       
+    uint8_t   u8CharLength;         
+    boolean_t bBitDirection;        
+    boolean_t bSignalSystem;        
+} stc_mfs_csio_config_t;
+
+ 
+typedef struct stc_mfs_i2c_config
+{
+    uint32_t u32DataRate;           
+    uint8_t  u8I2cMode;             
+    uint8_t  u8NoizeFilter;         
+    uint8_t  u8SlvAddr;             
+    uint8_t  u8FastMode;            
+} stc_mfs_i2c_config_t;
+
+ 
+typedef struct stc_mfs_lin_config
+{
+    uint32_t  u32DataRate;          
+    boolean_t bExtWakeUp;           
+    boolean_t bLinBreakIrqEnable;   
+    uint8_t   u8LinMode;            
+    uint8_t   u8StopBits;           
+    uint8_t   u8BreakLength;        
+    uint8_t   u8DelimiterLength;    
+} stc_mfs_lin_config_t;
+
+
+
+
+ 
+typedef struct stc_mfs_csio_cs_timing
+{
+    uint8_t  u8CsSetupDelay;        
+    uint8_t  u8CsHoldDelay;         
+    uint16_t u16CsDeSelect;         
+} stc_mfs_csio_cs_timing_t;
+
+
+
+
+ 
+typedef struct stc_mfs_fifo_config
+{
+    uint8_t u8FifoSel;              
+    uint8_t u8ByteCount1;           
+    uint8_t u8ByteCount2;           
+} stc_mfs_fifo_config_t;
+
+
+
+
+ 
+typedef void (*mfs_tx_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
+typedef void (*mfs_rx_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
+typedef void (*mfs_sts_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
+
+ 
+ 
+ 
+#line 583 ".\\common\\mfs.h"
+
+#line 591 ".\\common\\mfs.h"
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+#line 633 ".\\common\\mfs.h"
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+#line 665 ".\\common\\mfs.h"
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+#line 688 ".\\common\\mfs.h"
+
+ 
+
+
+
+
+ 
+#line 704 ".\\common\\mfs.h"
+
+ 
+#line 713 ".\\common\\mfs.h"
+
+ 
+
+
+ 
+#line 737 ".\\common\\mfs.h"
+
+ 
+#line 755 ".\\common\\mfs.h"
+
+ 
+#line 773 ".\\common\\mfs.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+typedef enum en_mfs_instance_index
+{
+#line 810 ".\\common\\mfs.h"
+    MfsInstanceIndexMfs4,
+#line 819 ".\\common\\mfs.h"
+    MfsInstanceIndexMfs7,
+#line 845 ".\\common\\mfs.h"
+    MfsInstanceIndexMax
+} en_mfs_instance_index_t;
+
+
+typedef struct stc_mfs_intern_data
+{
+    mfs_tx_cb_func_ptr_t        pfnTransmitCbFunction;  
+    mfs_rx_cb_func_ptr_t        pfnReceiveCbFunction;   
+    mfs_sts_cb_func_ptr_t       pfnStatusCbFunction;    
+    void*                       pvUpperLayerHandle;     
+} stc_mfs_intern_data_t;
+
+
+typedef struct stc_mfs_instance_data
+{
+    volatile stc_mfsn_t*  pstcInstance;  
+    stc_mfs_intern_data_t stcInternData; 
+} stc_mfs_instance_data_t;
+
+ 
+ 
+ 
+
+
+extern stc_mfs_instance_data_t m_astcMfsInstanceDataLut[MfsInstanceIndexMax];
+
+ 
+ 
+ 
+extern void MfsIrqHandlerTx(volatile stc_mfsn_t*   pstcMfs, 
+                            stc_mfs_intern_data_t* pstcMfsInternData
+                           );
+
+extern void MfsIrqHandlerRx(volatile stc_mfsn_t*   pstcMfs, 
+                            stc_mfs_intern_data_t* pstcMfsInternData
+                           );
+
+extern void MfsIrqHandlerStatus(volatile stc_mfsn_t*   pstcMfs, 
+                                stc_mfs_intern_data_t* pstcMfsInternData
+                               );
+
+ 
+extern en_result_t Mfs_Uart_Init(volatile stc_mfsn_t*         pstcUart,
+                                 const stc_mfs_uart_config_t* pstcConfig
+                                );
+
+extern en_result_t Mfs_Uart_DeInit(volatile stc_mfsn_t* pstcUart);
+
+extern en_result_t Mfs_Uart_SetBaudRate(volatile stc_mfsn_t* pstcUart,
+                                        uint32_t             u32BaudRate
+                                       );
+
+extern en_result_t Mfs_Csio_Init(volatile stc_mfsn_t*         pstcCsio, 
+                                 const stc_mfs_csio_config_t* pstcConfig
+                                );
+
+extern en_result_t Mfs_Csio_DeInit(volatile stc_mfsn_t* pstcCsio);
+
+extern en_result_t Mfs_Csio_SetSckOutEnable(volatile stc_mfsn_t* pstcCsio,
+                                            boolean_t            bEnable
+                                           );
+
+extern en_result_t Mfs_Csio_SetChipSelectErrEnable(volatile stc_mfsn_t* pstcCsio,
+                                                   boolean_t            bEnable
+                                                  );
+
+extern en_result_t Mfs_Csio_SetChipSelectErrIntEnable(volatile stc_mfsn_t* pstcCsio,
+                                                      boolean_t            bEnable
+                                                     );
+
+extern en_result_t Mfs_Csio_ClrChipSelectErr(volatile stc_mfsn_t* pstcCsio);
+
+extern en_result_t Mfs_Csio_ClrTimerIntReq(volatile stc_mfsn_t* pstcCsio);
+
+extern en_result_t Mfs_Csio_SetSerialTimerIntEnable(volatile stc_mfsn_t* pstcCsio,
+                                                    boolean_t            bEnable
+                                                   );
+
+extern en_result_t Mfs_Csio_SetSyncTransEnable(volatile stc_mfsn_t* pstcCsio,
+                                               boolean_t            bEnable
+                                              );
+
+extern en_result_t Mfs_Csio_SetTimerPrescale(volatile stc_mfsn_t* pstcCsio,
+                                             uint8_t              u8Prescale
+                                            );
+
+extern en_result_t Mfs_Csio_SetSerialTimerEnable(volatile stc_mfsn_t* pstcCsio,
+                                                 boolean_t            bEnable
+                                                );
+
+extern en_result_t Mfs_Csio_SetCmpVal4SerialTimer(volatile stc_mfsn_t* pstcCsio,
+                                                  uint16_t             u16CompareValue
+                                                 );
+
+extern en_result_t Mfs_Csio_SetCsHold(volatile stc_mfsn_t* pstcCsio,
+                                      boolean_t            bHold
+                                     );
+
+extern en_result_t Mfs_Csio_SetCsTimingPrescale(volatile stc_mfsn_t* pstcCsio,
+                                                uint8_t              u8Prescale
+                                               );
+
+extern en_result_t Mfs_Csio_SetCsInActiveLevel(volatile stc_mfsn_t* pstcCsio,
+                                               boolean_t            bLevel
+                                              );
+
+extern en_result_t Mfs_Csio_SetChipSelectEnable(volatile stc_mfsn_t* pstcCsio,
+                                                boolean_t            bEnable
+                                               );
+
+extern en_result_t Mfs_Csio_SetChipSelectOutEnable(volatile stc_mfsn_t* pstcCsio,
+                                                   boolean_t            bEnable
+                                                  );
+
+extern en_result_t Mfs_Csio_SetCsTimingConfig(volatile stc_mfsn_t*      pstcCsio,
+                                              stc_mfs_csio_cs_timing_t* pstcCsTimingCfg
+                                             );
+
+extern en_result_t Mfs_Csio_SetTxLength(volatile stc_mfsn_t* pstcCsio,
+                                        uint8_t              u8TxBytes
+                                       );
+
+extern en_result_t Mfs_Csio_SetBaudRate(volatile stc_mfsn_t* pstcCsio,
+                                        uint32_t             u32BaudRate
+                                       );
+
+extern en_result_t Mfs_I2c_Init(volatile stc_mfsn_t*        pstcI2c, 
+                                const stc_mfs_i2c_config_t* pstcConfig
+                               );
+
+extern en_result_t Mfs_I2c_DeInit(volatile stc_mfsn_t* pstcI2c );
+
+extern en_result_t Mfs_I2c_SetTxIntEnable(volatile stc_mfsn_t* pstcI2c,
+                                          boolean_t            bEnable
+                                         );
+
+extern en_result_t Mfs_I2c_SetRxIntEnable(volatile stc_mfsn_t* pstcI2c,
+                                          boolean_t            bEnable
+                                         );
+
+extern en_result_t Mfs_I2c_SetAckEnable(volatile stc_mfsn_t* pstcI2c,
+                                        boolean_t            bEnable
+                                       );
+
+extern en_result_t Mfs_I2c_SetWaitSelect(volatile stc_mfsn_t* pstcI2c,
+                                         uint8_t              u8WaitSelect
+                                        );
+
+extern en_result_t Mfs_I2c_SetCondDetIntEnable(volatile stc_mfsn_t* pstcI2c,
+                                               boolean_t            bEnable
+                                              );
+
+extern en_result_t Mfs_I2c_SetIntEnable(volatile stc_mfsn_t* pstcI2c,
+                                        boolean_t            bEnable
+                                       );
+
+extern en_result_t Mfs_I2c_ClearIntStatus(volatile stc_mfsn_t* pstcI2c);
+
+extern en_result_t Mfs_I2c_SetTransmitEmpty(volatile stc_mfsn_t* pstcI2c);
+
+extern en_result_t Mfs_I2c_SetDmaModeEnable(volatile stc_mfsn_t* pstcI2c,
+                                            boolean_t            bEnable
+                                           );
+
+extern en_result_t Mfs_I2c_SetNoizeFilter(volatile stc_mfsn_t* pstcI2c,
+                                          uint8_t              u8NzFilter
+                                         );
+
+extern en_result_t Mfs_I2c_SetSdaOutLevel(volatile stc_mfsn_t* pstcI2c,
+                                          boolean_t            bLevel
+                                         );
+
+extern en_result_t Mfs_I2c_SetSclOutLevel(volatile stc_mfsn_t* pstcI2c,
+                                          boolean_t            bLevel
+                                         );
+
+extern en_result_t Mfs_I2c_SetSerlalOutEnable(volatile stc_mfsn_t* pstcI2c,
+                                              boolean_t            bEnable
+                                             );
+
+extern en_result_t Mfs_I2c_SetBusErrorControlEnable(volatile stc_mfsn_t* pstcI2c,
+                                                    boolean_t            bEnable
+                                                   );
+
+extern en_result_t Mfs_I2c_SetI2cEnable(volatile stc_mfsn_t* pstcI2c,
+                                        boolean_t            bEnable,
+                                        uint8_t              u8AddrMask
+                                       );
+
+extern en_result_t Mfs_I2c_SetSlvAddrEnable(volatile stc_mfsn_t* pstcI2c,
+                                            boolean_t            bEnable,
+                                            uint8_t              u8SlvAdr
+                                           );
+
+extern en_result_t Mfs_I2c_SetBaudRate(volatile stc_mfsn_t* pstcI2c, 
+                                       uint32_t             u32BaudRate
+                                      );
+
+extern en_result_t Mfs_Lin_Init(volatile stc_mfsn_t*        pstcLin,
+                                const stc_mfs_lin_config_t* pstcConfig
+                               );
+
+extern en_result_t Mfs_Lin_DeInit(volatile stc_mfsn_t* pstcLin);
+
+extern en_result_t Mfs_Lin_SetBreak(volatile stc_mfsn_t* pstcLin);
+
+extern en_result_t Mfs_Lin_ClearBreakDetFlag(volatile stc_mfsn_t* pstcLin);
+
+extern en_result_t Mfs_Lin_SetBreakDetIntEnable(volatile stc_mfsn_t* pstcLin,
+                                                boolean_t            bEnable
+                                               );
+
+extern en_result_t Mfs_Lin_SetBreakConfig(volatile stc_mfsn_t* pstcLin,
+                                          uint8_t              u8BreakLen,
+                                          uint8_t              u8DelimiterLen
+                                         );
+
+extern en_result_t Mfs_Lin_SetBaudRate(volatile stc_mfsn_t* pstcLin,
+                                       uint32_t             u32BaudRate
+                                      );
+
+extern en_result_t Mfs_SetSerialOutputEnable(volatile stc_mfsn_t* pstcMfs,
+                                             boolean_t            bEnable
+                                            );
+
+extern en_result_t Mfs_SetWakeUpControlEnable(volatile stc_mfsn_t* pstcMfs,
+                                              boolean_t            bEnable
+                                             );
+
+extern en_result_t Mfs_SoftwareReset(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetRxIntEnable(volatile stc_mfsn_t* pstcMfs,
+                                      boolean_t            bEnable
+                                     );
+extern en_result_t Mfs_SetTxIntEnable(volatile stc_mfsn_t* pstcMfs,
+                                      boolean_t            bEnable
+                                     );
+extern en_result_t Mfs_SetTxBusIdleIntEnable(volatile stc_mfsn_t* pstcMfs,
+                                             boolean_t            bEnable
+                                            );
+extern en_result_t Mfs_SetTxFifoIntEnable(volatile stc_mfsn_t* pstcMfs,
+                                          boolean_t            bEnable
+                                         );
+
+extern en_result_t Mfs_SetRxEnable(volatile stc_mfsn_t* pstcMfs,
+                                   boolean_t            bEnable
+                                  );
+extern en_result_t Mfs_SetTxEnable(volatile stc_mfsn_t* pstcMfs,
+                                   boolean_t            bEnable
+                                  );
+
+extern en_result_t Mfs_ErrorClear(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_ConfigFifo(volatile stc_mfsn_t*   pstcMfs,
+                                  stc_mfs_fifo_config_t* pstcFifoConfig
+                                 );
+
+extern en_result_t Mfs_ClrTxFifoReqStatus(volatile stc_mfsn_t* pstcMfs);
+extern en_result_t Mfs_ResetFifo(volatile stc_mfsn_t* pstcMfs,
+                                 uint8_t              u8FifoNumber
+                                );
+extern en_result_t Mfs_SetFifoEnable(volatile stc_mfsn_t* pstcMfs,
+                                     uint8_t              u8FifoNumber,
+                                     boolean_t            bEnable
+                                    );
+
+ 
+extern uint16_t Mfs_ReadData(volatile stc_mfsn_t* pstcMfs);
+extern en_result_t Mfs_WriteData(volatile stc_mfsn_t* pstcMfs,
+                                 const uint16_t       u16Data
+                                );
+
+extern uint32_t Mfs_Csio_ReadData32(volatile stc_mfsn_t* pstcCsio);
+extern en_result_t Mfs_Csio_WriteData32(volatile stc_mfsn_t* pstcCsio,
+                                        const uint32_t       u32Data
+                                       );
+
+ 
+extern uint16_t Mfs_Csio_GetSerialTimer(volatile stc_mfsn_t* pstcCsio);
+extern uint16_t Mfs_Csio_GetStatus(volatile stc_mfsn_t* pstcCsio,
+                                   uint16_t             u16StatusMask
+                                  );
+
+extern boolean_t Mfs_I2c_GetBusErrStatus(volatile stc_mfsn_t* pstcI2c);
+extern boolean_t Mfs_I2c_GetIntStatus(volatile stc_mfsn_t* pstcI2c);
+
+extern uint8_t Mfs_GetStatus(volatile stc_mfsn_t* pstcMfs,
+                             uint8_t              u8StatusMask
+                            );
+
+extern boolean_t Mfs_GetTxFifoReqStatus(volatile stc_mfsn_t* pstcMfs);
+extern uint8_t Mfs_GetFifoBytes(volatile stc_mfsn_t* pstcMfs,
+                                uint8_t              u8FifoNumber
+                               );
+
+extern uint32_t Mfs_GetBusClock(void);
+extern uint32_t Mfs_GetReloadValue(uint32_t u32BaudRate);
+extern uint32_t Mfs_I2c_GetReloadValue(uint32_t u32BaudRate);
+
+ 
+extern en_result_t Mfs_SetSMR(volatile stc_mfsn_t* pstcMfs,
+                              uint8_t              u8SMR
+                             );
+extern uint8_t Mfs_GetSMR(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetSCR(volatile stc_mfsn_t* pstcMfs,
+                              uint8_t              u8SCR
+                             );
+extern uint8_t Mfs_GetSCR(volatile stc_mfsn_t* pstcMfs);
+
+
+
+extern en_result_t Mfs_SetESCR(volatile stc_mfsn_t* pstcMfs,
+                               uint8_t               u8ESCR
+                              );
+extern uint8_t Mfs_GetESCR(volatile stc_mfsn_t* pstcMfs);
+
+
+
+
+
+
+
+
+extern en_result_t Mfs_SetBGR(volatile stc_mfsn_t* pstcMfs,
+                              uint16_t             u16BGR
+                             );
+
+extern uint16_t Mfs_GetBGR(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetFCR1(volatile stc_mfsn_t* pstcMfs,
+                               uint8_t              u8FCR1
+                              );
+extern uint8_t Mfs_GetFCR1(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetFCR0(volatile stc_mfsn_t* pstcMfs,
+                               uint8_t              u8FCR0
+                              );
+extern uint8_t Mfs_GetFCR0(volatile stc_mfsn_t* pstcMfs);
+
+
+
+extern en_result_t Mfs_SetSCSTR10(volatile stc_mfsn_t* pstcMfs,
+                                  uint16_t             u16SCSTR10
+                                 );
+extern uint16_t Mfs_GetSCSTR10(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetSCSTR32(volatile stc_mfsn_t* pstcMfs,
+                                  uint16_t             u16SCSTR32
+                                 );
+extern uint16_t Mfs_GetSCSTR32(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetSACSR(volatile stc_mfsn_t* pstcMfs,
+                                uint16_t             u16SACSR
+                               );
+extern uint16_t Mfs_GetSACSR(volatile stc_mfsn_t* pstcMfs);
+
+extern uint16_t Mfs_GetSTMCR(volatile stc_mfsn_t* pstcMfs);
+
+
+
+
+
+extern en_result_t Mfs_SetSCSCR(volatile stc_mfsn_t* pstcMfs,
+                                uint16_t             u16SCSCR
+                               );
+extern uint16_t Mfs_GetSCSCR(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetTBYTE0(volatile stc_mfsn_t* pstcMfs,
+                                 uint8_t              u8TBYTE0
+                                );
+extern uint8_t Mfs_GetTBYTE0(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetISBA(volatile stc_mfsn_t* pstcMfs,
+                               uint8_t              u8ISBA
+                              );
+extern uint8_t Mfs_GetISBA(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetISMK(volatile stc_mfsn_t* pstcMfs,
+                               uint8_t              u8ISMK
+                              );
+extern uint8_t Mfs_GetISMK(volatile stc_mfsn_t* pstcMfs);
+
+
+extern uint8_t Mfs_GetNFCR(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetEIBCR(volatile stc_mfsn_t* pstcMfs,
+                                uint8_t              u8EIBCR
+                               );
+extern uint8_t Mfs_GetEIBCR(volatile stc_mfsn_t* pstcMfs);
+
+ 
+extern en_result_t Mfs_InitTxIrq(volatile stc_mfsn_t* pstcMfs);
+extern en_result_t Mfs_InitRxIrq(volatile stc_mfsn_t* pstcMfs);
+extern en_result_t Mfs_DeInitIrq(volatile stc_mfsn_t* pstcMfs);
+
+extern en_result_t Mfs_SetRxIntCallBack(volatile stc_mfsn_t* pstcMfs,
+                                        mfs_rx_cb_func_ptr_t pfnRxCbFunc
+                                       );
+
+extern en_result_t Mfs_SetTxIntCallBack(volatile stc_mfsn_t* pstcMfs,
+                                        mfs_tx_cb_func_ptr_t pfnTxCbFunc
+                                       );
+
+extern en_result_t Mfs_SetStsIntCallBack(volatile stc_mfsn_t*  pstcMfs,
+                                         mfs_sts_cb_func_ptr_t pfnStsCbFunc
+                                        );
+
+extern en_result_t Mfs_SetUpperLayerHandle(volatile stc_mfsn_t* pstcMfs,
+                                           void*                pvHandle
+                                          );
+
+
+
+
+}
+
+
+
+
+
+ 
+ 
+ 
+#line 359 ".\\common\\pdl.h"
+
+
+
+#line 368 ".\\common\\pdl.h"
+
+
+#line 376 ".\\common\\pdl.h"
+
+
+#line 384 ".\\common\\pdl.h"
+
+
+#line 392 ".\\common\\pdl.h"
+      
+
+#line 400 ".\\common\\pdl.h"
+      
+
+
+
+
+
+
+
+#line 415 ".\\common\\pdl.h"
+
+
+#line 1 ".\\lib\\inc\\reset.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+#line 58 ".\\lib\\inc\\reset.h"
+
+
+
+ 
+
+extern "C"
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+ 
+  
+
+
+
+ 
+typedef struct stc_reset_result
+{
+  boolean_t    bPowerOn;              
+  boolean_t    bInitx;                
+  boolean_t    bLowVoltageDetection;  
+  boolean_t    bSoftwareWatchdog;     
+  boolean_t    bHardwareWatchdog;     
+  boolean_t    bClockSupervisor;      
+  boolean_t    bAnomalousFrequency;   
+  boolean_t    bSoftware;             
+} stc_reset_result_t ;
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+extern en_result_t Reset_GetCause( stc_reset_result_t* pstcResult ) ;
+extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
+
+
+
+
+}
+
+
+
+
+
+ 
+ 
+ 
+#line 420 ".\\common\\pdl.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#line 468 ".\\common\\pdl.h"
+
+
+
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+#line 592 ".\\common\\pdl.h"
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+#line 621 ".\\common\\pdl.h"
+
+
+
+
+ 
+#line 701 ".\\common\\pdl.h"
+ 
+ 
+#line 739 ".\\common\\pdl.h"
+
+
+
+
+
+
+#line 758 ".\\common\\pdl.h"
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+ 
+extern void pdl_memclr(uint8_t* pu32Address, uint32_t u32Count);
+
+
+
+
+ 
+extern void PDL_WAIT_LOOP_HOOK(void);
+
+
+}
+
+
+
+
+ 
+ 
+ 
+
 #line 60 ".\\common\\gpio.h"
 
  
@@ -26139,72 +27530,7 @@ typedef struct stc_gpio1pin_init
  
  
  
-#line 320 ".\\common\\pdl.h"
-
-      
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
-
-
-#line 1 ".\\common\\mfs.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
+#line 43 ".\\WyzBee_gpio\\WyzBee_gpio.h"
 
 
 
@@ -26213,103 +27539,55 @@ typedef struct stc_gpio1pin_init
 
  
 
-#line 1266 ".\\common\\mfs.h"
- 
- 
- 
-#line 359 ".\\common\\pdl.h"
 
+											 
 
 
-#line 368 ".\\common\\pdl.h"
 
 
-#line 376 ".\\common\\pdl.h"
+											             
 
 
-#line 384 ".\\common\\pdl.h"
 
 
-#line 392 ".\\common\\pdl.h"
-      
+											             
 
-#line 400 ".\\common\\pdl.h"
-      
 
 
 
+											             
 
 
 
+											             
 
-#line 415 ".\\common\\pdl.h"
 
 
-#line 1 ".\\lib\\inc\\reset.h"
+											             
 
 
 
+											             
 
 
 
 
 
+											             
 
 
 
+														 
 
 
 
+										    			 
 
 
 
 
+														 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
- 
-
-
-
-
- 
- 
- 
-#line 58 ".\\lib\\inc\\reset.h"
-
-
-
- 
-
-extern "C"
-{
 
 
 
@@ -26333,54 +27611,28 @@ extern "C"
  
 
 
- 
- 
- 
- 
 
 
- 
-  
-
-
-
- 
-typedef struct stc_reset_result
-{
-  boolean_t    bPowerOn;              
-  boolean_t    bInitx;                
-  boolean_t    bLowVoltageDetection;  
-  boolean_t    bSoftwareWatchdog;     
-  boolean_t    bHardwareWatchdog;     
-  boolean_t    bClockSupervisor;      
-  boolean_t    bAnomalousFrequency;   
-  boolean_t    bSoftware;             
-} stc_reset_result_t ;
-
- 
- 
- 
-
- 
- 
- 
-
-extern en_result_t Reset_GetCause( stc_reset_result_t* pstcResult ) ;
-extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
-
-
-
-
-}
 
 
 
 
 
  
+
+
+
+
+
+
+
+
+
  
- 
-#line 420 ".\\common\\pdl.h"
+
+
+#line 35 "main.cpp"
+#line 1 ".\\WyzBee_oled\\Adafruit_GFX.h"
 
 
 
@@ -26390,44 +27642,106 @@ extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
 
 
 
+#line 12 ".\\WyzBee_oled\\Adafruit_GFX.h"
+
+#line 21 ".\\WyzBee_oled\\Adafruit_GFX.h"
+
+typedef uint8_t boolean;
 
 
 
+class Adafruit_GFX  {
 
-      
+ public:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#line 468 ".\\common\\pdl.h"
-
-
+  Adafruit_GFX(int16_t w, int16_t h); 
 
   
+  virtual void drawPixel(int16_t x, int16_t y, uint16_t color) = 0;
+
+  
+  
+  virtual void
+    drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color),
+    drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color),
+    drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color),
+    drawRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color),
+    fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color),
+    fillScreen(uint16_t color),
+    invertDisplay(boolean i);
+
+  
+  void
+    drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color),
+    drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername,
+      uint16_t color),
+    fillCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color),
+    fillCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername,
+      int16_t delta, uint16_t color),
+    drawTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
+      int16_t x2, int16_t y2, uint16_t color),
+    fillTriangle(int16_t x0, int16_t y0, int16_t x1, int16_t y1,
+      int16_t x2, int16_t y2, uint16_t color),
+    drawRoundRect(int16_t x0, int16_t y0, int16_t w, int16_t h,
+      int16_t radius, uint16_t color),
+    fillRoundRect(int16_t x0, int16_t y0, int16_t w, int16_t h,
+      int16_t radius, uint16_t color),
+    drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap,
+      int16_t w, int16_t h, uint16_t color),
+    drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color,
+      uint16_t bg, uint8_t size),
+    setCursor(int16_t x, int16_t y),
+    setTextColor(uint16_t c),
+    setTextColor(uint16_t c, uint16_t bg),
+    setTextSize(uint8_t s),
+    setTextWrap(boolean w),
+    setRotation(uint8_t r);
+
+
+
+
+  virtual void   write(uint8_t);
+
+
+  int16_t
+    height(void),
+    width(void);
+
+  uint8_t getRotation(void);
+
+ protected:
+  const int16_t
+    WIDTH, HEIGHT;   
+  int16_t
+    _width, _height, 
+    cursor_x, cursor_y;
+  uint16_t
+    textcolor, textbgcolor;
+  uint8_t
+    textsize,
+    rotation;
+  boolean
+    wrap; 
+};
+
+#line 36 "main.cpp"
+#line 1 ".\\WyzBee_oled\\Adafruit_SSD1351.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
@@ -26445,6 +27759,8 @@ extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
 
 
 
+    typedef volatile uint8_t PortReg;
+    typedef uint8_t PortMask;
 
 
 
@@ -26460,30 +27776,50 @@ extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
 
 
 
+#line 82 ".\\WyzBee_oled\\Adafruit_SSD1351.h"
 
 
+class Adafruit_SSD1351  : public virtual Adafruit_GFX {
+ public:
+  Adafruit_SSD1351(void);
+  
+
+  uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);
+
+  
+  void drawPixel(int16_t x, int16_t y, uint16_t color);
+  void fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint16_t color);
+  void drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color);
+  void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color);
+  void fillScreen(uint16_t fillcolor);
+
+  void invert(boolean);
+  
+  void begin(void);
+  void goTo(int x, int y);
+
+  void reset(void);
+
+   
+
+  void writeData(uint8_t d);
+  void writeCommand(uint8_t c);
 
 
+  void writeData_unsafe(uint16_t d);
 
+  void setWriteDir(void);
+  void write8(uint8_t d);
 
+ private:
+  void spiwrite(uint8_t);
 
-            
-
-
-
-
-
-			
-
-
-
-
-
-
-
-
-
-
+  uint8_t _cs, _rs, _rst, _sid, _sclk;
+  PortReg *csport, *rsport, *sidport, *sclkport;
+  PortMask cspinmask, rspinmask, sidpinmask, sclkpinmask;
+};
+#line 37 "main.cpp"
+#line 1 ".\\WyzBee_oled\\SPI_OLED.h"
 
 
 
@@ -26502,34 +27838,11 @@ extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
 
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
- 
  
 
 
 
-
-
-
-
-
-
-
-
- 
- 
- 
+#line 30 ".\\WyzBee_oled\\SPI_OLED.h"
 
 
 
@@ -26540,85 +27853,23 @@ extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
 
 
 
-
- 
-#line 592 ".\\common\\pdl.h"
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-#line 621 ".\\common\\pdl.h"
-
-
-
-
- 
-#line 701 ".\\common\\pdl.h"
- 
- 
-#line 739 ".\\common\\pdl.h"
-
-
-
-
-
-
-#line 758 ".\\common\\pdl.h"
-
- 
- 
- 
-
- 
- 
- 
-
- 
- 
- 
-
-
-
- 
-extern void pdl_memclr(uint8_t* pu32Address, uint32_t u32Count);
-
-
-
-
- 
-extern void PDL_WAIT_LOOP_HOOK(void);
-
-
-}
-
-
-
-
- 
- 
- 
-
-#line 59 ".\\common\\mfs.h"
-
-
-
- 
-
-extern "C"
+class SPI_OLEDClass
 {
+  protected:
+  public:
+    void begin(void);
+    unsigned char transfer(unsigned char);
+    void end(void);
+    void setBitOrder(unsigned char);
+    void setClockDivider(unsigned char);
+    void setDataMode(unsigned char );
+};
 
+extern SPI_OLEDClass SPI;
 
 
+#line 38 "main.cpp"
+#line 1 ".\\WyzBee_SPI\\WyzBee_spi.h"
 
 
 
@@ -26632,1139 +27883,36 @@ extern "C"
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-typedef FM4_MFS_TypeDef stc_mfsn_t;
-
-
-
-
- 
-typedef enum en_mfs_uart_mode
-{
-    MfsUartNormal = 0,          
-    MfsUartMulti  = 1           
-} en_mfs_uart_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_csio_mode
-{
-    MfsCsioMaster = 0,          
-    MfsCsioSlave  = 1           
-} en_mfs_csio_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_csio_act_mode
-{
-    MfsCsioActNormalMode = 0,   
-    MfsCsioActSpiMode    = 1    
-} en_mfs_csio_act_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_i2c_mode
-{
-    MfsI2cMaster = 0,           
-    MfsI2cSlave  = 1            
-} en_mfs_i2c_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_i2c_fast_mode
-{
-    MfsI2cDisableFastModePlus = 0,  
-    MfsI2cEnableFastModePlus  = 1   
-} en_mfs_i2c_fast_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_lin_mode
-{
-    MfsLinMaster = 0,           
-    MfsLinSlave  = 1            
-} en_mfs_lin_mode_t;
-
-
-
-
- 
-typedef enum en_mfs_parity
-{
-    MfsParityNone  = 0,         
-    MfsParityEven  = 2,         
-    MfsParityOdd   = 3          
-} en_mfs_parity_t;
-
-
-
-
- 
-typedef enum en_mfs_characterlength
-{
-    MfsFiveBits       = 0,      
-    MfsSixBits        = 1,      
-    MfsSevenBits      = 2,      
-    MfsEightBits      = 3,      
-    MfsNineBits       = 4,      
-    MfsTenBits        = 5,      
-    MfsElevenBits     = 6,      
-    MfsTwelveBits     = 7,      
-    MfsThirteenBits   = 8,      
-    MfsFourteenBits   = 9,      
-    MfsFifteenBits    = 10,     
-    MfsSixteenBits    = 11,     
-    MfsTwentyBits     = 12,     
-    MfsTwentyFourBits = 13,     
-    MfsThirtyTwoBits  = 14      
-} en_mfs_characterlength_t;
-
-
-
-
- 
-typedef enum en_mfs_stopbit
-{
-    MfsOneStopBit    = 0,       
-    MfsTwoStopBits   = 1,       
-    MfsThreeStopBits = 2,       
-    MfsFourStopBits  = 3        
-} en_mfs_stopbit_t;
-
-
-
-
- 
-typedef enum en_mfs_csio_sync_wait_time
-{
-    MfsSyncWaitZero  = 0,           
-    MfsSyncWaitOne   = 1,           
-    MfsSyncWaitTwo   = 2,           
-    MfsSyncWaitThree = 3            
-} en_mfs_csio_sync_wait_time_t;
-
-
-
-
- 
-typedef enum en_mfs_i2c_noize_filter
-{
-    MfsI2cNoizeFilterLess40M  = 0x00,   
-    MfsI2cNoizeFilterLess60M  = 0x01,   
-    MfsI2cNoizeFilterLess80M  = 0x02,   
-    MfsI2cNoizeFilterLess100M = 0x03,   
-    MfsI2cNoizeFilterLess120M = 0x04,   
-    MfsI2cNoizeFilterLess140M = 0x05,   
-    MfsI2cNoizeFilterLess160M = 0x06,   
-    MfsI2cNoizeFilterLess180M = 0x07,   
-    MfsI2cNoizeFilterLess200M = 0x08,   
-    MfsI2cNoizeFilterLess220M = 0x09,   
-    MfsI2cNoizeFilterLess240M = 0x0A,   
-    MfsI2cNoizeFilterLess260M = 0x0B,   
-    MfsI2cNoizeFilterLess280M = 0x0C,   
-    MfsI2cNoizeFilterLess300M = 0x0D,   
-    MfsI2cNoizeFilterLess320M = 0x0E,   
-    MfsI2cNoizeFilterLess340M = 0x0F,   
-    MfsI2cNoizeFilterLess360M = 0x10,   
-    MfsI2cNoizeFilterLess380M = 0x11,   
-    MfsI2cNoizeFilterLess400M = 0x12    
-} en_mfs_i2c_noize_filter_t;
-
-
-
-
- 
-typedef enum en_mfs_i2c_datadirection
-{
-    MfsI2cWrite = 0x00,         
-    MfsI2cRead  = 0x01          
-} en_mfs_i2c_datadirection_t ;
-
-
-
-
- 
-typedef enum en_mfs_i2c_wait_sel
-{
-    MfsI2cWaitSelAfterAck = 0,  
-    MfsI2cWaitSelDataTxRx = 1   
-} en_mfs_i2c_wait_sel_t;
-
-
-
-
- 
-typedef enum en_mfs_fifo_available
-{
-    MfsHasNoFifo = 0,               
-    MfsHasFifo   = 1                
-} en_mfs_fifo_available_t;
-
-
-
-
- 
-typedef enum en_mfs_fifo
-{
-    MfsFifo1 = 0,                   
-    MfsFifo2 = 1                    
-} en_mfs_fifo_t;
-
-
-
-
- 
-typedef enum en_mfs_fifo_select
-{
-    MfsTxFifo1RxFifo2 = 0,          
-    MfsTxFifo2RxFifo1 = 1           
-} en_mfs_fifo_select_t;
-
-
-
-
- 
-typedef enum en_mfs_lin_stop_bit_length
-{
-    MfsLinOneStopBit    = 0,        
-    MfsLinTwoStopBits   = 1,        
-    MfsLinThreeStopBits = 2,        
-    MfsLinFourStopBits  = 3         
-} en_mfs_lin_stop_bit_length_t;
-
-
-
-
- 
-typedef enum en_mfs_lin_break_length
-{
-    MfsLinBreakLength13 = 0,        
-    MfsLinBreakLength14 = 1,        
-    MfsLinBreakLength15 = 2,        
-    MfsLinBreakLength16 = 3         
-} en_mfs_lin_break_length_t;
-
-
-
-
- 
-typedef enum en_mfs_lin_delimiter_length
-{
-    MfsLinDelimiterLength1 = 0,     
-    MfsLinDelimiterLength2 = 1,     
-    MfsLinDelimiterLength3 = 2,     
-    MfsLinDelimiterLength4 = 3      
-} en_mfs_lin_delimiter_length_t;
-
-
-
-
- 
-typedef enum en_mfs_bus_clk_divider
-{
-    MfsClkDiv0 = 0,                 
-    MfsClkDiv1 = 1,                 
-    MfsClkDiv2 = 2,                 
-    MfsClkDiv3 = 3                  
-} en_mfs_bus_clk_divider_t;
-
-
-
-
-
-
- 
- 
-typedef struct stc_mfs_uart_config
-{
-    uint32_t  u32DataRate;          
-    uint8_t   u8UartMode;           
-    uint8_t   u8Parity;             
-    uint8_t   u8StopBit;            
-    uint8_t   u8CharLength;         
-    boolean_t bBitDirection;        
-    boolean_t bSignalSystem;        
-    boolean_t bHwFlow;              
-} stc_mfs_uart_config_t;
-
- 
-typedef struct stc_mfs_csio_config
-{
-    uint32_t  u32DataRate;          
-    uint8_t   u8CsioMode;           
-    uint8_t   u8CsioActMode;        
-    uint8_t   u8SyncWaitTime;       
-    uint8_t   u8CharLength;         
-    boolean_t bBitDirection;        
-    boolean_t bSignalSystem;        
-} stc_mfs_csio_config_t;
-
- 
-typedef struct stc_mfs_i2c_config
-{
-    uint32_t u32DataRate;           
-    uint8_t  u8I2cMode;             
-    uint8_t  u8NoizeFilter;         
-    uint8_t  u8SlvAddr;             
-    uint8_t  u8FastMode;            
-} stc_mfs_i2c_config_t;
-
- 
-typedef struct stc_mfs_lin_config
-{
-    uint32_t  u32DataRate;          
-    boolean_t bExtWakeUp;           
-    boolean_t bLinBreakIrqEnable;   
-    uint8_t   u8LinMode;            
-    uint8_t   u8StopBits;           
-    uint8_t   u8BreakLength;        
-    uint8_t   u8DelimiterLength;    
-} stc_mfs_lin_config_t;
-
-
-
-
- 
-typedef struct stc_mfs_csio_cs_timing
-{
-    uint8_t  u8CsSetupDelay;        
-    uint8_t  u8CsHoldDelay;         
-    uint16_t u16CsDeSelect;         
-} stc_mfs_csio_cs_timing_t;
-
-
-
-
- 
-typedef struct stc_mfs_fifo_config
-{
-    uint8_t u8FifoSel;              
-    uint8_t u8ByteCount1;           
-    uint8_t u8ByteCount2;           
-} stc_mfs_fifo_config_t;
-
-
-
-
- 
-typedef void (*mfs_tx_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
-typedef void (*mfs_rx_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
-typedef void (*mfs_sts_cb_func_ptr_t)(volatile stc_mfsn_t* pstcMfs, void* pvHandle);
-
- 
- 
- 
-#line 583 ".\\common\\mfs.h"
-
-#line 591 ".\\common\\mfs.h"
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-#line 633 ".\\common\\mfs.h"
-
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
- 
-#line 665 ".\\common\\mfs.h"
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-#line 688 ".\\common\\mfs.h"
-
- 
-
-
-
-
- 
-#line 704 ".\\common\\mfs.h"
-
- 
-#line 713 ".\\common\\mfs.h"
-
- 
-
-
- 
-#line 737 ".\\common\\mfs.h"
-
- 
-#line 755 ".\\common\\mfs.h"
-
- 
-#line 773 ".\\common\\mfs.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
-
-
-typedef enum en_mfs_instance_index
-{
-#line 810 ".\\common\\mfs.h"
-    MfsInstanceIndexMfs4,
-#line 819 ".\\common\\mfs.h"
-    MfsInstanceIndexMfs7,
-#line 845 ".\\common\\mfs.h"
-    MfsInstanceIndexMax
-} en_mfs_instance_index_t;
-
-
-typedef struct stc_mfs_intern_data
-{
-    mfs_tx_cb_func_ptr_t        pfnTransmitCbFunction;  
-    mfs_rx_cb_func_ptr_t        pfnReceiveCbFunction;   
-    mfs_sts_cb_func_ptr_t       pfnStatusCbFunction;    
-    void*                       pvUpperLayerHandle;     
-} stc_mfs_intern_data_t;
-
-
-typedef struct stc_mfs_instance_data
-{
-    volatile stc_mfsn_t*  pstcInstance;  
-    stc_mfs_intern_data_t stcInternData; 
-} stc_mfs_instance_data_t;
-
- 
- 
  
-
-
-extern stc_mfs_instance_data_t m_astcMfsInstanceDataLut[MfsInstanceIndexMax];
-
- 
- 
- 
-extern void MfsIrqHandlerTx(volatile stc_mfsn_t*   pstcMfs, 
-                            stc_mfs_intern_data_t* pstcMfsInternData
-                           );
-
-extern void MfsIrqHandlerRx(volatile stc_mfsn_t*   pstcMfs, 
-                            stc_mfs_intern_data_t* pstcMfsInternData
-                           );
-
-extern void MfsIrqHandlerStatus(volatile stc_mfsn_t*   pstcMfs, 
-                                stc_mfs_intern_data_t* pstcMfsInternData
-                               );
-
- 
-extern en_result_t Mfs_Uart_Init(volatile stc_mfsn_t*         pstcUart,
-                                 const stc_mfs_uart_config_t* pstcConfig
-                                );
-
-extern en_result_t Mfs_Uart_DeInit(volatile stc_mfsn_t* pstcUart);
-
-extern en_result_t Mfs_Uart_SetBaudRate(volatile stc_mfsn_t* pstcUart,
-                                        uint32_t             u32BaudRate
-                                       );
-
-extern en_result_t Mfs_Csio_Init(volatile stc_mfsn_t*         pstcCsio, 
-                                 const stc_mfs_csio_config_t* pstcConfig
-                                );
-
-extern en_result_t Mfs_Csio_DeInit(volatile stc_mfsn_t* pstcCsio);
-
-extern en_result_t Mfs_Csio_SetSckOutEnable(volatile stc_mfsn_t* pstcCsio,
-                                            boolean_t            bEnable
-                                           );
-
-extern en_result_t Mfs_Csio_SetChipSelectErrEnable(volatile stc_mfsn_t* pstcCsio,
-                                                   boolean_t            bEnable
-                                                  );
-
-extern en_result_t Mfs_Csio_SetChipSelectErrIntEnable(volatile stc_mfsn_t* pstcCsio,
-                                                      boolean_t            bEnable
-                                                     );
-
-extern en_result_t Mfs_Csio_ClrChipSelectErr(volatile stc_mfsn_t* pstcCsio);
-
-extern en_result_t Mfs_Csio_ClrTimerIntReq(volatile stc_mfsn_t* pstcCsio);
-
-extern en_result_t Mfs_Csio_SetSerialTimerIntEnable(volatile stc_mfsn_t* pstcCsio,
-                                                    boolean_t            bEnable
-                                                   );
-
-extern en_result_t Mfs_Csio_SetSyncTransEnable(volatile stc_mfsn_t* pstcCsio,
-                                               boolean_t            bEnable
-                                              );
-
-extern en_result_t Mfs_Csio_SetTimerPrescale(volatile stc_mfsn_t* pstcCsio,
-                                             uint8_t              u8Prescale
-                                            );
-
-extern en_result_t Mfs_Csio_SetSerialTimerEnable(volatile stc_mfsn_t* pstcCsio,
-                                                 boolean_t            bEnable
-                                                );
-
-extern en_result_t Mfs_Csio_SetCmpVal4SerialTimer(volatile stc_mfsn_t* pstcCsio,
-                                                  uint16_t             u16CompareValue
-                                                 );
-
-extern en_result_t Mfs_Csio_SetCsHold(volatile stc_mfsn_t* pstcCsio,
-                                      boolean_t            bHold
-                                     );
-
-extern en_result_t Mfs_Csio_SetCsTimingPrescale(volatile stc_mfsn_t* pstcCsio,
-                                                uint8_t              u8Prescale
-                                               );
-
-extern en_result_t Mfs_Csio_SetCsInActiveLevel(volatile stc_mfsn_t* pstcCsio,
-                                               boolean_t            bLevel
-                                              );
-
-extern en_result_t Mfs_Csio_SetChipSelectEnable(volatile stc_mfsn_t* pstcCsio,
-                                                boolean_t            bEnable
-                                               );
-
-extern en_result_t Mfs_Csio_SetChipSelectOutEnable(volatile stc_mfsn_t* pstcCsio,
-                                                   boolean_t            bEnable
-                                                  );
-
-extern en_result_t Mfs_Csio_SetCsTimingConfig(volatile stc_mfsn_t*      pstcCsio,
-                                              stc_mfs_csio_cs_timing_t* pstcCsTimingCfg
-                                             );
-
-extern en_result_t Mfs_Csio_SetTxLength(volatile stc_mfsn_t* pstcCsio,
-                                        uint8_t              u8TxBytes
-                                       );
-
-extern en_result_t Mfs_Csio_SetBaudRate(volatile stc_mfsn_t* pstcCsio,
-                                        uint32_t             u32BaudRate
-                                       );
 
-extern en_result_t Mfs_I2c_Init(volatile stc_mfsn_t*        pstcI2c, 
-                                const stc_mfs_i2c_config_t* pstcConfig
-                               );
 
-extern en_result_t Mfs_I2c_DeInit(volatile stc_mfsn_t* pstcI2c );
 
-extern en_result_t Mfs_I2c_SetTxIntEnable(volatile stc_mfsn_t* pstcI2c,
-                                          boolean_t            bEnable
-                                         );
 
-extern en_result_t Mfs_I2c_SetRxIntEnable(volatile stc_mfsn_t* pstcI2c,
-                                          boolean_t            bEnable
-                                         );
 
-extern en_result_t Mfs_I2c_SetAckEnable(volatile stc_mfsn_t* pstcI2c,
-                                        boolean_t            bEnable
-                                       );
 
-extern en_result_t Mfs_I2c_SetWaitSelect(volatile stc_mfsn_t* pstcI2c,
-                                         uint8_t              u8WaitSelect
-                                        );
 
-extern en_result_t Mfs_I2c_SetCondDetIntEnable(volatile stc_mfsn_t* pstcI2c,
-                                               boolean_t            bEnable
-                                              );
 
-extern en_result_t Mfs_I2c_SetIntEnable(volatile stc_mfsn_t* pstcI2c,
-                                        boolean_t            bEnable
-                                       );
 
-extern en_result_t Mfs_I2c_ClearIntStatus(volatile stc_mfsn_t* pstcI2c);
 
-extern en_result_t Mfs_I2c_SetTransmitEmpty(volatile stc_mfsn_t* pstcI2c);
 
-extern en_result_t Mfs_I2c_SetDmaModeEnable(volatile stc_mfsn_t* pstcI2c,
-                                            boolean_t            bEnable
-                                           );
 
-extern en_result_t Mfs_I2c_SetNoizeFilter(volatile stc_mfsn_t* pstcI2c,
-                                          uint8_t              u8NzFilter
-                                         );
-
-extern en_result_t Mfs_I2c_SetSdaOutLevel(volatile stc_mfsn_t* pstcI2c,
-                                          boolean_t            bLevel
-                                         );
-
-extern en_result_t Mfs_I2c_SetSclOutLevel(volatile stc_mfsn_t* pstcI2c,
-                                          boolean_t            bLevel
-                                         );
-
-extern en_result_t Mfs_I2c_SetSerlalOutEnable(volatile stc_mfsn_t* pstcI2c,
-                                              boolean_t            bEnable
-                                             );
-
-extern en_result_t Mfs_I2c_SetBusErrorControlEnable(volatile stc_mfsn_t* pstcI2c,
-                                                    boolean_t            bEnable
-                                                   );
-
-extern en_result_t Mfs_I2c_SetI2cEnable(volatile stc_mfsn_t* pstcI2c,
-                                        boolean_t            bEnable,
-                                        uint8_t              u8AddrMask
-                                       );
-
-extern en_result_t Mfs_I2c_SetSlvAddrEnable(volatile stc_mfsn_t* pstcI2c,
-                                            boolean_t            bEnable,
-                                            uint8_t              u8SlvAdr
-                                           );
-
-extern en_result_t Mfs_I2c_SetBaudRate(volatile stc_mfsn_t* pstcI2c, 
-                                       uint32_t             u32BaudRate
-                                      );
-
-extern en_result_t Mfs_Lin_Init(volatile stc_mfsn_t*        pstcLin,
-                                const stc_mfs_lin_config_t* pstcConfig
-                               );
-
-extern en_result_t Mfs_Lin_DeInit(volatile stc_mfsn_t* pstcLin);
-
-extern en_result_t Mfs_Lin_SetBreak(volatile stc_mfsn_t* pstcLin);
-
-extern en_result_t Mfs_Lin_ClearBreakDetFlag(volatile stc_mfsn_t* pstcLin);
-
-extern en_result_t Mfs_Lin_SetBreakDetIntEnable(volatile stc_mfsn_t* pstcLin,
-                                                boolean_t            bEnable
-                                               );
-
-extern en_result_t Mfs_Lin_SetBreakConfig(volatile stc_mfsn_t* pstcLin,
-                                          uint8_t              u8BreakLen,
-                                          uint8_t              u8DelimiterLen
-                                         );
-
-extern en_result_t Mfs_Lin_SetBaudRate(volatile stc_mfsn_t* pstcLin,
-                                       uint32_t             u32BaudRate
-                                      );
-
-extern en_result_t Mfs_SetSerialOutputEnable(volatile stc_mfsn_t* pstcMfs,
-                                             boolean_t            bEnable
-                                            );
-
-extern en_result_t Mfs_SetWakeUpControlEnable(volatile stc_mfsn_t* pstcMfs,
-                                              boolean_t            bEnable
-                                             );
-
-extern en_result_t Mfs_SoftwareReset(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetRxIntEnable(volatile stc_mfsn_t* pstcMfs,
-                                      boolean_t            bEnable
-                                     );
-extern en_result_t Mfs_SetTxIntEnable(volatile stc_mfsn_t* pstcMfs,
-                                      boolean_t            bEnable
-                                     );
-extern en_result_t Mfs_SetTxBusIdleIntEnable(volatile stc_mfsn_t* pstcMfs,
-                                             boolean_t            bEnable
-                                            );
-extern en_result_t Mfs_SetTxFifoIntEnable(volatile stc_mfsn_t* pstcMfs,
-                                          boolean_t            bEnable
-                                         );
-
-extern en_result_t Mfs_SetRxEnable(volatile stc_mfsn_t* pstcMfs,
-                                   boolean_t            bEnable
-                                  );
-extern en_result_t Mfs_SetTxEnable(volatile stc_mfsn_t* pstcMfs,
-                                   boolean_t            bEnable
-                                  );
-
-extern en_result_t Mfs_ErrorClear(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_ConfigFifo(volatile stc_mfsn_t*   pstcMfs,
-                                  stc_mfs_fifo_config_t* pstcFifoConfig
-                                 );
-
-extern en_result_t Mfs_ClrTxFifoReqStatus(volatile stc_mfsn_t* pstcMfs);
-extern en_result_t Mfs_ResetFifo(volatile stc_mfsn_t* pstcMfs,
-                                 uint8_t              u8FifoNumber
-                                );
-extern en_result_t Mfs_SetFifoEnable(volatile stc_mfsn_t* pstcMfs,
-                                     uint8_t              u8FifoNumber,
-                                     boolean_t            bEnable
-                                    );
-
  
-extern uint16_t Mfs_ReadData(volatile stc_mfsn_t* pstcMfs);
-extern en_result_t Mfs_WriteData(volatile stc_mfsn_t* pstcMfs,
-                                 const uint16_t       u16Data
-                                );
-
-extern uint32_t Mfs_Csio_ReadData32(volatile stc_mfsn_t* pstcCsio);
-extern en_result_t Mfs_Csio_WriteData32(volatile stc_mfsn_t* pstcCsio,
-                                        const uint32_t       u32Data
-                                       );
-
- 
-extern uint16_t Mfs_Csio_GetSerialTimer(volatile stc_mfsn_t* pstcCsio);
-extern uint16_t Mfs_Csio_GetStatus(volatile stc_mfsn_t* pstcCsio,
-                                   uint16_t             u16StatusMask
-                                  );
-
-extern boolean_t Mfs_I2c_GetBusErrStatus(volatile stc_mfsn_t* pstcI2c);
-extern boolean_t Mfs_I2c_GetIntStatus(volatile stc_mfsn_t* pstcI2c);
-
-extern uint8_t Mfs_GetStatus(volatile stc_mfsn_t* pstcMfs,
-                             uint8_t              u8StatusMask
-                            );
-
-extern boolean_t Mfs_GetTxFifoReqStatus(volatile stc_mfsn_t* pstcMfs);
-extern uint8_t Mfs_GetFifoBytes(volatile stc_mfsn_t* pstcMfs,
-                                uint8_t              u8FifoNumber
-                               );
-
-extern uint32_t Mfs_GetBusClock(void);
-extern uint32_t Mfs_GetReloadValue(uint32_t u32BaudRate);
-extern uint32_t Mfs_I2c_GetReloadValue(uint32_t u32BaudRate);
-
- 
-extern en_result_t Mfs_SetSMR(volatile stc_mfsn_t* pstcMfs,
-                              uint8_t              u8SMR
-                             );
-extern uint8_t Mfs_GetSMR(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetSCR(volatile stc_mfsn_t* pstcMfs,
-                              uint8_t              u8SCR
-                             );
-extern uint8_t Mfs_GetSCR(volatile stc_mfsn_t* pstcMfs);
-
-
-
-extern en_result_t Mfs_SetESCR(volatile stc_mfsn_t* pstcMfs,
-                               uint8_t               u8ESCR
-                              );
-extern uint8_t Mfs_GetESCR(volatile stc_mfsn_t* pstcMfs);
 
 
 
 
 
+extern "C"{
 
 
 
-extern en_result_t Mfs_SetBGR(volatile stc_mfsn_t* pstcMfs,
-                              uint16_t             u16BGR
-                             );
 
-extern uint16_t Mfs_GetBGR(volatile stc_mfsn_t* pstcMfs);
 
-extern en_result_t Mfs_SetFCR1(volatile stc_mfsn_t* pstcMfs,
-                               uint8_t              u8FCR1
-                              );
-extern uint8_t Mfs_GetFCR1(volatile stc_mfsn_t* pstcMfs);
 
-extern en_result_t Mfs_SetFCR0(volatile stc_mfsn_t* pstcMfs,
-                               uint8_t              u8FCR0
-                              );
-extern uint8_t Mfs_GetFCR0(volatile stc_mfsn_t* pstcMfs);
 
-
-
-extern en_result_t Mfs_SetSCSTR10(volatile stc_mfsn_t* pstcMfs,
-                                  uint16_t             u16SCSTR10
-                                 );
-extern uint16_t Mfs_GetSCSTR10(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetSCSTR32(volatile stc_mfsn_t* pstcMfs,
-                                  uint16_t             u16SCSTR32
-                                 );
-extern uint16_t Mfs_GetSCSTR32(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetSACSR(volatile stc_mfsn_t* pstcMfs,
-                                uint16_t             u16SACSR
-                               );
-extern uint16_t Mfs_GetSACSR(volatile stc_mfsn_t* pstcMfs);
-
-extern uint16_t Mfs_GetSTMCR(volatile stc_mfsn_t* pstcMfs);
-
-
-
-
-
-extern en_result_t Mfs_SetSCSCR(volatile stc_mfsn_t* pstcMfs,
-                                uint16_t             u16SCSCR
-                               );
-extern uint16_t Mfs_GetSCSCR(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetTBYTE0(volatile stc_mfsn_t* pstcMfs,
-                                 uint8_t              u8TBYTE0
-                                );
-extern uint8_t Mfs_GetTBYTE0(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetISBA(volatile stc_mfsn_t* pstcMfs,
-                               uint8_t              u8ISBA
-                              );
-extern uint8_t Mfs_GetISBA(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetISMK(volatile stc_mfsn_t* pstcMfs,
-                               uint8_t              u8ISMK
-                              );
-extern uint8_t Mfs_GetISMK(volatile stc_mfsn_t* pstcMfs);
-
-
-extern uint8_t Mfs_GetNFCR(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetEIBCR(volatile stc_mfsn_t* pstcMfs,
-                                uint8_t              u8EIBCR
-                               );
-extern uint8_t Mfs_GetEIBCR(volatile stc_mfsn_t* pstcMfs);
-
  
-extern en_result_t Mfs_InitTxIrq(volatile stc_mfsn_t* pstcMfs);
-extern en_result_t Mfs_InitRxIrq(volatile stc_mfsn_t* pstcMfs);
-extern en_result_t Mfs_DeInitIrq(volatile stc_mfsn_t* pstcMfs);
-
-extern en_result_t Mfs_SetRxIntCallBack(volatile stc_mfsn_t* pstcMfs,
-                                        mfs_rx_cb_func_ptr_t pfnRxCbFunc
-                                       );
-
-extern en_result_t Mfs_SetTxIntCallBack(volatile stc_mfsn_t* pstcMfs,
-                                        mfs_tx_cb_func_ptr_t pfnTxCbFunc
-                                       );
-
-extern en_result_t Mfs_SetStsIntCallBack(volatile stc_mfsn_t*  pstcMfs,
-                                         mfs_sts_cb_func_ptr_t pfnStsCbFunc
-                                        );
-
-extern en_result_t Mfs_SetUpperLayerHandle(volatile stc_mfsn_t* pstcMfs,
-                                           void*                pvHandle
-                                          );
-
-
-
 
-}
-
-
-
-
-
- 
- 
- 
 #line 44 ".\\WyzBee_SPI\\WyzBee_spi.h"
-#line 1 ".\\lib\\inc\\WyzBee.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
- 
-
-typedef unsigned char       uint8;
-
-typedef unsigned short      uint16;
-
-typedef unsigned int        uint32;
-
-typedef char                int8;
-
-typedef short               int16;
-
-typedef long                int32;
-
-typedef char      			bool_t;
-
-typedef unsigned short      err_t;
-
-
-
-
-
-
- 
-
 #line 45 ".\\WyzBee_SPI\\WyzBee_spi.h"
 
 
@@ -27909,7 +28057,7 @@ err_t   WyzBeeSpi_TxDisable	 	( void                            	);
 }
 
 
-#line 36 "main.cpp"
+#line 39 "main.cpp"
 #line 1 ".\\WyzBee_i2c\\WyzBee_i2c.h"
 
 
@@ -28062,7 +28210,7 @@ err_t   WyzBeeI2c_Read   ( uint8_t               slave_addr,
  
 
 }
-#line 37 "main.cpp"
+#line 40 "main.cpp"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\stdlib.h"
  
  
@@ -28921,7 +29069,7 @@ extern __declspec(__nothrow) int __C_library_version_number(void);
 
 
  
-#line 38 "main.cpp"
+#line 41 "main.cpp"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\cstdio"
 
 
@@ -28945,7 +29093,7 @@ extern __declspec(__nothrow) int __C_library_version_number(void);
 
 
 
-#line 39 "main.cpp"
+#line 42 "main.cpp"
 #line 1 "C:\\Keil_v5\\ARM\\ARMCC\\Bin\\..\\include\\cstring"
 
 
@@ -29422,7 +29570,7 @@ extern __declspec(__nothrow) void _membitmovewb(void *  , const void *  , int  ,
   
 
 
-#line 40 "main.cpp"
+#line 43 "main.cpp"
 
 extern Adafruit_SSD1351 tft = Adafruit_SSD1351(); 
  
@@ -29509,6 +29657,37 @@ void readTemp(){
 		writeToScreen("INIT ERROR", 0xF800);
 }
 
+void readHum(){
+	uint8 tx2[1] = {0xE5};
+	uint8 rx2[2];
+	uint8 ret; 
+	uint16_t rxcnt = 2;
+	char *str;
+	
+	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);            
+	if(!ret)
+	{
+		ret = WyzBeeI2c_Write(0x40, tx2, 1);
+		if(!ret)
+		{
+			ret = WyzBeeI2c_Read(0x40, rx2, &rxcnt);
+			if(!ret)
+			{
+				hum_code = (rx2[0]<<8)|(rx2[1]);
+				humidity = (125 * hum_code)/65536 - 6;
+				sprintf(str, "%lf", humidity);
+				writeToScreen(str, 0xFFE0);
+			} 
+			else
+				writeToScreen("READ ERROR", 0xF800);
+		} 
+		else
+			writeToScreen("WRITE ERROR", 0xF800);
+	} 
+	else
+		writeToScreen("INIT ERROR", 0xF800);
+}
+
 int main()
 {
 	WyzBeeSpi_Init(&config_stc);
@@ -29517,7 +29696,8 @@ int main()
 	char * str = "Seanna & Chris";
 	
 	
-	readTemp();
+
+	readHum();
 }
 
 

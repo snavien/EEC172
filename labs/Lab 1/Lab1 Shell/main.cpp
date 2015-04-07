@@ -29,10 +29,13 @@
  /*
  * Includes
  */
+ 
+#include <WyzBee.h>
+#include <WyzBee_gpio.h>
 #include <Adafruit_GFX.h>
 #include "Adafruit_SSD1351.h"
 #include <SPI_OLED.h>
-#include  <WyzBee_spi.h>
+#include <WyzBee_spi.h>
 #include <WyzBee_i2c.h>
 #include <stdlib.h>
 #include <cstdio>
@@ -123,6 +126,37 @@ void readTemp(){
 		writeToScreen("INIT ERROR", RED);
 }
 
+void readHum(){
+	uint8 tx2[1] = {0xE5};
+	uint8 rx2[2];
+	uint8 ret; 
+	uint16_t rxcnt = 2;
+	char *str;
+	
+	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);           /*Initialise I2C*/
+	if(!ret)
+	{
+		ret = WyzBeeI2c_Write(0x40, tx2, 1);
+		if(!ret)
+		{
+			ret = WyzBeeI2c_Read(0x40, rx2, &rxcnt);
+			if(!ret)
+			{
+				hum_code = (rx2[0]<<8)|(rx2[1]);
+				humidity = (125 * hum_code)/65536 - 6;
+				sprintf(str, "%lf", humidity);
+				writeToScreen(str, YELLOW);
+			} // if no error in read
+			else
+				writeToScreen("READ ERROR", RED);
+		} // if no error in write
+		else
+			writeToScreen("WRITE ERROR", RED);
+	} // if no initialization error
+	else
+		writeToScreen("INIT ERROR", RED);
+}
+
 int main()
 {
 	WyzBeeSpi_Init(&config_stc);
@@ -131,7 +165,8 @@ int main()
 	char * str = "Seanna & Chris";
 	
 	//writeToScreen(str, MAGENTA );
-	readTemp();
+//	readTemp();
+	readHum();
 }
 
 
