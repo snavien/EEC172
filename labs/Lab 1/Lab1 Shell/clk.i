@@ -19465,9 +19465,64 @@ extern __declspec(__nothrow) void __use_no_semihosting(void);
 
 
 
+#line 1 ".\\lib\\inc\\clk.h"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+#line 728 ".\\lib\\inc\\clk.h"
+ 
+ 
+ 
+#line 225 ".\\common\\pdl.h"
 
 
 
@@ -25920,6 +25975,8 @@ typedef enum en_mfs_instance_index
 {
 #line 810 ".\\common\\mfs.h"
     MfsInstanceIndexMfs4,
+#line 819 ".\\common\\mfs.h"
+    MfsInstanceIndexMfs7,
 #line 845 ".\\common\\mfs.h"
     MfsInstanceIndexMax
 } en_mfs_instance_index_t;
@@ -26373,9 +26430,142 @@ extern en_result_t Mfs_SetUpperLayerHandle(volatile stc_mfsn_t* pstcMfs,
 #line 415 ".\\common\\pdl.h"
 
 
+#line 1 ".\\lib\\inc\\reset.h"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+#line 58 ".\\lib\\inc\\reset.h"
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+ 
+  
+
+
+
+ 
+typedef struct stc_reset_result
+{
+  boolean_t    bPowerOn;              
+  boolean_t    bInitx;                
+  boolean_t    bLowVoltageDetection;  
+  boolean_t    bSoftwareWatchdog;     
+  boolean_t    bHardwareWatchdog;     
+  boolean_t    bClockSupervisor;      
+  boolean_t    bAnomalousFrequency;   
+  boolean_t    bSoftware;             
+} stc_reset_result_t ;
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+extern en_result_t Reset_GetCause( stc_reset_result_t* pstcResult ) ;
+extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+#line 420 ".\\common\\pdl.h"
 
 
 
@@ -26558,9 +26748,9 @@ extern en_result_t Mfs_SetUpperLayerHandle(volatile stc_mfsn_t* pstcMfs,
 
 
  
-#line 695 ".\\common\\pdl.h"
-   
-    
+#line 701 ".\\common\\pdl.h"
+ 
+ 
 #line 739 ".\\common\\pdl.h"
 
 
@@ -26605,7 +26795,645 @@ extern void PDL_WAIT_LOOP_HOOK(void);
 
 #line 60 ".\\lib\\inc\\clk.h"
 
-#line 726 ".\\lib\\inc\\clk.h"
+
+
+ 
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+   
+
+
+
+
+#line 173 ".\\lib\\inc\\clk.h"
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_source
+{
+  ClkMain = 0,  
+  ClkSub  = 1,  
+  ClkHsCr = 2,  
+  ClkLsCr = 3,  
+  ClkPll     = 4,  
+  ClkHsCrPll = 5   
+} en_clk_source_t;
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_mode
+{
+  ClkRun      = 0,  
+  ClkSleep    = 1,  
+  ClkTimer    = 2,  
+  ClkStop     = 3,  
+  ClkRtc      = 4,  
+  ClkDeepRtc  = 5,  
+  ClkDeepStop = 6   
+} en_clk_mode_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_baseclkdiv
+{
+  BaseClkDiv1  = 0,  
+  BaseClkDiv2  = 1,  
+  BaseClkDiv3  = 2,  
+  BaseClkDiv4  = 3,  
+  BaseClkDiv6  = 4,  
+  BaseClkDiv8  = 5,  
+  BaseClkDiv16 = 6,  
+  BaseClkErr   = 7   
+} en_clk_baseclkdiv_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb0div
+{
+  Apb0Div1  = 0,  
+  Apb0Div2  = 1,  
+  Apb0Div4  = 2,  
+  Apb0Div8  = 3   
+} en_clk_apb0div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb1div
+{
+  Apb1Div1  = 0,  
+  Apb1Div2  = 1,  
+  Apb1Div4  = 2,  
+  Apb1Div8  = 3   
+} en_clk_apb1div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb2div
+{
+  Apb2Div1  = 0,  
+  Apb2Div2  = 1,  
+  Apb2Div4  = 2,  
+  Apb2Div8  = 3   
+} en_clk_apb2div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_scowaittime
+{
+  ScoWaitExp10  =  0,  
+  ScoWaitExp11  =  1,  
+  ScoWaitExp12  =  2,  
+  ScoWaitExp13  =  3,  
+  ScoWaitExp14  =  4,  
+  ScoWaitExp15  =  5,  
+  ScoWaitExp16  =  6,  
+  ScoWaitExp17  =  7,  
+  ScoWaitExp18  =  8,  
+  ScoWaitExp19  =  9,  
+  ScoWaitExp20  = 10,  
+  ScoWaitExp21  = 11,  
+  ScoWaitErr    = 12   
+} en_clk_scowaittime_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_mcowaittime
+{
+  McoWaitExp11   = 0,   
+  McoWaitExp15   = 1,   
+  McoWaitExp16   = 2,   
+  McoWaitExp17   = 3,   
+  McoWaitExp18   = 4,   
+  McoWaitExp19   = 5,   
+  McoWaitExp110  = 6,   
+  McoWaitExp111  = 7,   
+  McoWaitExp112  = 8,   
+  McoWaitExp113  = 9,   
+  McoWaitExp114  = 10,  
+  McoWaitExp115  = 11,  
+  McoWaitExp117  = 12,  
+  McoWaitExp119  = 13,  
+  McoWaitExp121  = 14,  
+  McoWaitExp123  = 15   
+} en_clk_mcowaittime_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_pllowaittime
+{
+  PlloWaitExp19   = 0,   
+  PlloWaitExp110  = 1,   
+  PlloWaitExp111  = 2,   
+  PlloWaitExp112  = 3,   
+  PlloWaitExp113  = 4,   
+  PlloWaitExp114  = 5,   
+  PlloWaitExp115  = 6,   
+  PlloWaitExp116  = 7    
+} en_clk_pllowaittime_t;
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_pll_src
+{
+  PllSrcClkMo = 0,   
+  PllSrcClkHc = 123  
+} en_clk_pll_src_t;
+
+
+
+
+ 
+#line 405 ".\\lib\\inc\\clk.h"
+
+
+
+
+ 
+typedef enum en_clk_current
+{
+  Clk0nA          = 0,  
+  Clk135nA        = 1,  
+  Clk195nA        = 2,  
+  Clk385nA        = 3,  
+  Clk445nA        = 4,  
+  Clk510nA        = 5,  
+  ClkErrorCurrent = 6   
+} en_clk_current_t;
+
+
+
+
+ 
+typedef enum en_clk_boost_time
+{
+  ClkBoost50ms  = 0,    
+  ClkBoost63ms  = 1,    
+  ClkBoost125ms = 2,    
+  ClkBoost250ms = 3     
+} en_clk_boost_time_t;
+
+
+
+
+ 
+typedef enum en_clk_vbat_pins
+{
+  ClkVbatGpio    = 0,   
+  ClkVbatOsc     = 1,   
+  ClkVbatGpioOsc = 2    
+} en_clk_vbat_pins_t;
+
+
+
+
+ 
+typedef enum en_clk_vbat_pins_ddr
+{
+  ClkVbatInput   = 0,   
+  ClkVbatOutputL = 1,   
+  ClkVbatOutputH = 2    
+} en_clk_vbat_pins_ddr_t;
+
+
+
+
+ 
+typedef enum en_clk_gate_peripheral
+{
+  ClkGateGpio   = 0,    
+  ClkGateExtif  = 1,    
+  ClkGateDma    = 2,    
+  ClkGateAdc0   = 3,    
+  ClkGateAdc1   = 4,    
+  ClkGateAdc2   = 5,    
+  ClkGateAdc3   = 6,    
+  ClkGateMfs0   = 7,    
+  ClkGateMfs1   = 8,    
+  ClkGateMfs2   = 9,    
+  ClkGateMfs3   = 10,   
+  ClkGateMfs4   = 11,   
+  ClkGateMfs5   = 12,   
+  ClkGateMfs6   = 13,   
+  ClkGateMfs7   = 14,   
+  ClkGateMfs8   = 15,   
+  ClkGateMfs9   = 16,   
+  ClkGateMfs10  = 17,   
+  ClkGateMfs11  = 18,   
+  ClkGateMfs12  = 19,   
+  ClkGateMfs13  = 20,   
+  ClkGateMfs14  = 21,   
+  ClkGateMfs15  = 22,   
+  ClkGateQprc0  = 23,   
+  ClkGateQprc1  = 24,   
+  ClkGateQprc2  = 25,   
+  ClkGateQprc3  = 26,   
+  ClkGateMft0   = 27,   
+  ClkGateMft1   = 28,   
+  ClkGateMft2   = 29,   
+  ClkGateMft3   = 30,   
+  ClkGateBt0    = 31,   
+  ClkGateBt4    = 32,   
+  ClkGateBt8    = 33,   
+  ClkGateBt12   = 34,   
+  ClkGateSdIf   = 35,   
+  ClkGateCan0   = 36,   
+  ClkGateCan1   = 37,   
+  ClkGateUsb0   = 38,   
+  ClkGateUsb1   = 39    
+} en_clk_gate_peripheral_t;
+
+
+
+
+ 
+typedef enum en_clk_reset_peripheral
+{
+  ClkResetExtif  = 1,    
+  ClkResetDma    = 2,    
+  ClkResetAdc0   = 3,    
+  ClkResetAdc1   = 4,    
+  ClkResetAdc2   = 5,    
+  ClkResetAdc3   = 6,    
+  ClkResetMfs0   = 7,    
+  ClkResetMfs1   = 8,    
+  ClkResetMfs2   = 9,    
+  ClkResetMfs3   = 10,   
+  ClkResetMfs4   = 11,   
+  ClkResetMfs5   = 12,   
+  ClkResetMfs6   = 13,   
+  ClkResetMfs7   = 14,   
+  ClkResetMfs8   = 15,   
+  ClkResetMfs9   = 16,   
+  ClkResetMfs10  = 17,   
+  ClkResetMfs11  = 18,   
+  ClkResetMfs12  = 19,   
+  ClkResetMfs13  = 20,   
+  ClkResetMfs14  = 21,   
+  ClkResetMfs15  = 22,   
+  ClkResetQprc0  = 23,   
+  ClkResetQprc1  = 24,   
+  ClkResetQprc2  = 25,   
+  ClkResetQprc3  = 26,   
+  ClkResetMft0   = 27,   
+  ClkResetMft1   = 28,   
+  ClkResetMft2   = 29,   
+  ClkResetMft3   = 30,   
+  ClkResetBt0    = 31,   
+  ClkResetBt4    = 32,   
+  ClkResetBt8    = 33,   
+  ClkResetBt12   = 34,   
+  ClkResetSdIf   = 35,   
+  ClkResetCan0   = 36,   
+  ClkResetCan1   = 37,   
+  ClkResetUsb0   = 38,   
+  ClkResetUsb1   = 39    
+} en_clk_reset_peripheral_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_main_config
+{
+  en_clk_source_t       enSource;         
+  boolean_t             bEnablePll;       
+  boolean_t             bEnableMainClock; 
+  en_clk_mode_t         enMode;           
+  boolean_t             bLpmPortHiZState; 
+                                          
+                                          
+  en_clk_baseclkdiv_t   enBaseClkDiv;     
+  en_clk_apb0div_t      enAPB0Div;        
+  en_clk_apb1div_t      enAPB1Div;        
+  en_clk_apb2div_t      enAPB2Div;        
+  boolean_t             bAPB1Disable;     
+  boolean_t             bAPB2Disable;     
+  en_clk_mcowaittime_t  enMCOWaitTime;    
+  en_clk_pllowaittime_t enPLLOWaitTime;   
+  uint8_t               u8PllK;           
+  uint8_t               u8PllM;           
+  uint8_t               u8PllN;           
+  en_clk_pll_src_t      enPllSource;      
+#line 583 ".\\lib\\inc\\clk.h"
+  func_ptr_t            pfnHook;          
+} stc_clk_main_config_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_sub_config
+{
+  boolean_t             bEnableSubClock;  
+  en_clk_scowaittime_t  enSCOWaitTime;    
+
+
+
+
+} stc_clk_sub_config_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_vbat_config
+{
+  boolean_t              bLinkClock;            
+                                                
+  uint8_t                u8VbClockDiv;          
+  en_clk_current_t       enClkSustainCurrent;   
+  en_clk_current_t       enClkBoostCurrent;     
+  en_clk_boost_time_t    enClkBoostTime;        
+  en_clk_vbat_pins_t     enVbatPins;            
+  boolean_t              bVbP48Peripheral;      
+  boolean_t              bVbP49Peripheral;      
+  boolean_t              bVbP47Peripheral;      
+  boolean_t              bVbP46Peripheral;      
+  boolean_t              bVbP48PullUp;          
+  boolean_t              bVbP49PullUp;          
+  boolean_t              bVbP47PullUp;          
+  boolean_t              bVbP46PullUp;          
+  en_clk_vbat_pins_ddr_t enVbP48InOut;          
+  en_clk_vbat_pins_ddr_t enVbP49InOut;          
+  en_clk_vbat_pins_ddr_t enVbP47InOut;          
+  en_clk_vbat_pins_ddr_t enVbP46InOut;          
+  boolean_t              bVbP48OpenDrain;       
+  boolean_t              bVbP49OpenDrain;       
+} stc_clk_vbat_config_t;
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+extern en_result_t Clk_MainGetParameters(stc_clk_main_config_t* pstcConfig) ;
+extern en_result_t Clk_SubGetParameters(stc_clk_sub_config_t* pstcConfig) ;
+extern en_result_t Clk_VbatGetParameters(stc_clk_vbat_config_t* pstcConfig) ;
+
+extern en_result_t Clk_SetDividers(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_MainSetStabilizationWaitTime(stc_clk_main_config_t* pstcConfig) ;
+extern en_result_t Clk_SubSetStabilizationWaitTime(stc_clk_sub_config_t* pstcConfig) ;
+
+extern en_result_t Clk_WaitForMainOscillator(uint32_t u32MaxTimeOut) ;
+extern en_result_t Clk_WaitForSubOscillator(uint32_t u32MaxTimeOut) ;
+
+extern en_result_t Clk_WaitForPllOscillator(uint32_t u32MaxTimeOut) ;
+
+extern en_result_t Clk_MainOscillatorReady(void) ;
+extern en_result_t Clk_SubOscillatorReady(void) ;
+
+extern en_result_t Clk_PllOscillatorReady(void) ;
+
+extern en_result_t Clk_SetSource(stc_clk_main_config_t* pstcConfigMain,
+                                 stc_clk_sub_config_t*  pstcConfigSub) ;
+
+extern en_result_t Clk_SetPllSource(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_SetMode(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_EnableMainClock(void) ;
+extern en_result_t Clk_EnablePllClock(stc_clk_main_config_t* pstcConfigMain) ;
+extern en_result_t Clk_EnableSubClock(void) ;
+
+extern en_result_t Clk_DisableMainClock(void) ;
+extern en_result_t Clk_DisablePllClock(void) ;
+extern en_result_t Clk_DisableSubClock(void) ;
+
+extern en_result_t Clk_WaitForClockSourceReady(en_clk_source_t enSource,
+                                        uint32_t        u32MaxTimeOut) ;
+
+#line 691 ".\\lib\\inc\\clk.h"
+
+extern en_result_t Clk_ClockVbatInit(stc_clk_vbat_config_t* pstcConfig) ;
+
+extern en_result_t Clk_RequestVccPowerDown(void) ;
+
+extern en_result_t Clk_PeripheralClockEnable(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern boolean_t Clk_PeripheralGetClockState(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralClockDisable(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralSetReset(en_clk_reset_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralClearReset(en_clk_reset_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_SwitchToMainClock(void) ;
+
+extern en_result_t Clk_SwitchToMainPllClock(void) ;
+
+extern en_result_t Clk_SwitchToSubClock(void) ;
+
+extern en_result_t Clk_SwitchToLsCrClock(void) ;
+
+extern en_result_t Clk_SwitchToHsCrClock(void) ;
+
+extern en_result_t Clk_SwitchToHsCrPllClock(void) ;
+
+
+
+
+
+
+
+
+
 
 
  
@@ -26613,7 +27441,2304 @@ extern void PDL_WAIT_LOOP_HOOK(void);
  
 #line 61 "lib\\src\\clk.c"
 
-#line 2502 "lib\\src\\clk.c"
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+
+
+
+ 
+#line 145 "lib\\src\\clk.c"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_MainGetParameters(stc_clk_main_config_t* pstcConfig)
+{
+  uint8_t u8Dummy;
+  
+  en_clk_mcowaittime_t aenClkMcoWaitTime[16u] =
+  {
+    McoWaitExp11,  McoWaitExp15,  McoWaitExp16,  McoWaitExp17,
+    McoWaitExp18,  McoWaitExp19,  McoWaitExp110, McoWaitExp111,
+    McoWaitExp112, McoWaitExp113, McoWaitExp114, McoWaitExp115,
+    McoWaitExp117, McoWaitExp119, McoWaitExp121, McoWaitExp123 
+  };
+	
+  if ( pstcConfig == 0 )
+  {
+      return ErrorInvalidParameter ;
+  } 
+  
+  u8Dummy = (0x07u & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR >> 5u));            
+  switch (u8Dummy)
+  {
+    case 0:
+      pstcConfig->enSource = ClkHsCr ;
+      break;
+    case 1:
+      pstcConfig->enSource = ClkMain ;
+      break;   
+    case 2:
+      pstcConfig->enSource = ClkPll ;
+      break;      
+    case 4:
+      pstcConfig->enSource = ClkLsCr ;
+      break;    
+    case 5:
+      pstcConfig->enSource = ClkSub ;
+      break;  
+    default:
+      return ErrorInvalidMode ;
+  }
+
+  pstcConfig->bEnablePll       = (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE == 1u)  ? 1u : 0u ;
+  pstcConfig->bEnableMainClock = (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE == 1u) ? 1u : 0u ;
+  
+  switch(0x07u & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->BSC_PSR)
+  {
+    case 0u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv1;
+      break;
+    case 1u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv2;
+      break;
+    case 2u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv3;
+      break;
+    case 3u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv4;
+      break;
+    case 4u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv6;
+      break;
+    case 5u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv8;
+      break;
+    case 6u:
+      pstcConfig->enBaseClkDiv = BaseClkDiv16;
+      break;
+    default:
+      pstcConfig->enBaseClkDiv = BaseClkErr;
+  }
+
+  switch(0x03u & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC0_PSR)
+  {
+    case 0u:
+      pstcConfig->enAPB0Div = Apb0Div1;
+      break;
+    case 1u:
+      pstcConfig->enAPB0Div = Apb0Div2;
+      break;
+    case 2u:
+      pstcConfig->enAPB0Div = Apb0Div4;
+      break;
+    case 4u:
+      pstcConfig->enAPB0Div = Apb0Div8;
+      break;
+    default:
+      break;
+  }
+
+  switch(0x03u & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC1_PSR)
+  {
+    case 0u:
+      pstcConfig->enAPB1Div = Apb1Div1;
+      break;
+    case 1u:
+      pstcConfig->enAPB1Div = Apb1Div2;
+      break;
+    case 2u:
+      pstcConfig->enAPB1Div = Apb1Div4;
+      break;
+    case 4u:
+      pstcConfig->enAPB1Div = Apb1Div8;
+      break;
+    default:
+      break;
+  }
+  
+  switch(0x03u & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC2_PSR)
+  {
+    case 0u:
+      pstcConfig->enAPB2Div = Apb2Div1;
+      break;
+    case 1u:
+      pstcConfig->enAPB2Div = Apb2Div2;
+      break;
+    case 2u:
+      pstcConfig->enAPB2Div = Apb2Div4;
+      break;
+    case 4u:
+      pstcConfig->enAPB2Div = Apb2Div8;
+      break;
+    default:
+      break;
+  }
+
+  
+  pstcConfig->enMCOWaitTime = aenClkMcoWaitTime[0x0Fu & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR];
+
+  pstcConfig->u8PllK = ((0x0Fu & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PLL_CTL1)) >> 4u) + 1u ;
+  pstcConfig->u8PllM = (0x0Fu & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PLL_CTL1)) + 1u ;
+  pstcConfig->u8PllN = (0x1Fu & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PLL_CTL2)) + 1u ;
+  
+
+
+
+
+  
+  pstcConfig->enMode = ClkRun ; 
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SubGetParameters(stc_clk_sub_config_t* pstcConfig)
+{
+  switch(0x0Fu & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR >> 4u))
+  {
+    case 0u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp10;
+      break;
+    case 1u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp11;
+      break;
+    case 2u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp12;
+      break;
+    case 3u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp13;
+      break;
+    case 4u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp14;
+      break;
+    case 5u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp15;
+      break;
+    case 6u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp16;
+      break;
+    case 8u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp18;
+      break;
+    case 9u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp19;
+      break;
+    case 10u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp20;
+      break;
+    case 11u:
+      pstcConfig->enSCOWaitTime = ScoWaitExp21;
+      break;
+    default:
+      pstcConfig->enSCOWaitTime = ScoWaitErr;
+  }
+  
+
+
+
+  
+  return Ok;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_VbatGetParameters(stc_clk_vbat_config_t* pstcConfig)
+{
+  uint8_t u8ReadOut;
+  uint8_t u8ReadOut2;
+  uint8_t u8ReadMask;
+  
+  pstcConfig->bLinkClock       = (((boolean_t) 1) == (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTOSCCNT_f.SOSCNTL)) ? 1u : 0u ;
+  pstcConfig->bVbP48Peripheral = (0x00u == (0x01u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR)))   ? 1u : 0u ; 
+  pstcConfig->bVbP49Peripheral = (0x00u == (0x02u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR)))   ? 1u : 0u ; 
+  pstcConfig->bVbP47Peripheral = (0x00u == (0x04u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR)))   ? 1u : 0u ; 
+  pstcConfig->bVbP46Peripheral = (0x00u == (0x08u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR)))   ? 1u : 0u ; 
+  pstcConfig->bVbP48PullUp     = (0x01u == (0x01u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPCR)))   ? 1u : 0u ;
+  pstcConfig->bVbP49PullUp     = (0x02u == (0x02u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPCR)))   ? 1u : 0u ;
+  pstcConfig->bVbP47PullUp     = (0x03u == (0x03u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPCR)))   ? 1u : 0u ;
+  pstcConfig->bVbP46PullUp     = (0x08u == (0x08u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPCR)))   ? 1u : 0u ;
+  pstcConfig->bVbP48OpenDrain  = (0x01u == (0x01u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPZR)))   ? 1u : 0u ;
+  pstcConfig->bVbP49OpenDrain  = (0x02u == (0x02u & (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPZR)))   ? 1u : 0u ;
+  
+  u8ReadOut = ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR;
+  u8ReadMask = 0x30u & u8ReadOut;
+  
+  if ((0x00u == u8ReadMask) &&
+      (0x20u == u8ReadMask))
+  {
+    pstcConfig->enVbatPins = ClkVbatGpio;
+  }
+  else if (0x01u == u8ReadMask)
+  {
+    pstcConfig->enVbatPins = ClkVbatOsc;
+  }
+  else
+  {
+    pstcConfig->enVbatPins = ClkVbatGpioOsc;
+  }
+  
+  pstcConfig->u8VbClockDiv = ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VB_CLKDIV; 
+  
+  switch(((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->CCS)
+  {
+    case 0x00u:
+      pstcConfig->enClkSustainCurrent = Clk0nA;
+      break;
+    case 0x01u:
+      pstcConfig->enClkSustainCurrent = Clk135nA;
+      break;
+    case 0x02u:
+      pstcConfig->enClkSustainCurrent = Clk195nA;
+      break;
+    case 0x04u:
+      pstcConfig->enClkSustainCurrent = Clk385nA;
+      break;
+    case 0x08u:
+      pstcConfig->enClkSustainCurrent = Clk445nA;
+      break;
+    case 0x10u:
+      pstcConfig->enClkSustainCurrent = Clk510nA;
+      break;
+    default:
+      pstcConfig->enClkSustainCurrent = ClkErrorCurrent;
+  }
+  
+  switch(((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->CCB)
+  {
+    case 0x00u:
+      pstcConfig->enClkBoostCurrent = Clk0nA;
+      break;
+    case 0x01u:
+      pstcConfig->enClkBoostCurrent = Clk135nA;
+      break;
+    case 0x02u:
+      pstcConfig->enClkBoostCurrent = Clk195nA;
+      break;
+    case 0x04u:
+      pstcConfig->enClkBoostCurrent = Clk385nA;
+      break;
+    case 0x08u:
+      pstcConfig->enClkBoostCurrent = Clk445nA;
+      break;
+    case 0x10u:
+      pstcConfig->enClkBoostCurrent = Clk510nA;
+      break;
+    default:
+      pstcConfig->enClkBoostCurrent = ClkErrorCurrent;
+  }
+  
+  u8ReadOut  = ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBDDR;
+  u8ReadOut2 = ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBDOR;
+  
+  if (0x00 == (0x01 & u8ReadOut))
+  {
+    pstcConfig->enVbP48InOut = ClkVbatInput;
+  }
+  else
+  {
+    if (0x00 == (0x01 & u8ReadOut2))
+    {
+      pstcConfig->enVbP48InOut = ClkVbatOutputL;
+    }
+    else
+    {
+      pstcConfig->enVbP48InOut = ClkVbatOutputH;
+    }
+  }
+  
+  if (0x00 == (0x02 & u8ReadOut))
+  {
+    pstcConfig->enVbP49InOut = ClkVbatInput;
+  }
+  else
+  {
+    if (0x00 == (0x02 & u8ReadOut2))
+    {
+      pstcConfig->enVbP49InOut = ClkVbatOutputL;
+    }
+    else
+    {
+      pstcConfig->enVbP49InOut = ClkVbatOutputH;
+    }
+  }
+  
+  if (0x00 == (0x04 & u8ReadOut))
+  {
+    pstcConfig->enVbP47InOut = ClkVbatInput;
+  }
+  else
+  {
+    if (0x00 == (0x04 & u8ReadOut2))
+    {
+      pstcConfig->enVbP47InOut = ClkVbatOutputL;
+    }
+    else
+    {
+      pstcConfig->enVbP47InOut = ClkVbatOutputH;
+    }
+  }
+
+  if (0x00 == (0x08 & u8ReadOut))
+  {
+    pstcConfig->enVbP46InOut = ClkVbatInput;
+  }
+  else
+  {
+    if (0x00 == (0x08 & u8ReadOut2))
+    {
+      pstcConfig->enVbP46InOut = ClkVbatOutputL;
+    }
+    else
+    {
+      pstcConfig->enVbP46InOut = ClkVbatOutputH;
+    }
+  }
+  
+  return Ok;
+}  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SetDividers(stc_clk_main_config_t* pstcConfig)
+{
+  if ( pstcConfig == 0 )
+  {
+      return ErrorInvalidParameter ;
+  } 
+  
+  
+  if (pstcConfig->enBaseClkDiv > 0x06u)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->BSC_PSR = pstcConfig->enBaseClkDiv;
+  }
+
+  
+  if (pstcConfig->enAPB0Div > 0x03u)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC0_PSR = pstcConfig->enAPB0Div;
+  }  
+
+  
+  if (pstcConfig->enAPB1Div > 0x03u)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC1_PSR = (pstcConfig->enAPB1Div) | (((pstcConfig->bAPB1Disable == 1u) ? 0u : 1u) << 7u);
+  } 
+  
+  
+  if (pstcConfig->enAPB2Div > 0x03u)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->APBC2_PSR = (pstcConfig->enAPB2Div) | (((pstcConfig->bAPB2Disable == 1u) ? 0u : 1u) << 7u);
+  }   
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_MainSetStabilizationWaitTime(stc_clk_main_config_t* pstcConfig)
+{
+  uint8_t u8Dummy;
+  uint8_t u8Pinc = 0u;
+  
+  if ( pstcConfig == 0 )
+  {
+      return ErrorInvalidParameter ;
+  } 
+  
+  if (pstcConfig->enMCOWaitTime > 0x0Fu)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    u8Dummy = pstcConfig->enMCOWaitTime ;
+  }
+  
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR &= 0xF0u;
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR |= u8Dummy ;
+  
+  if (pstcConfig->enPLLOWaitTime > 0x07u)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  { 
+    if (pstcConfig->enPllSource == PllSrcClkHc)
+    {
+      u8Pinc = 0x10u;
+    }
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PSW_TMR = (pstcConfig->enPLLOWaitTime) | u8Pinc ;
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_WaitForMainOscillator(uint32_t u32MaxTimeOut)
+{
+  uint32_t u32Timeout = u32MaxTimeOut;
+  
+  while (u32Timeout--)
+  {
+    if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.MORDY == 1u)
+    {
+      return Ok;
+    }
+    
+    PDL_WAIT_LOOP_HOOK();
+  }
+  
+  return ErrorTimeout;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_WaitForPllOscillator(uint32_t u32MaxTimeOut)
+{
+  uint32_t u32Timeout = u32MaxTimeOut;
+  
+  while (u32Timeout--)
+  {
+    if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.PLRDY == 1u)
+    {
+      return Ok;
+    }
+    
+    PDL_WAIT_LOOP_HOOK();
+  }
+  
+  return ErrorTimeout;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_WaitForClockSourceReady(en_clk_source_t enSource,
+                                        uint32_t        u32MaxTimeOut)
+{
+  uint32_t u32Timeout = u32MaxTimeOut;
+  uint8_t  u8SourcePattern;
+  
+  switch(enSource)
+  {
+    case ClkHsCr:
+      u8SourcePattern = 0x0u;
+      break;   
+    case ClkMain:
+      u8SourcePattern = 0x1u;
+      break;
+    case ClkPll:
+      u8SourcePattern = 0x2u;
+      break; 
+    case ClkLsCr:
+      u8SourcePattern = 0x4u;
+      break; 
+    case ClkSub:
+      u8SourcePattern = 0x5u;
+      break;  
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  while (u32Timeout--)
+  {
+    if ((0x07u & (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR >> 5u)) == u8SourcePattern)
+    {
+      return Ok;
+    }
+    
+    PDL_WAIT_LOOP_HOOK();
+  }
+  
+  return ErrorTimeout;
+} 
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_MainOscillatorReady(void)
+{
+  if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.MORDY == 1u)
+  {
+    return Ok;
+  }
+
+  return ErrorNotReady;
+} 
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SubOscillatorReady(void)
+{
+  if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.SORDY == 1u)
+  {
+    return Ok;
+  }
+
+  return ErrorNotReady;
+} 
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_PllOscillatorReady(void)
+{
+  if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.PLRDY == 1u)
+  {
+    return Ok;
+  }
+
+  return ErrorNotReady;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SetSource(stc_clk_main_config_t* pstcConfigMain,
+                          stc_clk_sub_config_t*  pstcConfigSub)
+{
+  stc_clk_main_config_t    stcCurrentConfigMain;  
+  stc_clk_sub_config_t     stcCurrentConfigSub;   
+  stc_crg_scm_ctl_field_t  stcSCM_CTL;
+
+  if ( pstcConfigMain == 0 )
+  {
+    return ErrorInvalidParameter ;
+  } 
+  
+  if ( pstcConfigSub == 0 )
+  {
+    return ErrorInvalidParameter ;
+  } 
+  
+  if (Ok != Clk_MainGetParameters(&stcCurrentConfigMain))
+  {
+    return ErrorInvalidParameter ;
+  }
+  
+  if (Ok != Clk_SubGetParameters(&stcCurrentConfigSub))
+  {
+    return ErrorInvalidParameter ;
+  }
+  
+  switch(pstcConfigMain->enSource)
+  {
+    case ClkMain:
+      if ((((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE != ((boolean_t) 1)) ||  
+          (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.MORDY != ((boolean_t) 1)))
+      {
+        return ErrorInvalidParameter ;
+      }
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0x1u;
+      break;
+    case ClkSub:
+      if ((((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.SOSCE != ((boolean_t) 1)) ||  
+          (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.SORDY != ((boolean_t) 1)))
+      {
+        return ErrorInvalidParameter ;
+      }
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0x5u;
+      break;
+    case ClkHsCr:                                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0x0u;
+      break;
+    case ClkLsCr:                                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0x4u;
+    case ClkPll:                           
+      if ((((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE != ((boolean_t) 1)) ||  
+          (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.PLRDY != ((boolean_t) 1)))
+      {
+        return ErrorInvalidParameter ;
+      }
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0x2u;
+      break;
+    default:
+      return ErrorInvalidParameter ;
+  }
+
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SetMode(stc_clk_main_config_t* pstcConfig)
+{
+  uint32_t u32PortState; 
+  
+  if ( pstcConfig == 0 )
+  {
+      return ErrorInvalidParameter ;
+  } 
+  
+  u32PortState = (pstcConfig->bLpmPortHiZState == ((boolean_t) 1)) ? 0x00000010ul : 0ul ; 
+  
+  switch(pstcConfig->enMode)
+  {
+    case ClkRun : 
+      break;
+      
+    case ClkSleep :
+      *(volatile uint8_t*) 0x40035800ul = 0x00u;                
+      ((SCB_Type *) ((0xE000E000UL) + 0x0D00UL) )->SCR = 0u;                      
+      
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;
+      
+    case ClkTimer :
+      *(volatile uint8_t*) 0x40035800ul = 0x00u;                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->STB_CTL = 0x1ACC0000ul | u32PortState; 
+      
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;
+      
+    case ClkStop :
+      *(volatile uint8_t*) 0x40035800ul = 0x00u;                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->STB_CTL = 0x1ACC0002ul | u32PortState; 
+      
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;
+
+    case ClkRtc :
+      *(volatile uint8_t*) 0x40035800ul = 0x01u;                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->STB_CTL = 0x1ACC0002ul | u32PortState; 
+      
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;      
+      
+    case ClkDeepRtc :
+      *(volatile uint8_t*) 0x40035800ul = 0x01u;                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->STB_CTL = 0x1ACC0002ul | u32PortState | 0x00000004ul ; 
+      *(volatile uint32_t*) 0xE000ED10ul = (1ul << 2u);	      
+       
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;
+      
+    case ClkDeepStop :
+      *(volatile uint8_t*) 0x40035800ul = 0x00u;                
+      ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->STB_CTL = 0x1ACC0002ul | u32PortState | 0x00000004ul ; 
+      *(volatile uint32_t*) 0xE000ED10ul = (1ul << 2u);	    
+      
+      if (pstcConfig->pfnHook != 0)    
+      {
+         pstcConfig->pfnHook();
+      }
+      __wfi();                            
+      break;
+      
+    default :
+      return ErrorInvalidParameter ;
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_DisableSubClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.SOSCE = 0u;
+
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_EnableMainClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE = 1u;
+
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_EnablePllClock(stc_clk_main_config_t* pstcConfigMain)
+{
+  uint8_t u8Dummy;
+  
+  if ( pstcConfigMain == 0 )
+  {
+    return ErrorInvalidParameter ;
+  } 
+  
+  if (1u == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE)
+  {
+    return ErrorOperationInProgress;
+  }
+  
+  
+  if ((pstcConfigMain->u8PllK > ((uint8_t)4u)) ||
+      (pstcConfigMain->u8PllK == 0u)
+     )
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    u8Dummy = ((pstcConfigMain->u8PllK) - 1u) << 4u ; 
+  }
+  
+  
+  if ((pstcConfigMain->u8PllM > ((uint8_t)4u)) ||
+      (pstcConfigMain->u8PllM == 0u)
+     )
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    u8Dummy |= (pstcConfigMain->u8PllM) - 1u ; 
+  }
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PLL_CTL1 = u8Dummy ;
+  
+  
+  if ((pstcConfigMain->u8PllN > ((uint8_t)40u)) ||
+      (pstcConfigMain->u8PllN == 0u)
+     )
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PLL_CTL2 =( pstcConfigMain->u8PllN) - 1u ; 
+  }
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 1u;
+
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_DisableMainClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE = 0u;
+
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_DisablePllClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 0u;
+
+  return Ok;
+} 
+
+#line 1268 "lib\\src\\clk.c"
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_ClockVbatInit(stc_clk_vbat_config_t* pstcConfig)
+{
+  uint8_t                  u8VbClkDiv;
+  uint8_t                  u8Ccs;
+  uint8_t                  u8Ccb;
+  stc_rtc_boost_field_t    stcBoost;
+  stc_rtc_vbpfr_field_t    stcVbpfr;
+  stc_rtc_vbpcr_field_t    stcVbpcr;
+  stc_rtc_vbddr_field_t    stcVbddr;
+  stc_rtc_vbpzr_field_t    stcVbpzr;
+  stc_rtc_vbdor_field_t    stcVbdor;
+     
+  if ( pstcConfig == 0 )
+  {
+    return ErrorInvalidParameter ;
+  }
+
+  pdl_memclr((uint8_t*)&(stcBoost), (uint32_t)(sizeof(stcBoost)));
+  pdl_memclr((uint8_t*)&(stcVbpfr), (uint32_t)(sizeof(stcVbpfr)));
+  pdl_memclr((uint8_t*)&(stcVbddr), (uint32_t)(sizeof(stcVbddr)));
+  pdl_memclr((uint8_t*)&(stcVbpzr), (uint32_t)(sizeof(stcVbpzr)));
+  pdl_memclr((uint8_t*)&(stcVbdor), (uint32_t)(sizeof(stcVbdor)));     
+  
+  u8VbClkDiv = pstcConfig->u8VbClockDiv;
+
+  switch(pstcConfig->enClkSustainCurrent)
+  {
+    case Clk0nA:
+      u8Ccs = 0x00u;
+      break;
+    case Clk135nA:
+      u8Ccs = 0x01u;
+      break;
+    case Clk195nA:
+      u8Ccs = 0x02u;
+      break;
+    case Clk385nA:
+      u8Ccs = 0x04u;
+      break;
+    case Clk445nA:
+      u8Ccs = 0x08u;
+      break;
+    case Clk510nA:
+      u8Ccs = 0x10u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+
+  switch(pstcConfig->enClkBoostCurrent)
+  {
+    case Clk0nA:
+      u8Ccb = 0x00u;
+      break;
+    case Clk135nA:
+      u8Ccb = 0x01u;
+      break;
+    case Clk195nA:
+      u8Ccb = 0x02u;
+      break;
+    case Clk385nA:
+      u8Ccb = 0x04u;
+      break;
+    case Clk445nA:
+      u8Ccb = 0x08u;
+      break;
+    case Clk510nA:
+      u8Ccb = 0x10u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  switch(pstcConfig->enClkBoostTime)
+  {
+    case ClkBoost50ms:
+      stcBoost.BOOST = 3u;
+      break;
+    case ClkBoost63ms:
+      stcBoost.BOOST = 0u;
+      break;
+    case ClkBoost125ms:
+      stcBoost.BOOST = 1u;
+      break;
+    case ClkBoost250ms:
+      stcBoost.BOOST = 2u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  switch(pstcConfig->enVbatPins)
+  {
+    case ClkVbatGpio:
+      stcVbpfr.SPSR0 = 0;
+      stcVbpfr.SPSR1 = 0;
+      break;
+    case ClkVbatOsc:
+      stcVbpfr.SPSR0 = 1;
+      stcVbpfr.SPSR1 = 0;
+      break;
+    case ClkVbatGpioOsc:
+      stcVbpfr.SPSR0 = 1;
+      stcVbpfr.SPSR1 = 1;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  stcVbpfr.VPFR0 = (((boolean_t) 1) == (pstcConfig->bVbP48Peripheral)) ? 1u : 0u ;
+  stcVbpfr.VPFR1 = (((boolean_t) 1) == (pstcConfig->bVbP49Peripheral)) ? 1u : 0u ;
+  stcVbpfr.VPFR2 = (((boolean_t) 1) == (pstcConfig->bVbP47Peripheral)) ? 1u : 0u ;
+  stcVbpfr.VPFR3 = (((boolean_t) 1) == (pstcConfig->bVbP46Peripheral)) ? 1u : 0u ;
+    
+  stcVbpcr.VPCR0 = (((boolean_t) 1) == (pstcConfig->bVbP48PullUp)) ? 1u : 0u ;
+  stcVbpcr.VPCR1 = (((boolean_t) 1) == (pstcConfig->bVbP49PullUp)) ? 1u : 0u ;
+  stcVbpcr.VPCR2 = (((boolean_t) 1) == (pstcConfig->bVbP47PullUp)) ? 1u : 0u ;
+  stcVbpcr.VPCR3 = (((boolean_t) 1) == (pstcConfig->bVbP46PullUp)) ? 1u : 0u ;
+  
+  if (((boolean_t) 0) == pstcConfig->bVbP48Peripheral)
+  {
+    switch(pstcConfig->enVbP48InOut)
+    {
+      case ClkVbatInput:
+        stcVbddr.VDDR0 = 0u;
+        break;
+      case ClkVbatOutputL:
+        stcVbdor.VDOR0 = 0u;
+        stcVbddr.VDDR0 = 1u;
+        break;
+      case ClkVbatOutputH:
+        stcVbdor.VDOR0 = 1u;
+        stcVbddr.VDDR0 = 1u;
+        break;
+      default:
+        return ErrorInvalidParameter;
+    }
+  }
+  
+  if (((boolean_t) 0) == pstcConfig->bVbP49Peripheral)
+  {
+    switch(pstcConfig->enVbP49InOut)
+    {
+      case ClkVbatInput:
+        stcVbddr.VDDR1 = 0u;
+        break;
+      case ClkVbatOutputL:
+        stcVbdor.VDOR1 = 0u;
+        stcVbddr.VDDR1 = 1u;
+        break;
+      case ClkVbatOutputH:
+        stcVbdor.VDOR1 = 1u;
+        stcVbddr.VDDR1 = 1u;
+        break;
+      default:
+        return ErrorInvalidParameter;
+    }
+  }
+  
+  if ((ClkVbatOsc != pstcConfig->enVbatPins) &&
+      (((boolean_t) 0) == pstcConfig->bVbP47Peripheral))
+  {
+    switch(pstcConfig->enVbP47InOut)
+    {
+      case ClkVbatInput:
+        stcVbddr.VDDR2 = 0u;
+        break;
+      case ClkVbatOutputL:
+        stcVbdor.VDOR2 = 0u;
+        stcVbddr.VDDR2 = 1u;
+        break;
+      case ClkVbatOutputH:
+        stcVbdor.VDOR2 = 1u;
+        stcVbddr.VDDR2 = 1u;
+        break;
+      default:
+        return ErrorInvalidParameter;
+    }
+  }
+  
+  if (((boolean_t) 0) == pstcConfig->bVbP46Peripheral)
+  {
+    switch(pstcConfig->enVbP46InOut)
+    {
+      case ClkVbatInput:
+        stcVbddr.VDDR3 = 0u;
+        break;
+      case ClkVbatOutputL:
+        stcVbdor.VDOR3 = 0u;
+        stcVbddr.VDDR3 = 1u;
+        break;
+      case ClkVbatOutputH:
+        stcVbdor.VDOR3 = 1u;
+        stcVbddr.VDDR3 = 1u;
+        break;
+      default:
+        return ErrorInvalidParameter;
+    }
+  }
+  
+  stcVbpzr.VPZR0 = (((boolean_t) 1) == (pstcConfig->bVbP48OpenDrain)) ? 1u : 0u ;
+  stcVbpzr.VPZR1 = (((boolean_t) 1) == (pstcConfig->bVbP49OpenDrain)) ? 1u : 0u ;
+  
+  
+  if (((boolean_t) 1) == (((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VDET_f.PON))    
+  {
+    ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VDET_f.PON = 0u;            
+  }
+
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPFR_f   = stcVbpfr;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPCR_f   = stcVbpcr;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBDOR_f   = stcVbdor;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBDDR_f   = stcVbddr;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VBPZR_f   = stcVbpzr;
+ 
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->CCB       = u8Ccb;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->CCS       = u8Ccs;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->VB_CLKDIV = u8VbClkDiv;
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->BOOST_f   = stcBoost;
+
+  
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTCR20_f.PWRITE = 1;
+
+  
+  while(0u != ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTCR10_f.TRANS)
+  {}
+    
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_EnableSubClock(void)
+{
+  uint32_t u32WaitCount = 100000000u;
+  
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTOSCCNT_f.SOSCEX  = 0u;     
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTOSCCNT_f.SOSCNTL = 1u;     
+  
+  
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTCR20_f.PWRITE = 1;
+  
+  
+  while((u32WaitCount--) && (0u != ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTCR10_f.TRANS))
+  {}                                    
+  
+  if (0 == u32WaitCount)
+  {
+	return ErrorTimeout;
+  }
+    
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.SOSCE = 1u; 	
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SubSetStabilizationWaitTime(stc_clk_sub_config_t* pstcConfig)
+{
+  uint8_t u8Dummy;
+  
+  
+  u8Dummy = (0x0Fu & ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR);
+  
+  if (pstcConfig->enSCOWaitTime > 0x0Bu)
+  {
+    return ErrorInvalidParameter ;
+  }
+  else
+  {
+    switch(pstcConfig->enSCOWaitTime)
+    {
+      case ScoWaitExp10:
+        u8Dummy |=  0x00;
+        break;
+      case ScoWaitExp11:
+        u8Dummy |=  0x10;
+        break;
+      case ScoWaitExp12:
+        u8Dummy |=  0x20;
+        break;
+      case ScoWaitExp13:
+        u8Dummy |=  0x30;
+        break;
+      case ScoWaitExp14:
+        u8Dummy |=  0x40;
+        break;
+      case ScoWaitExp15:
+        u8Dummy |=  0x50;
+        break;
+      case ScoWaitExp16:
+        u8Dummy |=  0x60;
+        break;
+      case ScoWaitExp17:
+        u8Dummy |=  0x70;
+        break;
+      case ScoWaitExp18:
+        u8Dummy |=  0x80;
+        break;
+      case ScoWaitExp19:
+        u8Dummy |=  0x90;
+        break;
+      case ScoWaitExp20:
+        u8Dummy |=  0xA0;
+        break;
+      case ScoWaitExp21:
+        u8Dummy |=  0xB0;
+        break;
+      default:
+        return ErrorInvalidParameter ;
+    }
+  }
+  
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->CSW_TMR = u8Dummy;
+  
+  return Ok;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_WaitForSubOscillator(uint32_t u32MaxTimeOut)
+{
+  uint32_t u32Timeout = u32MaxTimeOut;
+  
+  while (u32Timeout--)
+  {
+    if (((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.SORDY == 1u)
+    {
+      return Ok;
+    }
+    
+    PDL_WAIT_LOOP_HOOK();
+  }
+  
+  return ErrorTimeout;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_RequestVccPowerDown(void)
+{
+  ((FM4_RTC_TypeDef *)((0x40000000UL) + 0x3B100UL))->WTOSCCNT_f.SOSCNTL = 0u;
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_PeripheralClockEnable(en_clk_gate_peripheral_t enPeripheral)
+{
+  switch (enPeripheral)
+  {
+    case ClkGateGpio:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.GIOCK = 1u;
+      break;
+    case ClkGateExtif:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.EXBCK = 1u;
+      break;
+    case ClkGateDma:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.DMACK = 1u;
+      break;
+    case ClkGateAdc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK0 = 1u;
+      break;
+    case ClkGateAdc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK1 = 1u;
+      break;
+    case ClkGateAdc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK2 = 1u;
+      break;
+    case ClkGateAdc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK3 = 1u;
+      break;
+    case ClkGateMfs0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK0 = 1u;
+      break;
+    case ClkGateMfs1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK1 = 1u;
+      break;
+    case ClkGateMfs2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK2 = 1u;
+      break;
+    case ClkGateMfs3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK3 = 1u;
+      break;
+    case ClkGateMfs4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK4 = 1u;
+      break;
+    case ClkGateMfs5:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK5 = 1u;
+      break;
+    case ClkGateMfs6:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK6 = 1u;
+      break;
+    case ClkGateMfs7:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK7 = 1u;
+      break;
+    case ClkGateMfs8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK8 = 1u;
+      break;
+    case ClkGateMfs9:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK9 = 1u;
+      break;
+    case ClkGateMfs10:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK10 = 1u;
+      break;
+    case ClkGateMfs11:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK11 = 1u;
+      break;
+    case ClkGateMfs12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK12 = 1u;
+      break;
+    case ClkGateMfs13:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK13 = 1u;
+      break;
+    case ClkGateMfs14:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK14 = 1u;
+      break;
+    case ClkGateMfs15:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK15 = 1u;
+      break;
+    case ClkGateQprc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK0 = 1u;
+      break;
+    case ClkGateQprc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK1 = 1u;
+      break;
+    case ClkGateQprc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK2 = 1u;
+      break;
+    case ClkGateQprc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK3 = 1u;
+      break;
+    case ClkGateMft0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK0 = 1u;
+      break;
+    case ClkGateMft1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK1 = 1u;
+      break;
+    case ClkGateMft2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK2 = 1u;
+      break;
+    case ClkGateMft3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK3 = 1u;
+      break;
+    case ClkGateBt0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK0 = 1u;
+      break;
+    case ClkGateBt4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK1 = 1u;
+      break;
+    case ClkGateBt8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK2 = 1u;
+      break;
+    case ClkGateBt12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK3 = 1u;
+      break;
+    case ClkGateSdIf:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.SDCCK = 1u;
+      break;
+    case ClkGateCan0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK0 = 1u;
+      break;
+    case ClkGateCan1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK1 = 1u;
+      break;
+    case ClkGateUsb0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK0 = 1u;
+      break;
+    case ClkGateUsb1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK1 = 1u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+boolean_t Clk_PeripheralGetClockState(en_clk_gate_peripheral_t enPeripheral)
+{
+  switch (enPeripheral)
+  {
+    case ClkGateGpio:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.GIOCK) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateExtif:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.EXBCK) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateDma:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.DMACK) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateAdc0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateAdc1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateAdc2:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK2) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateAdc3:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK3) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs2:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK2) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs3:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK3) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs4:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK4) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs5:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK5) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs6:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK6) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs7:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK7) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs8:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK8) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs9:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK9) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs10:
+      return ((1u ==  ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK10) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs11:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK11) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs12:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK12) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs13:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK13) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs14:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK14) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMfs15:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK15) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateQprc0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateQprc1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateQprc2:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK2) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateQprc3:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK3) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMft0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMft1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMft2:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK2) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateMft3:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK3) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateBt0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateBt4:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateBt8:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK2) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateBt12:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK3) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateSdIf:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.SDCCK) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateCan0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateCan1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateUsb0:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK0) ? ((boolean_t) 1) : ((boolean_t) 0));
+    case ClkGateUsb1:
+      return ((1u == ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK1) ? ((boolean_t) 1) : ((boolean_t) 0));
+    default:
+      break;
+  }
+  
+  return ((boolean_t) 0); 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_PeripheralClockDisable(en_clk_gate_peripheral_t enPeripheral)
+{
+  switch (enPeripheral)
+  {
+    case ClkGateGpio:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.GIOCK = 0u;
+      break;
+    case ClkGateExtif:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.EXBCK = 0u;
+      break;
+    case ClkGateDma:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.DMACK = 0u;
+      break;
+    case ClkGateAdc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK0 = 0u;
+      break;
+    case ClkGateAdc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK1 = 0u;
+      break;
+    case ClkGateAdc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK2 = 0u;
+      break;
+    case ClkGateAdc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.ADCCK3 = 0u;
+      break;
+    case ClkGateMfs0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK0 = 0u;
+      break;
+    case ClkGateMfs1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK1 = 0u;
+      break;
+    case ClkGateMfs2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK2 = 0u;
+      break;
+    case ClkGateMfs3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK3 = 0u;
+      break;
+    case ClkGateMfs4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK4 = 0u;
+      break;
+    case ClkGateMfs5:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK5 = 0u;
+      break;
+    case ClkGateMfs6:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK6 = 0u;
+      break;
+    case ClkGateMfs7:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK7 = 0u;
+      break;
+    case ClkGateMfs8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK8 = 0u;
+      break;
+    case ClkGateMfs9:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK9 = 0u;
+      break;
+    case ClkGateMfs10:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK10 = 0u;
+      break;
+    case ClkGateMfs11:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK11 = 0u;
+      break;
+    case ClkGateMfs12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK12 = 0u;
+      break;
+    case ClkGateMfs13:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK13 = 0u;
+      break;
+    case ClkGateMfs14:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK14 = 0u;
+      break;
+    case ClkGateMfs15:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN0_f.MFSCK15 = 0u;
+      break;
+    case ClkGateQprc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK0 = 0u;
+      break;
+    case ClkGateQprc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK1 = 0u;
+      break;
+    case ClkGateQprc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK2 = 0u;
+      break;
+    case ClkGateQprc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.QDUCK3 = 0u;
+      break;
+    case ClkGateMft0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK0 = 0u;
+      break;
+    case ClkGateMft1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK1 = 0u;
+      break;
+    case ClkGateMft2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK2 = 0u;
+      break;
+    case ClkGateMft3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.MFTCK3 = 0u;
+      break;
+    case ClkGateBt0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK0 = 0u;
+      break;
+    case ClkGateBt4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK1 = 0u;
+      break;
+    case ClkGateBt8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK2 = 0u;
+      break;
+    case ClkGateBt12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN1_f.BTMCK3 = 0u;
+      break;
+    case ClkGateSdIf:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.SDCCK = 0u;
+      break;
+    case ClkGateCan0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK0 = 0u;
+      break;
+    case ClkGateCan1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.CANCK1 = 0u;
+      break;
+    case ClkGateUsb0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK0 = 0u;
+      break;
+    case ClkGateUsb1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->CKEN2_f.USBCK1 = 0u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_PeripheralSetReset(en_clk_reset_peripheral_t enPeripheral)
+{
+  switch (enPeripheral)
+  {
+    case ClkResetExtif:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.EXBRST = 1u;
+      break;
+    case ClkResetDma:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.DMARST = 1u;
+      break;
+    case ClkResetAdc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST0 = 1u;
+      break;
+    case ClkResetAdc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST1 = 1u;
+      break;
+    case ClkResetAdc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST2 = 1u;
+      break;
+    case ClkResetAdc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST3 = 1u;
+      break;
+    case ClkResetMfs0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST0 = 1u;
+      break;
+    case ClkResetMfs1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST1 = 1u;
+      break;
+    case ClkResetMfs2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST2 = 1u;
+      break;
+    case ClkResetMfs3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST3 = 1u;
+      break;
+    case ClkResetMfs4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST4 = 1u;
+      break;
+    case ClkResetMfs5:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST5 = 1u;
+      break;
+    case ClkResetMfs6:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST6 = 1u;
+      break;
+    case ClkResetMfs7:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST7 = 1u;
+      break;
+    case ClkResetMfs8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST8 = 1u;
+      break;
+    case ClkResetMfs9:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST9 = 1u;
+      break;
+    case ClkResetMfs10:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST10 = 1u;
+      break;
+    case ClkResetMfs11:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST11 = 1u;
+      break;
+    case ClkResetMfs12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST12 = 1u;
+      break;
+    case ClkResetMfs13:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST13 = 1u;
+      break;
+    case ClkResetMfs14:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST14 = 1u;
+      break;
+    case ClkResetMfs15:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST15 = 1u;
+      break;
+    case ClkResetQprc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST0 = 1u;
+      break;
+    case ClkResetQprc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST1 = 1u;
+      break;
+    case ClkResetQprc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST2 = 1u;
+      break;
+    case ClkResetQprc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST3 = 1u;
+      break;
+    case ClkResetMft0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST0 = 1u;
+      break;
+    case ClkResetMft1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST1 = 1u;
+      break;
+    case ClkResetMft2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST2 = 1u;
+      break;
+    case ClkResetMft3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST3 = 1u;
+      break;
+    case ClkResetBt0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST0 = 1u;
+      break;
+    case ClkResetBt4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST1 = 1u;
+      break;
+    case ClkResetBt8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST2 = 1u;
+      break;
+    case ClkResetBt12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST3 = 1u;
+      break;
+    case ClkResetSdIf:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.SDCRST = 1u;
+      break;
+    case ClkResetCan0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.CANRST0 = 1u;
+      break;
+    case ClkResetCan1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.CANRST1 = 1u;
+      break;
+    case ClkResetUsb0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.USBRST0 = 1u;
+      break;
+    case ClkResetUsb1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.USBRST1 = 1u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_PeripheralClearReset(en_clk_reset_peripheral_t enPeripheral)
+{
+  switch (enPeripheral)
+  {
+    case ClkResetExtif:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.EXBRST = 0u;
+      break;
+    case ClkResetDma:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.DMARST = 0u;
+      break;
+    case ClkResetAdc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST0 = 0u;
+      break;
+    case ClkResetAdc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST1 = 0u;
+      break;
+    case ClkResetAdc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST2 = 0u;
+      break;
+    case ClkResetAdc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.ADCRST3 = 0u;
+      break;
+    case ClkResetMfs0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST0 = 0u;
+      break;
+    case ClkResetMfs1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST1 = 0u;
+      break;
+    case ClkResetMfs2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST2 = 0u;
+      break;
+    case ClkResetMfs3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST3 = 0u;
+      break;
+    case ClkResetMfs4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST4 = 0u;
+      break;
+    case ClkResetMfs5:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST5 = 0u;
+      break;
+    case ClkResetMfs6:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST6 = 0u;
+      break;
+    case ClkResetMfs7:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST7 = 0u;
+      break;
+    case ClkResetMfs8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST8 = 0u;
+      break;
+    case ClkResetMfs9:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST9 = 0u;
+      break;
+    case ClkResetMfs10:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST10 = 0u;
+      break;
+    case ClkResetMfs11:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST11 = 0u;
+      break;
+    case ClkResetMfs12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST12 = 0u;
+      break;
+    case ClkResetMfs13:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST13 = 0u;
+      break;
+    case ClkResetMfs14:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST14 = 0u;
+      break;
+    case ClkResetMfs15:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST0_f.MFSRST15 = 0u;
+      break;
+    case ClkResetQprc0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST0 = 0u;
+      break;
+    case ClkResetQprc1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST1 = 0u;
+      break;
+    case ClkResetQprc2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST2 = 0u;
+      break;
+    case ClkResetQprc3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.QDURST3 = 0u;
+      break;
+    case ClkResetMft0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST0 = 0u;
+      break;
+    case ClkResetMft1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST1 = 0u;
+      break;
+    case ClkResetMft2:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST2 = 0u;
+      break;
+    case ClkResetMft3:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.MFTRST3 = 0u;
+      break;
+    case ClkResetBt0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST0 = 0u;
+      break;
+    case ClkResetBt4:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST1 = 0u;
+      break;
+    case ClkResetBt8:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST2 = 0u;
+      break;
+    case ClkResetBt12:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST1_f.BTMRST3 = 0u;
+      break;
+    case ClkResetSdIf:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.SDCRST = 0u;
+      break;
+    case ClkResetCan0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.CANRST0 = 0u;
+      break;
+    case ClkResetCan1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.CANRST1 = 0u;
+      break;
+    case ClkResetUsb0:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.USBRST0 = 0u;
+      break;
+    case ClkResetUsb1:
+      ((FM4_CLK_GATING_TypeDef *)((0x40000000UL) + 0x3C100UL))->MRST2_f.USBRST1 = 0u;
+      break;
+    default:
+      return ErrorInvalidParameter;
+  }
+  
+  return Ok;
+} 
+       
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToMainClock(void)
+{
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE)
+  {
+    return ErrorInvalidMode;
+  }
+  
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.MORDY)
+  {
+    return ErrorNotReady;
+  }
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 1u;  
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToMainPllClock(void)
+{
+  if ((((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.MOSCE) ||
+      (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE))
+  {
+    return ErrorInvalidMode;
+  }
+  
+  if ((((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.MORDY) ||
+      (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.PLRDY))
+  {
+    return ErrorNotReady;
+  }
+  
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PSW_TMR_f.PINC) 
+  {
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS  = 2u;       
+  }
+  else  
+  {
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS  = 0u;       
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 0u;       
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PSW_TMR_f.PINC = 0u;       
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 1u;       
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS  = 2u;       
+  }
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToSubClock(void)
+{
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.SOSCE)
+  {
+    return ErrorInvalidMode;
+  }
+  
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_STR_f.SORDY)
+  {
+    return ErrorNotReady;
+  }
+  
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 5u;  
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToLsCrClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 4u;  
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToHsCrClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS = 0u;  
+  
+  return Ok;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+en_result_t Clk_SwitchToHsCrPllClock(void)
+{
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS  = 0u;         
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 0u;         
+  
+  if (((boolean_t) 0) == ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PSW_TMR_f.PINC) 
+  {    
+    ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->PSW_TMR_f.PINC = 1u;       
+  }
+    
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.PLLE = 1u;         
+  ((FM4_CRG_TypeDef *)((0x40000000UL) + 0x10000UL))->SCM_CTL_f.RCS  = 2u;         
+  
+  return Ok;
+} 
+
+
+
+
 
  
  

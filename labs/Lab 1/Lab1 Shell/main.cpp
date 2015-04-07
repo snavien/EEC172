@@ -36,6 +36,7 @@
 #include <WyzBee_i2c.h>
 #include <stdlib.h>
 #include <cstdio>
+#include <cstring>
 
 extern Adafruit_SSD1351 tft = Adafruit_SSD1351(); //@  OLED class variable
 /*===================================================*/
@@ -90,36 +91,36 @@ void writeToScreen(char * str, int color){
 	}
 }
 
-void readTempHum(){
-	uint8 tx1[1] = {0xE5};
+void readTemp(){
 	uint8 tx2[1] = {0xE3};
-	uint8 rx1[2];
 	uint8 rx2[2];
 	uint8 ret; 
 	uint16_t rxcnt = 2;
 	char *str;
-
+	
 	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);           /*Initialise I2C*/
+	if(!ret)
+	{
+		ret = WyzBeeI2c_Write(0x40, tx2, 1);
+		if(!ret)
+		{
+			ret = WyzBeeI2c_Read(0x40, rx2, &rxcnt);
+			if(!ret)
+			{
+				temp_code = (rx2[0]<<8)|(rx2[1]);
+				temp = ((175.72 * temp_code)/65536) - 46.85;
 
-
-    while(1)
-    {
-    	ret = WyzBeeI2c_Write(0x40, tx1, 1);
-    	if(!ret)
-    		ret = WyzBeeI2c_Read(0x40, rx1, &rxcnt);
-    	hum_code = (rx1[0]<<8)|(rx1[1]);
-    	humidity = (125 * hum_code)/65536 - 6;
-
-    	ret = WyzBeeI2c_Write(0x40, tx2, 1);
-    	if(!ret)
-    		ret = WyzBeeI2c_Read(0x40, rx2, &rxcnt);
-    	temp_code = (rx2[0]<<8)|(rx2[1]);
-    	temp = (175.72 * temp_code)/65536 - 46.85; 
-			break;
-    }
-	sprintf(str, "%d", temp);
-	writeToScreen(str, CYAN);
-		
+				sprintf(str, "%lf", temp);
+				writeToScreen(str, CYAN);
+			} // if no error in read
+			else
+				writeToScreen("READ ERROR", RED);
+		} // if no error in write
+		else
+			writeToScreen("WRITE ERROR", RED);
+	} // if no initialization error
+	else
+		writeToScreen("INIT ERROR", RED);
 }
 
 int main()
@@ -127,10 +128,10 @@ int main()
 	WyzBeeSpi_Init(&config_stc);
 	WyzBeeI2c_Init(&config);
 	
-	//char * str = "Seanna & Irene <3";
+	char * str = "Seanna & Chris";
 	
 	//writeToScreen(str, MAGENTA );
-	readTempHum();
+	readTemp();
 }
 
 

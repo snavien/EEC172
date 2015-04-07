@@ -16,8 +16,10 @@
 .\wyzbee_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\wyzbee_i2c.o: .\common\pdl_user.h
 .\wyzbee_i2c.o: .\common\pdl_device.h
-.\wyzbee_i2c.o: .\common\exint.h
+.\wyzbee_i2c.o: .\lib\inc\clk.h
 .\wyzbee_i2c.o: .\common\pdl.h
+.\wyzbee_i2c.o: .\common\exint.h
 .\wyzbee_i2c.o: .\common\gpio.h
 .\wyzbee_i2c.o: .\common\gpio_mb9bf56xr.h
 .\wyzbee_i2c.o: .\common\mfs.h
+.\wyzbee_i2c.o: .\lib\inc\reset.h

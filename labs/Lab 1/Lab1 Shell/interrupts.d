@@ -13,9 +13,11 @@
 .\interrupts.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\interrupts.o: common\pdl_user.h
 .\interrupts.o: common\pdl_device.h
+.\interrupts.o: .\lib\inc\clk.h
+.\interrupts.o: .\common\pdl.h
 .\interrupts.o: common\exint.h
-.\interrupts.o: common\pdl.h
 .\interrupts.o: common\gpio.h
 .\interrupts.o: common\gpio_mb9bf56xr.h
 .\interrupts.o: common\mfs.h
+.\interrupts.o: .\lib\inc\reset.h
 .\interrupts.o: common\interrupts.h

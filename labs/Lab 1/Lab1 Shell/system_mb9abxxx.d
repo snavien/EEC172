@@ -13,8 +13,10 @@
 .\system_mb9abxxx.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\system_mb9abxxx.o: .\common\pdl_user.h
 .\system_mb9abxxx.o: .\common\pdl_device.h
-.\system_mb9abxxx.o: .\common\exint.h
+.\system_mb9abxxx.o: .\lib\inc\clk.h
 .\system_mb9abxxx.o: .\common\pdl.h
+.\system_mb9abxxx.o: .\common\exint.h
 .\system_mb9abxxx.o: .\common\gpio.h
 .\system_mb9abxxx.o: .\common\gpio_mb9bf56xr.h
 .\system_mb9abxxx.o: .\common\mfs.h
+.\system_mb9abxxx.o: .\lib\inc\reset.h

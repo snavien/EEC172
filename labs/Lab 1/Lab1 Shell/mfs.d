@@ -13,8 +13,10 @@
 .\mfs.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\mfs.o: .\common\pdl_user.h
 .\mfs.o: .\common\pdl_device.h
-.\mfs.o: .\common\exint.h
+.\mfs.o: .\lib\inc\clk.h
 .\mfs.o: .\common\pdl.h
+.\mfs.o: .\common\exint.h
 .\mfs.o: .\common\gpio.h
 .\mfs.o: .\common\gpio_mb9bf56xr.h
 .\mfs.o: .\common\mfs.h
+.\mfs.o: .\lib\inc\reset.h

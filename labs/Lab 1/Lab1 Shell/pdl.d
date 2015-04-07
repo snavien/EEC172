@@ -13,8 +13,10 @@
 .\pdl.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\pdl.o: common\pdl_user.h
 .\pdl.o: common\pdl_device.h
+.\pdl.o: .\lib\inc\clk.h
+.\pdl.o: .\common\pdl.h
 .\pdl.o: common\exint.h
-.\pdl.o: common\pdl.h
 .\pdl.o: common\gpio.h
 .\pdl.o: common\gpio_mb9bf56xr.h
 .\pdl.o: common\mfs.h
+.\pdl.o: .\lib\inc\reset.h

@@ -18,12 +18,16 @@
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\main.o: .\common\pdl_user.h
 .\main.o: .\common\pdl_device.h
-.\main.o: .\common\exint.h
+.\main.o: .\lib\inc\clk.h
 .\main.o: .\common\pdl.h
+.\main.o: .\common\exint.h
 .\main.o: .\common\gpio.h
 .\main.o: .\common\gpio_mb9bf56xr.h
 .\main.o: .\common\mfs.h
+.\main.o: .\lib\inc\reset.h
 .\main.o: .\lib\inc\WyzBee.h
 .\main.o: .\WyzBee_i2c\WyzBee_i2c.h
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstdio
+.\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cstring
+.\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

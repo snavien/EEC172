@@ -19522,9 +19522,770 @@ extern __declspec(__nothrow) void __use_no_semihosting(void);
 
 
 
+#line 1 ".\\lib\\inc\\clk.h"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+#line 1 ".\\common\\pdl.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+
+#line 787 ".\\common\\pdl.h"
+
+ 
+ 
+ 
+
+#line 60 ".\\lib\\inc\\clk.h"
+
+
+
+ 
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+   
+
+
+
+
+#line 173 ".\\lib\\inc\\clk.h"
+
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_source
+{
+  ClkMain = 0,  
+  ClkSub  = 1,  
+  ClkHsCr = 2,  
+  ClkLsCr = 3,  
+  ClkPll     = 4,  
+  ClkHsCrPll = 5   
+} en_clk_source_t;
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_mode
+{
+  ClkRun      = 0,  
+  ClkSleep    = 1,  
+  ClkTimer    = 2,  
+  ClkStop     = 3,  
+  ClkRtc      = 4,  
+  ClkDeepRtc  = 5,  
+  ClkDeepStop = 6   
+} en_clk_mode_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_baseclkdiv
+{
+  BaseClkDiv1  = 0,  
+  BaseClkDiv2  = 1,  
+  BaseClkDiv3  = 2,  
+  BaseClkDiv4  = 3,  
+  BaseClkDiv6  = 4,  
+  BaseClkDiv8  = 5,  
+  BaseClkDiv16 = 6,  
+  BaseClkErr   = 7   
+} en_clk_baseclkdiv_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb0div
+{
+  Apb0Div1  = 0,  
+  Apb0Div2  = 1,  
+  Apb0Div4  = 2,  
+  Apb0Div8  = 3   
+} en_clk_apb0div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb1div
+{
+  Apb1Div1  = 0,  
+  Apb1Div2  = 1,  
+  Apb1Div4  = 2,  
+  Apb1Div8  = 3   
+} en_clk_apb1div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_apb2div
+{
+  Apb2Div1  = 0,  
+  Apb2Div2  = 1,  
+  Apb2Div4  = 2,  
+  Apb2Div8  = 3   
+} en_clk_apb2div_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_scowaittime
+{
+  ScoWaitExp10  =  0,  
+  ScoWaitExp11  =  1,  
+  ScoWaitExp12  =  2,  
+  ScoWaitExp13  =  3,  
+  ScoWaitExp14  =  4,  
+  ScoWaitExp15  =  5,  
+  ScoWaitExp16  =  6,  
+  ScoWaitExp17  =  7,  
+  ScoWaitExp18  =  8,  
+  ScoWaitExp19  =  9,  
+  ScoWaitExp20  = 10,  
+  ScoWaitExp21  = 11,  
+  ScoWaitErr    = 12   
+} en_clk_scowaittime_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_mcowaittime
+{
+  McoWaitExp11   = 0,   
+  McoWaitExp15   = 1,   
+  McoWaitExp16   = 2,   
+  McoWaitExp17   = 3,   
+  McoWaitExp18   = 4,   
+  McoWaitExp19   = 5,   
+  McoWaitExp110  = 6,   
+  McoWaitExp111  = 7,   
+  McoWaitExp112  = 8,   
+  McoWaitExp113  = 9,   
+  McoWaitExp114  = 10,  
+  McoWaitExp115  = 11,  
+  McoWaitExp117  = 12,  
+  McoWaitExp119  = 13,  
+  McoWaitExp121  = 14,  
+  McoWaitExp123  = 15   
+} en_clk_mcowaittime_t;
+
+
+
+
+
+
+ 
+typedef enum en_clk_pllowaittime
+{
+  PlloWaitExp19   = 0,   
+  PlloWaitExp110  = 1,   
+  PlloWaitExp111  = 2,   
+  PlloWaitExp112  = 3,   
+  PlloWaitExp113  = 4,   
+  PlloWaitExp114  = 5,   
+  PlloWaitExp115  = 6,   
+  PlloWaitExp116  = 7    
+} en_clk_pllowaittime_t;
+
+
+
+
+
+
+
+
+
+
+ 
+typedef enum en_clk_pll_src
+{
+  PllSrcClkMo = 0,   
+  PllSrcClkHc = 123  
+} en_clk_pll_src_t;
+
+
+
+
+ 
+#line 405 ".\\lib\\inc\\clk.h"
+
+
+
+
+ 
+typedef enum en_clk_current
+{
+  Clk0nA          = 0,  
+  Clk135nA        = 1,  
+  Clk195nA        = 2,  
+  Clk385nA        = 3,  
+  Clk445nA        = 4,  
+  Clk510nA        = 5,  
+  ClkErrorCurrent = 6   
+} en_clk_current_t;
+
+
+
+
+ 
+typedef enum en_clk_boost_time
+{
+  ClkBoost50ms  = 0,    
+  ClkBoost63ms  = 1,    
+  ClkBoost125ms = 2,    
+  ClkBoost250ms = 3     
+} en_clk_boost_time_t;
+
+
+
+
+ 
+typedef enum en_clk_vbat_pins
+{
+  ClkVbatGpio    = 0,   
+  ClkVbatOsc     = 1,   
+  ClkVbatGpioOsc = 2    
+} en_clk_vbat_pins_t;
+
+
+
+
+ 
+typedef enum en_clk_vbat_pins_ddr
+{
+  ClkVbatInput   = 0,   
+  ClkVbatOutputL = 1,   
+  ClkVbatOutputH = 2    
+} en_clk_vbat_pins_ddr_t;
+
+
+
+
+ 
+typedef enum en_clk_gate_peripheral
+{
+  ClkGateGpio   = 0,    
+  ClkGateExtif  = 1,    
+  ClkGateDma    = 2,    
+  ClkGateAdc0   = 3,    
+  ClkGateAdc1   = 4,    
+  ClkGateAdc2   = 5,    
+  ClkGateAdc3   = 6,    
+  ClkGateMfs0   = 7,    
+  ClkGateMfs1   = 8,    
+  ClkGateMfs2   = 9,    
+  ClkGateMfs3   = 10,   
+  ClkGateMfs4   = 11,   
+  ClkGateMfs5   = 12,   
+  ClkGateMfs6   = 13,   
+  ClkGateMfs7   = 14,   
+  ClkGateMfs8   = 15,   
+  ClkGateMfs9   = 16,   
+  ClkGateMfs10  = 17,   
+  ClkGateMfs11  = 18,   
+  ClkGateMfs12  = 19,   
+  ClkGateMfs13  = 20,   
+  ClkGateMfs14  = 21,   
+  ClkGateMfs15  = 22,   
+  ClkGateQprc0  = 23,   
+  ClkGateQprc1  = 24,   
+  ClkGateQprc2  = 25,   
+  ClkGateQprc3  = 26,   
+  ClkGateMft0   = 27,   
+  ClkGateMft1   = 28,   
+  ClkGateMft2   = 29,   
+  ClkGateMft3   = 30,   
+  ClkGateBt0    = 31,   
+  ClkGateBt4    = 32,   
+  ClkGateBt8    = 33,   
+  ClkGateBt12   = 34,   
+  ClkGateSdIf   = 35,   
+  ClkGateCan0   = 36,   
+  ClkGateCan1   = 37,   
+  ClkGateUsb0   = 38,   
+  ClkGateUsb1   = 39    
+} en_clk_gate_peripheral_t;
+
+
+
+
+ 
+typedef enum en_clk_reset_peripheral
+{
+  ClkResetExtif  = 1,    
+  ClkResetDma    = 2,    
+  ClkResetAdc0   = 3,    
+  ClkResetAdc1   = 4,    
+  ClkResetAdc2   = 5,    
+  ClkResetAdc3   = 6,    
+  ClkResetMfs0   = 7,    
+  ClkResetMfs1   = 8,    
+  ClkResetMfs2   = 9,    
+  ClkResetMfs3   = 10,   
+  ClkResetMfs4   = 11,   
+  ClkResetMfs5   = 12,   
+  ClkResetMfs6   = 13,   
+  ClkResetMfs7   = 14,   
+  ClkResetMfs8   = 15,   
+  ClkResetMfs9   = 16,   
+  ClkResetMfs10  = 17,   
+  ClkResetMfs11  = 18,   
+  ClkResetMfs12  = 19,   
+  ClkResetMfs13  = 20,   
+  ClkResetMfs14  = 21,   
+  ClkResetMfs15  = 22,   
+  ClkResetQprc0  = 23,   
+  ClkResetQprc1  = 24,   
+  ClkResetQprc2  = 25,   
+  ClkResetQprc3  = 26,   
+  ClkResetMft0   = 27,   
+  ClkResetMft1   = 28,   
+  ClkResetMft2   = 29,   
+  ClkResetMft3   = 30,   
+  ClkResetBt0    = 31,   
+  ClkResetBt4    = 32,   
+  ClkResetBt8    = 33,   
+  ClkResetBt12   = 34,   
+  ClkResetSdIf   = 35,   
+  ClkResetCan0   = 36,   
+  ClkResetCan1   = 37,   
+  ClkResetUsb0   = 38,   
+  ClkResetUsb1   = 39    
+} en_clk_reset_peripheral_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_main_config
+{
+  en_clk_source_t       enSource;         
+  boolean_t             bEnablePll;       
+  boolean_t             bEnableMainClock; 
+  en_clk_mode_t         enMode;           
+  boolean_t             bLpmPortHiZState; 
+                                          
+                                          
+  en_clk_baseclkdiv_t   enBaseClkDiv;     
+  en_clk_apb0div_t      enAPB0Div;        
+  en_clk_apb1div_t      enAPB1Div;        
+  en_clk_apb2div_t      enAPB2Div;        
+  boolean_t             bAPB1Disable;     
+  boolean_t             bAPB2Disable;     
+  en_clk_mcowaittime_t  enMCOWaitTime;    
+  en_clk_pllowaittime_t enPLLOWaitTime;   
+  uint8_t               u8PllK;           
+  uint8_t               u8PllM;           
+  uint8_t               u8PllN;           
+  en_clk_pll_src_t      enPllSource;      
+#line 583 ".\\lib\\inc\\clk.h"
+  func_ptr_t            pfnHook;          
+} stc_clk_main_config_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_sub_config
+{
+  boolean_t             bEnableSubClock;  
+  en_clk_scowaittime_t  enSCOWaitTime;    
+
+
+
+
+} stc_clk_sub_config_t;
+
+
+
+
+
+
+ 
+typedef struct stc_clk_vbat_config
+{
+  boolean_t              bLinkClock;            
+                                                
+  uint8_t                u8VbClockDiv;          
+  en_clk_current_t       enClkSustainCurrent;   
+  en_clk_current_t       enClkBoostCurrent;     
+  en_clk_boost_time_t    enClkBoostTime;        
+  en_clk_vbat_pins_t     enVbatPins;            
+  boolean_t              bVbP48Peripheral;      
+  boolean_t              bVbP49Peripheral;      
+  boolean_t              bVbP47Peripheral;      
+  boolean_t              bVbP46Peripheral;      
+  boolean_t              bVbP48PullUp;          
+  boolean_t              bVbP49PullUp;          
+  boolean_t              bVbP47PullUp;          
+  boolean_t              bVbP46PullUp;          
+  en_clk_vbat_pins_ddr_t enVbP48InOut;          
+  en_clk_vbat_pins_ddr_t enVbP49InOut;          
+  en_clk_vbat_pins_ddr_t enVbP47InOut;          
+  en_clk_vbat_pins_ddr_t enVbP46InOut;          
+  boolean_t              bVbP48OpenDrain;       
+  boolean_t              bVbP49OpenDrain;       
+} stc_clk_vbat_config_t;
+
+ 
+ 
+ 
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+extern en_result_t Clk_MainGetParameters(stc_clk_main_config_t* pstcConfig) ;
+extern en_result_t Clk_SubGetParameters(stc_clk_sub_config_t* pstcConfig) ;
+extern en_result_t Clk_VbatGetParameters(stc_clk_vbat_config_t* pstcConfig) ;
+
+extern en_result_t Clk_SetDividers(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_MainSetStabilizationWaitTime(stc_clk_main_config_t* pstcConfig) ;
+extern en_result_t Clk_SubSetStabilizationWaitTime(stc_clk_sub_config_t* pstcConfig) ;
+
+extern en_result_t Clk_WaitForMainOscillator(uint32_t u32MaxTimeOut) ;
+extern en_result_t Clk_WaitForSubOscillator(uint32_t u32MaxTimeOut) ;
+
+extern en_result_t Clk_WaitForPllOscillator(uint32_t u32MaxTimeOut) ;
+
+extern en_result_t Clk_MainOscillatorReady(void) ;
+extern en_result_t Clk_SubOscillatorReady(void) ;
+
+extern en_result_t Clk_PllOscillatorReady(void) ;
+
+extern en_result_t Clk_SetSource(stc_clk_main_config_t* pstcConfigMain,
+                                 stc_clk_sub_config_t*  pstcConfigSub) ;
+
+extern en_result_t Clk_SetPllSource(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_SetMode(stc_clk_main_config_t* pstcConfig) ;
+
+extern en_result_t Clk_EnableMainClock(void) ;
+extern en_result_t Clk_EnablePllClock(stc_clk_main_config_t* pstcConfigMain) ;
+extern en_result_t Clk_EnableSubClock(void) ;
+
+extern en_result_t Clk_DisableMainClock(void) ;
+extern en_result_t Clk_DisablePllClock(void) ;
+extern en_result_t Clk_DisableSubClock(void) ;
+
+extern en_result_t Clk_WaitForClockSourceReady(en_clk_source_t enSource,
+                                        uint32_t        u32MaxTimeOut) ;
+
+#line 691 ".\\lib\\inc\\clk.h"
+
+extern en_result_t Clk_ClockVbatInit(stc_clk_vbat_config_t* pstcConfig) ;
+
+extern en_result_t Clk_RequestVccPowerDown(void) ;
+
+extern en_result_t Clk_PeripheralClockEnable(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern boolean_t Clk_PeripheralGetClockState(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralClockDisable(en_clk_gate_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralSetReset(en_clk_reset_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_PeripheralClearReset(en_clk_reset_peripheral_t enPeripheral) ;
+
+extern en_result_t Clk_SwitchToMainClock(void) ;
+
+extern en_result_t Clk_SwitchToMainPllClock(void) ;
+
+extern en_result_t Clk_SwitchToSubClock(void) ;
+
+extern en_result_t Clk_SwitchToLsCrClock(void) ;
+
+extern en_result_t Clk_SwitchToHsCrClock(void) ;
+
+extern en_result_t Clk_SwitchToHsCrPllClock(void) ;
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+#line 225 ".\\common\\pdl.h"
 
 
 
@@ -19622,64 +20383,6 @@ extern __declspec(__nothrow) void __use_no_semihosting(void);
  
  
  
-#line 1 ".\\common\\pdl.h"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
-
-
- 
-
-#line 787 ".\\common\\pdl.h"
-
- 
- 
- 
-
 #line 59 ".\\common\\exint.h"
 
 
@@ -25366,9 +26069,142 @@ typedef struct stc_gpio1pin_init
 #line 415 ".\\common\\pdl.h"
 
 
+#line 1 ".\\lib\\inc\\reset.h"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+#line 58 ".\\lib\\inc\\reset.h"
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+ 
+  
+
+
+
+ 
+typedef struct stc_reset_result
+{
+  boolean_t    bPowerOn;              
+  boolean_t    bInitx;                
+  boolean_t    bLowVoltageDetection;  
+  boolean_t    bSoftwareWatchdog;     
+  boolean_t    bHardwareWatchdog;     
+  boolean_t    bClockSupervisor;      
+  boolean_t    bAnomalousFrequency;   
+  boolean_t    bSoftware;             
+} stc_reset_result_t ;
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+extern en_result_t Reset_GetCause( stc_reset_result_t* pstcResult ) ;
+extern en_result_t Reset_GetStoredCause( stc_reset_result_t* pstcResult );
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+#line 420 ".\\common\\pdl.h"
 
 
 
@@ -25551,9 +26387,9 @@ typedef struct stc_gpio1pin_init
 
 
  
-#line 695 ".\\common\\pdl.h"
-   
-    
+#line 701 ".\\common\\pdl.h"
+ 
+ 
 #line 739 ".\\common\\pdl.h"
 
 
@@ -26233,6 +27069,8 @@ typedef enum en_mfs_instance_index
 {
 #line 810 ".\\lib\\inc\\mfs.h"
     MfsInstanceIndexMfs4,
+#line 819 ".\\lib\\inc\\mfs.h"
+    MfsInstanceIndexMfs7,
 #line 845 ".\\lib\\inc\\mfs.h"
     MfsInstanceIndexMax
 } en_mfs_instance_index_t;
@@ -27200,6 +28038,11 @@ static stc_mfs_hl_instance_data_t m_astcMfsHlInstanceDataLut[MfsInstanceIndexMax
 #line 143 "lib\\src\\mfs_hl.c"
     {
         &(*((volatile stc_mfsn_t *) ((0x40000000UL) + 0x38400UL))),   
+        {0}   
+    },
+#line 161 "lib\\src\\mfs_hl.c"
+    {
+        &(*((volatile stc_mfsn_t *) ((0x40000000UL) + 0x38700UL))),   
         {0}   
     },
 #line 214 "lib\\src\\mfs_hl.c"

@@ -14,8 +14,10 @@
 .\clk.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\clk.o: .\common\pdl_user.h
 .\clk.o: .\common\pdl_device.h
+.\clk.o: .\lib\inc\clk.h
 .\clk.o: .\common\exint.h
 .\clk.o: .\common\pdl.h
 .\clk.o: .\common\gpio.h
 .\clk.o: .\common\gpio_mb9bf56xr.h
 .\clk.o: .\common\mfs.h
+.\clk.o: .\lib\inc\reset.h

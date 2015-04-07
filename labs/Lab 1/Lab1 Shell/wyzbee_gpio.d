@@ -15,8 +15,10 @@
 .\wyzbee_gpio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\wyzbee_gpio.o: .\common\pdl_user.h
 .\wyzbee_gpio.o: .\common\pdl_device.h
-.\wyzbee_gpio.o: .\common\exint.h
+.\wyzbee_gpio.o: .\lib\inc\clk.h
 .\wyzbee_gpio.o: .\common\pdl.h
+.\wyzbee_gpio.o: .\common\exint.h
 .\wyzbee_gpio.o: .\common\gpio.h
 .\wyzbee_gpio.o: .\common\mfs.h
+.\wyzbee_gpio.o: .\lib\inc\reset.h
 .\wyzbee_gpio.o: .\common\gpio_mb9bf56xr.h

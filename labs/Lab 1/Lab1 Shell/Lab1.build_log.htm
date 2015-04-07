@@ -3,37 +3,39 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.12.0.0
-Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Seanna Vien, UC Davis, LIC=----
+IDE-Version: µVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Chris Vu, UC Davis, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.12.0.0
+Toolchain:       MDK-Lite  Version: 5.14.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 (build 41)
-Assembler:       Armasm.exe V5.05 (build 41)
-Linker/Locator:  ArmLink.exe V5.05 (build 41)
-Library Manager: ArmAr.exe V5.05 (build 41)
-Hex Converter:   FromElf.exe V5.05 (build 41)
-CPU DLL:         SARMCM3.DLL V5.12.0.0
-Dialog DLL:      DCM.DLL V1.13.0.0
-Target DLL:      CMSIS_AGDI.dll V1.19.0.0
-Dialog DLL:      TCM.DLL V1.14.2.0
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      CMSIS_AGDI.dll V1.21.0.0
+Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\Seanna Vien\Dropbox\Spring 2015\172\EEC172\labs\Lab 1\Lab1 Shell\lab1.uvproj
-Project File Date:  04/01/2015
+C:\Users\Chris\Documents\EEC172\labs\Lab 1\Lab1 Shell\lab1.uvproj
+Project File Date:  04/03/2015
 
 <h2>Output:</h2>
 Build target 'Target 1'
 creating preprocessor file for main.cpp...
+.\common\pdl_user.h(940): warning:  #1-D: last line of file ends without a newline
+  /******************************************************************************/
 .\lib\inc\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
   #define TRUE                          1u                                              // True
 .\lib\inc\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
   #define FALSE                         0u                                              // False
-main.cpp(141): warning:  #1-D: last line of file ends without a newline
+main.cpp(142): warning:  #1-D: last line of file ends without a newline
    */
-main.cpp: 3 warnings, 0 errors
+main.cpp: 4 warnings, 0 errors
 compiling main.cpp...
 .\WyzBee_oled\Adafruit_SSD1351.h(92): warning:  #1300-D: drawPixel inherits implicit virtual
     void drawPixel(int16_t x, int16_t y, uint16_t color);
@@ -45,41 +47,22 @@ compiling main.cpp...
     void fillScreen(uint16_t fillcolor);
 .\WyzBee_oled\Adafruit_SSD1351.h(93): warning:  #997-D: function "Adafruit_GFX::fillRect(std::int16_t, std::int16_t, std::int16_t, std::int16_t, std::uint16_t)" is hidden by "Adafruit_SSD1351::fillRect" -- virtual function override intended?
     void fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint16_t color);
+.\common\pdl_user.h(940): warning:  #1-D: last line of file ends without a newline
+  /******************************************************************************/
 .\lib\inc\WyzBee.h(48): warning:  #47-D: incompatible redefinition of macro "TRUE" (declared at line 66 of ".\common\base_types.h")
   #define TRUE                          1u                                              // True
 .\lib\inc\WyzBee.h(49): warning:  #47-D: incompatible redefinition of macro "FALSE" (declared at line 71 of ".\common\base_types.h")
   #define FALSE                         0u                                              // False
-main.cpp(117): warning:  #1035-D: single-precision operand implicitly converted to double-precision
-        temp = (175.72 * temp_code)/65536 - 46.85; 
-main.cpp(120): warning:  #181-D: argument is incompatible with corresponding format string conversion
-        sprintf(str, "%d", temp);
-main.cpp(141): warning:  #1-D: last line of file ends without a newline
+main.cpp(111): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+                                temp = ((175.72 * temp_code)/65536) - 46.85;
+main.cpp(131): warning:  #177-D: variable "str" was declared but never referenced
+        char * str = "Seanna & Chris";
+main.cpp(142): warning:  #1-D: last line of file ends without a newline
    */
-main.cpp: 10 warnings, 0 errors
+main.cpp: 11 warnings, 0 errors
 linking...
-Program Size: Code=19342 RO-data=2054 RW-data=92 ZI-data=676  
-".\Lab1.axf" - 0 Error(s), 13 Warning(s).
-Load "C:\\Users\\Seanna Vien\\Dropbox\\Spring 2015\\172\\EEC172\\labs\\Lab 1\\Lab1 Shell\\Lab1.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
-memset" declared implicitly
-                memset(&config_internal , 0 , sizeof(stc_mfs_i2c_config_t));
-WyzBee_i2c\WyzBee_i2c.c(138): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "mfs_tx_cb_func_ptr_t"
-                        Mfs_SetTxIntCallBack (I2C_INSTANCE , WyzBeeI2c_TxIsr   );       // Register I2c TX ISR
-WyzBee_i2c\WyzBee_i2c.c(139): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "mfs_rx_cb_func_ptr_t"
-                        Mfs_SetRxIntCallBack (I2C_INSTANCE , WyzBeeI2c_RxIsr   );       // Register I2c RX ISR
-WyzBee_i2c\WyzBee_i2c.c(140): warning:  #167-D: argument of type "void (*)(void)" is incompatible with parameter of type "mfs_sts_cb_func_ptr_t"
-                        Mfs_SetStsIntCallBack(I2C_INSTANCE , WyzBeeI2c_SatusIsr);       // Register I2c Status ISR
-WyzBee_i2c\WyzBee_i2c.c(456): warning:  #223-D: function "memset" declared implicitly
-        memset(&unSSR, 0, sizeof(unSSR));
-WyzBee_i2c\WyzBee_i2c.c(560): warning:  #223-D: function "memset" declared implicitly
-        memset(&unSSR, 0, sizeof(unSSR));
-WyzBee_i2c\WyzBee_i2c.c: 6 warnings, 0 errors
-linking...
-Program Size: Code=18770 RO-data=2054 RW-data=92 ZI-data=676  
-".\Lab1.axf" - 0 Error(s), 20 Warning(s).
-Load "C:\\Users\\Seanna Vien\\Dropbox\\Spring 2015\\172\\EEC172\\labs\\Lab 1\\Lab1 Shell\\Lab1.axf" 
-Erase Done.
-Programming Done.
-Verify OK.
+Program Size: Code=22966 RO-data=2230 RW-data=112 ZI-data=680  
+".\Lab1.axf" - 0 Error(s), 15 Warning(s).
+</pre>
+</body>
+</html>

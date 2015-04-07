@@ -18,11 +18,13 @@
 .\adafruit_ssd1351.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\adafruit_ssd1351.o: .\common\pdl_user.h
 .\adafruit_ssd1351.o: .\common\pdl_device.h
-.\adafruit_ssd1351.o: .\common\exint.h
+.\adafruit_ssd1351.o: .\lib\inc\clk.h
 .\adafruit_ssd1351.o: .\common\pdl.h
+.\adafruit_ssd1351.o: .\common\exint.h
 .\adafruit_ssd1351.o: .\common\gpio.h
 .\adafruit_ssd1351.o: .\common\gpio_mb9bf56xr.h
 .\adafruit_ssd1351.o: .\common\mfs.h
+.\adafruit_ssd1351.o: .\lib\inc\reset.h
 .\adafruit_ssd1351.o: .\WyzBee_SPI\WyzBee_spi.h
 .\adafruit_ssd1351.o: .\lib\inc\WyzBee.h
 .\adafruit_ssd1351.o: .\WyzBee_gpio\WyzBee_gpio.h

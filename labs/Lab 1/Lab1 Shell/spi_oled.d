@@ -15,8 +15,10 @@
 .\spi_oled.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\spi_oled.o: .\common\pdl_user.h
 .\spi_oled.o: .\common\pdl_device.h
-.\spi_oled.o: .\common\exint.h
+.\spi_oled.o: .\lib\inc\clk.h
 .\spi_oled.o: .\common\pdl.h
+.\spi_oled.o: .\common\exint.h
 .\spi_oled.o: .\common\gpio.h
 .\spi_oled.o: .\common\gpio_mb9bf56xr.h
 .\spi_oled.o: .\common\mfs.h
+.\spi_oled.o: .\lib\inc\reset.h
