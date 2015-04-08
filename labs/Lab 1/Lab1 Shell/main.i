@@ -29614,18 +29614,25 @@ void writeToScreen(char * str, int color){
 	{
 		len++;
 	}
-
-	myOled.begin();
+	int static count = 0;
+	if(count == 0)
+	{
+		myOled.begin();
+		count = 1;
+	}
 	myOled.fillScreen(0x0000);
-	myOled.setCursor(0, 0);
 	myOled.setTextSize(3);
 	myOled.setTextColor(color);
+	myOled.setCursor(0, 0);
+
 	for(int i = 0; i < len; i++){
 		myOled.write(str[i]);
 	}
 }
 
 void readTemp(){
+	temp = 0;
+	temp_code = 0;
 	uint8 tx2[1] = {0xE3};
 	uint8 rx2[2];
 	uint8 ret; 
@@ -29658,6 +29665,7 @@ void readTemp(){
 }
 
 void readHum(){
+
 	uint8 tx2[1] = {0xE5};
 	uint8 rx2[2];
 	uint8 ret; 
@@ -29696,8 +29704,17 @@ int main()
 	char * str = "Seanna & Chris";
 	
 	
-
-	readHum();
+	while(1)
+	{
+		for(int i = 0; i < 10; i++)
+		{
+			readTemp();
+		}
+		for(int i = 0; i < 10; i++)
+		{
+			readHum();
+		}
+	}
 }
 
 
