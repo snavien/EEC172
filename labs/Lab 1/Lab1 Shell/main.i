@@ -29572,6 +29572,7 @@ extern __declspec(__nothrow) void _membitmovewb(void *  , const void *  , int  ,
 
 #line 43 "main.cpp"
 
+
 extern Adafruit_SSD1351 tft = Adafruit_SSD1351(); 
  
 
@@ -29605,6 +29606,7 @@ WyzBeeI2c_Config_t config = {
 			
 	float temp_code, hum_code;
 	float temp, humidity;
+	float accel, MPSaccel;
 
 void writeToScreen(char * str, int color){
 	Adafruit_SSD1351 myOled = Adafruit_SSD1351();
@@ -29621,7 +29623,7 @@ void writeToScreen(char * str, int color){
 		count = 1;
 	}
 	myOled.fillScreen(0x0000);
-	myOled.setTextSize(3);
+	myOled.setTextSize(2);
 	myOled.setTextColor(color);
 	myOled.setCursor(0, 0);
 
@@ -29652,6 +29654,7 @@ void readTemp(){
 				temp = ((175.72 * temp_code)/65536) - 46.85;
 
 				sprintf(str, "%lf", temp);
+				std::strcat(str, " Temp (C)");
 				writeToScreen(str, 0x07FF);
 			} 
 			else
@@ -29684,6 +29687,7 @@ void readHum(){
 				hum_code = (rx2[0]<<8)|(rx2[1]);
 				humidity = (125 * hum_code)/65536 - 6;
 				sprintf(str, "%lf", humidity);
+				std::strcat(str, " Humid");
 				writeToScreen(str, 0xFFE0);
 			} 
 			else
@@ -29691,6 +29695,41 @@ void readHum(){
 		} 
 		else
 			writeToScreen("WRITE ERROR", 0xF800);
+	} 
+	else
+		writeToScreen("INIT ERROR", 0xF800);
+}
+
+void acceleration()
+{
+	uint8 tx1[1] = {0x3B};
+	uint8 rx2[2];
+	uint8 ret; 
+	uint16_t rxcnt = 2;
+	char str[100];
+	char text[80];
+	std::strcpy(text, "x:");
+
+	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);            
+	if(!ret)
+	{
+		ret = WyzBeeI2c_Write(0x68, tx1, 1);
+		if(!ret)
+		{
+			ret = WyzBeeI2c_Read(0x68, rx2, &rxcnt);
+			if(!ret)
+			{
+				accel = (rx2[0]<<8)|(rx2[1]);
+				sprintf(str, "%lf", accel);
+				std::strcat(text, str);
+				writeToScreen(text, 0xFFFF);
+			} 
+			else
+				writeToScreen("READ ERROR", 0xF800);
+		} 
+		else
+			writeToScreen("WRITE ERROR", 0xF800);
+		
 	} 
 	else
 		writeToScreen("INIT ERROR", 0xF800);
@@ -29704,16 +29743,21 @@ int main()
 	char * str = "Seanna & Chris";
 	
 	
+
 	while(1)
 	{
-		for(int i = 0; i < 10; i++)
-		{
-			readTemp();
-		}
-		for(int i = 0; i < 10; i++)
-		{
-			readHum();
-		}
+		acceleration();
+
+
+
+
+
+
+
+
+
+
+ 
 	}
 }
 
