@@ -29606,7 +29606,8 @@ WyzBeeI2c_Config_t config = {
 			
 	float temp_code, hum_code;
 	float temp, humidity;
-	float accel, MPSaccel;
+	int16 accel1_code, accel2_code, accel3_code;
+	float accel1, accel2, accel3;
 
 void writeToScreen(char * str, int color){
 	Adafruit_SSD1351 myOled = Adafruit_SSD1351();
@@ -29703,13 +29704,10 @@ void readHum(){
 void acceleration()
 {
 	uint8 tx1[1] = {0x3B};
-	uint8 rx2[2];
+	uint8 rx2[6];
 	uint8 ret; 
-	uint16_t rxcnt = 2;
-	char str[100];
-	char text[80];
-	std::strcpy(text, "x:");
-
+	uint16_t rxcnt = 6;
+	char str[10000];
 	ret = WyzBeeI2c_Init((WyzBeeI2c_Config_t *) &config);            
 	if(!ret)
 	{
@@ -29719,10 +29717,15 @@ void acceleration()
 			ret = WyzBeeI2c_Read(0x68, rx2, &rxcnt);
 			if(!ret)
 			{
-				accel = (rx2[0]<<8)|(rx2[1]);
-				sprintf(str, "%lf", accel);
-				std::strcat(text, str);
-				writeToScreen(text, 0xFFFF);
+				accel1_code = ((int16)rx2[0]<<8)|(rx2[1]);
+				accel2_code = ((int16)rx2[2]<<8)|(rx2[3]);
+				accel3_code = ((uint16)rx2[4]<<8)|(rx2[5]);
+				accel1 = (2 * 9.82*accel1_code)/(32768);
+				accel2 = (2 * 9.82*accel2_code)/(32768);
+				accel3 = (2 * 9.82*accel3_code)/(32768);
+		
+				sprintf(str, "x: %.3lf \ny: %.3lf\nz: %.3lf", accel1, accel2, accel3);
+				writeToScreen(str, 0xFFFF);
 			} 
 			else
 				writeToScreen("READ ERROR", 0xF800);

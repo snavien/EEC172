@@ -981,11 +981,10 @@ ARM Macro Assembler    Page 16
 
               00000200 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\startup_mb9bf56x.d -o.\startup_mb9bf56x.o -IC:\Keil_v5\ARM\RV
-31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R --p
-redefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 514" --list=.\star
-tup_mb9bf56x.lst startup_mb9bf56x.s
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\sta
+rtup_mb9bf56x.d -o.\startup_mb9bf56x.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\A
+RM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Fujitsu\MB9B560R --predefine="__EVAL SETA
+ 1" --list=.\startup_mb9bf56x.lst startup_mb9bf56x.s
 
 
 
@@ -2530,4 +2529,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 3 symbols
-491 symbols in table
+490 symbols in table
